@@ -52,6 +52,7 @@ def run_pipeline(
     generate: bool = True,
     dry_run: bool = False,
     seller_name: str | None = None,
+    backend: str = "browser",
 ) -> dict:
     """
     Run the full pipeline end-to-end.
@@ -98,7 +99,7 @@ def run_pipeline(
     if scrape:
         logger.info("\n📥 Step 1: Scraping eBay listings...")
         try:
-            with EbayScraper() as scraper:
+            with EbayScraper(backend=backend) as scraper:
                 scrape_result = scraper.scrape_all_listings()
                 EbayScraper.save_listings(scrape_result)
                 summary["listings_scraped"] = scrape_result.total_listings
@@ -271,6 +272,13 @@ Examples:
         default=None,
         help="Maximum number of posts to generate this run",
     )
+    parser.add_argument(
+        "--backend",
+        type=str,
+        choices=["browser", "http"],
+        default="browser",
+        help="Scraping backend: 'browser' (Playwright, default) or 'http' (httpx, often blocked)",
+    )
 
     args = parser.parse_args()
 
@@ -284,6 +292,7 @@ Examples:
         generate=not args.scrape_only,
         dry_run=args.dry_run,
         seller_name=args.seller,
+        backend=args.backend,
     )
 
     # Exit with error code if there were failures

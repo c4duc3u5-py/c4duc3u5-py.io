@@ -79,11 +79,37 @@ try {
 
     # ── Step 4: Push ──
     if (-not $NoPush) {
-        Write-Host "`n[4/4] Pushing to GitHub..." -ForegroundColor Yellow
+        Write-Host "`n[4/5] Pushing source to GitHub..." -ForegroundColor Yellow
         git push
-        Write-Host "       Pushed successfully!" -ForegroundColor Green
+        Write-Host "       Pushed source to main" -ForegroundColor Green
+
+        # ── Step 5: Deploy built site to gh-pages ──
+        Write-Host "`n[5/5] Deploying to gh-pages..." -ForegroundColor Yellow
+
+        Push-Location "$ProjectRoot\site\public"
+        try {
+            if (-not (Test-Path ".git")) {
+                git init -b gh-pages
+                git remote add origin https://github.com/c4duc3u5-py/c4duc3u5-py.io.git
+            }
+            git config user.name "c4duc3u5-py"
+            git config user.email "c4duc3u5-py@users.noreply.github.com"
+            git add -A
+            $siteChanged = git diff --staged --quiet 2>&1; $LASTEXITCODE -ne 0
+            if ($siteChanged) {
+                $date = Get-Date -Format "yyyy-MM-dd HH:mm"
+                git commit -m "Deploy site [$date]"
+                git push -f origin gh-pages
+                Write-Host "       Deployed to gh-pages!" -ForegroundColor Green
+            } else {
+                Write-Host "       Site unchanged, skipping deploy" -ForegroundColor DarkGray
+            }
+        } finally {
+            Pop-Location
+        }
     } else {
-        Write-Host "`n[4/4] Skipping push (--NoPush)" -ForegroundColor DarkGray
+        Write-Host "`n[4/5] Skipping push (--NoPush)" -ForegroundColor DarkGray
+        Write-Host "[5/5] Skipping deploy (--NoPush)" -ForegroundColor DarkGray
     }
 } finally {
     Pop-Location

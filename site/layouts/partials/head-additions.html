@@ -1,0 +1,148 @@
+{{/* head-additions.html — Extra SEO, structured data & meta tags */}}
+{{/* Ananke already provides: Open Graph, Twitter Cards, basic schema.html, canonical */}}
+{{/* This partial adds: preconnect hints, JSON-LD schemas, robots refinements, hreflang */}}
+
+{{/* ===== Resource Hints ===== */}}
+<link rel="preconnect" href="https://i.ebayimg.com" crossorigin>
+<link rel="dns-prefetch" href="https://i.ebayimg.com">
+<link rel="dns-prefetch" href="https://www.ebay.com">
+
+{{/* ===== Canonical URL Cleanup (strip trailing index.html, double slashes) ===== */}}
+{{ $canonical := .Permalink }}
+{{ $canonical = replaceRE `index\.html$` "" $canonical }}
+{{ $canonical = replaceRE `([^:])//+` "$1/" $canonical }}
+<link rel="canonical" href="{{ $canonical }}">
+
+{{/* ===== Hreflang ===== */}}
+<link rel="alternate" hreflang="en" href="{{ $canonical }}">
+<link rel="alternate" hreflang="x-default" href="{{ $canonical }}">
+
+{{/* ===== Meta Robots ===== */}}
+{{ if and (eq .Kind "taxonomy") (lt (len .Pages) 3) }}
+  <meta name="robots" content="noindex, follow">
+{{ else if eq .Kind "term" }}
+  {{ if lt (len .Pages) 2 }}
+    <meta name="robots" content="noindex, follow">
+  {{ end }}
+{{ end }}
+
+{{/* ===== Custom CSS ===== */}}
+{{ with resources.Get "ananke/css/custom.css" }}
+  {{ $css := . | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+{{ end }}
+
+{{/* ===== JSON-LD: BreadcrumbList (all pages) ===== */}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "{{ .Site.BaseURL }}"
+    }
+    {{- if .IsPage -}}
+    ,{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "{{ with .Section }}{{ . | humanize | title }}{{ else }}Posts{{ end }}",
+      "item": "{{ .Site.BaseURL }}{{ with .Section }}{{ . }}{{ else }}posts{{ end }}/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "{{ .Title }}",
+      "item": "{{ $canonical }}"
+    }
+    {{- else if and (not .IsHome) .Title -}}
+    ,{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "{{ .Title }}",
+      "item": "{{ $canonical }}"
+    }
+    {{- end -}}
+  ]
+}
+</script>
+
+{{/* ===== JSON-LD: Article (single posts) ===== */}}
+{{ if .IsPage }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ $canonical }}"
+  },
+  "headline": "{{ .Title | truncate 110 }}",
+  "description": "{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 160 }}{{ end }}",
+  "datePublished": "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
+  "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ with .Params.author }}{{ . }}{{ else }}{{ .Site.Params.author }}{{ end }}"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "{{ .Site.Title }}",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ .Site.BaseURL }}images/logo.png"
+    }
+  }
+  {{- with .Params.featured_image -}}
+  ,"image": "{{ . | absURL }}"
+  {{- end -}}
+  {{- with .WordCount -}}
+  ,"wordCount": {{ . }}
+  {{- end -}}
+}
+</script>
+{{ end }}
+
+{{/* ===== JSON-LD: Product (posts with product-related tags) ===== */}}
+{{ if .IsPage }}
+  {{- $hasProduct := false -}}
+  {{- $productKeywords := slice "buy" "deal" "deals" "price" "shop" "affordable" "cheap" "bargain" "sale" -}}
+  {{- range .Params.tags -}}
+    {{- $tag := . | lower -}}
+    {{- range $productKeywords -}}
+      {{- if in $tag . -}}
+        {{- $hasProduct = true -}}
+      {{- end -}}
+    {{- end -}}
+    {{/* Also match tags starting with "buy " */}}
+    {{- if hasPrefix $tag "buy " -}}
+      {{- $hasProduct = true -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{ if $hasProduct }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "{{ .Title }}",
+  "description": "{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 160 }}{{ end }}",
+  "url": "{{ $canonical }}",
+  "numberOfItems": {{ len (findRE `ebay\.com/itm/` .RawContent) }},
+  "itemListElement": [
+    {{- $links := findRE `\(https://www\.ebay\.com/itm/[0-9]+\)` .RawContent -}}
+    {{- range $i, $link := $links -}}
+      {{- $url := replaceRE `[()]` "" $link -}}
+      {{ if $i }},{{ end }}{
+        "@type": "ListItem",
+        "position": {{ add $i 1 }},
+        "url": "{{ $url }}"
+      }
+    {{- end -}}
+  ]
+}
+</script>
+  {{ end }}
+{{ end }}

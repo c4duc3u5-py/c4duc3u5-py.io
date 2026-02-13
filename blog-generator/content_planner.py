@@ -331,38 +331,45 @@ class ContentPlanner:
             f"Write an SEO-optimized blog post about {category}. "
             f"There are {count} listings available in the {price_range} range. "
             "Each product mentioned MUST include its eBay link so readers can buy. "
-            "Write in a friendly, knowledgeable tone — like a trusted friend who knows "
-            "this stuff well. Use short paragraphs and subheadings for scannability. "
+            "Write in a friendly, knowledgeable tone — like a trusted friend who's done the homework. "
+            "Use short paragraphs (2-3 sentences max) and descriptive subheadings for scannability. "
             "Do NOT mention that this is AI-generated. "
-            "Do NOT use excessive exclamation marks or hype language. "
-            "Include a clear call-to-action encouraging readers to check out the listings."
+            "Do NOT use excessive exclamation marks, hype language, or filler phrases. "
+            "Include a clear call-to-action encouraging readers to check out the listings. "
+            "Add genuine buying advice — what to look for, what to avoid, care tips, or sizing guidance. "
+            "Mention specific details about each product (materials, dimensions, features) that show real expertise."
         )
 
         type_specific = {
             "buyers_guide": (
-                " Structure the post as: intro explaining why these items are great, "
-                "individual product highlights with pros/why it's worth buying, "
-                "a 'what to look for' tips section, and a conclusion."
+                " Structure the post as: hook intro explaining why these items are worth buying, "
+                "individual product highlights with specific pros and practical use cases, "
+                "a 'what to look for when buying' tips section with genuine expertise, "
+                "and a conclusion naming your top pick with reasoning."
             ),
             "product_roundup": (
-                " Structure as a listicle — brief intro, then each product with its "
-                "own subheading, image, price, and a short description of why it's notable. "
-                "End with a summary of the best pick."
+                " Structure as a listicle — strong intro paragraph, then each product with its "
+                "own ### subheading, price, condition, and 2-3 sentences on why it's notable. "
+                "Include a comparison angle (best for X, best for Y). "
+                "End with a 'best overall' pick and summary table if 4+ products."
             ),
             "how_to": (
-                " Structure as an educational guide — start with why this knowledge matters, "
-                "give practical step-by-step advice, and naturally weave in product "
-                "recommendations with links where relevant."
+                " Structure as an educational guide — start with why this knowledge saves money or time, "
+                "give practical step-by-step advice based on real buying experience, "
+                "weave in specific product recommendations with links as examples, "
+                "and include a 'common mistakes to avoid' section."
             ),
             "comparison": (
-                " Compare products at different price points. Use a clear structure: "
-                "budget pick, mid-range pick, premium pick. Explain tradeoffs honestly. "
-                "Include a quick comparison table if possible."
+                " Compare products at different price points with honesty. "
+                "Use a clear structure: budget pick, mid-range pick, best value pick. "
+                "Explain tradeoffs concretely (not just 'this one is better'). "
+                "Include a quick comparison summary. Name a winner for different buyer types."
             ),
             "deals": (
-                " Focus on value — why each item is a good deal right now. "
-                "Lead with the best deal, mention original/typical prices if possible, "
-                "create urgency without being pushy."
+                " Focus on value — why each item is a good deal at its current price. "
+                "Lead with the best value-for-money item. "
+                "For each deal, explain what makes the price good (compare to typical market price if possible). "
+                "Create soft urgency without being pushy — focus on limited quantity or seasonal relevance."
             ),
         }
 

@@ -49,13 +49,16 @@ class GeneratedPost:
         front_matter = f"""---
 title: "{self._escape_yaml(self.title)}"
 date: {self.generated_at}
+lastmod: {self.generated_at}
 description: "{self._escape_yaml(self.description)}"
 tags:
 {tags_yaml}
 categories:
 {categories_yaml}
 featured_image: "{self.featured_image}"
+author: "Deals & Finds"
 draft: false
+toc: true
 ---
 
 """
@@ -164,11 +167,20 @@ class AIWriter:
         product_list = self._format_products_for_prompt(brief.listings)
 
         system_prompt = (
-            "You are an expert blog writer specializing in product guides and buyer advice. "
-            "You write in a natural, conversational tone — like a knowledgeable friend, "
-            "not a salesperson. Your posts are well-structured with clear headings, "
-            "short paragraphs, and actionable advice. You always include product links "
-            "where the reader can buy the items you mention."
+            "You are a seasoned product reviewer and buying advisor who has been writing "
+            "for consumer publications for over a decade. You have deep expertise across "
+            "collectibles, vintage items, electronics, and everyday goods. Your writing "
+            "style is:\n"
+            "- Conversational but authoritative — like a knowledgeable friend who's done the research\n"
+            "- Specific and concrete — always cite exact prices, conditions, and details\n"
+            "- Honest — mention trade-offs, things to watch out for, and when NOT to buy\n"
+            "- Well-structured — clear hierarchy of headings, short paragraphs, scannable lists\n"
+            "- SEO-aware — naturally incorporate keywords without stuffing\n"
+            "- Action-oriented — every section gives the reader something useful\n\n"
+            "You NEVER use filler phrases like 'dive in', 'buckle up', 'without further ado', "
+            "'in today's post', 'let's get started', 'in this article we will'. "
+            "You NEVER use excessive exclamation marks or hype language. "
+            "You write like a real person, not a marketing bot."
         )
 
         user_prompt = f"""Write a blog post based on this brief:
@@ -185,17 +197,25 @@ class AIWriter:
 **Products to Feature:**
 {product_list}
 
-**Important Rules:**
-1. Write {config.TARGET_WORD_COUNT_MIN}-{config.TARGET_WORD_COUNT_MAX} words.
-2. Use markdown formatting with ## and ### headings.
-3. For each product mentioned, include a markdown link to its eBay listing URL.
-4. Format product links as: [Product Title](ebay_url)
-5. Include the product price when mentioning it.
-6. Add a brief intro paragraph and a conclusion with a call-to-action.
-7. Use natural, SEO-friendly language — avoid keyword stuffing.
-8. Do NOT mention AI, automation, or that this is auto-generated.
-9. Do NOT use phrases like "in today's post" or "let's dive in".
-10. If a product has an image URL, include it as: ![Product Name](image_url)
+**Content Quality Rules:**
+1. Write {config.TARGET_WORD_COUNT_MIN}-{config.TARGET_WORD_COUNT_MAX} words of genuinely useful content.
+2. Use markdown formatting with ## and ### headings. Start with a ## heading (not #).
+3. For each product, include a markdown link: [Product Title](ebay_url)
+4. Include exact price, condition, and shipping info when mentioning products.
+5. Open with a strong hook paragraph that immediately tells the reader what they'll learn/find.
+6. Include a practical "what to look for" or "buying tips" section with genuine expertise.
+7. Add a clear conclusion with a "best overall pick" recommendation and links to all products.
+8. Use natural, authoritative language — write like you've actually handled these products.
+9. Include specific details that show expertise (materials, dimensions, use cases, care tips).
+10. Every product mention should explain WHY it's worth buying, not just THAT it exists.
+11. If a product has an image URL, include it as: ![Product Name](image_url)
+
+**Forbidden:**
+- Do NOT mention AI, automation, or that this is auto-generated.
+- Do NOT use phrases like "in today's post", "let's dive in", "without further ado", "buckle up".
+- Do NOT use clickbait language or excessive exclamation marks.
+- Do NOT pad content with generic filler. Every sentence should earn its place.
+- Do NOT use the word "affordable" more than once.
 
 Write the complete blog post now in markdown:"""
 
@@ -209,7 +229,9 @@ Write the complete blog post now in markdown:"""
     def _generate_metadata(self, brief: PostBrief, content: str) -> dict:
         """Generate SEO metadata for the post."""
         system_prompt = (
-            "You are an SEO expert. Generate metadata for a blog post. "
+            "You are an SEO specialist with 10 years of experience in e-commerce content. "
+            "You write meta titles that maximize click-through rates in Google search results "
+            "and meta descriptions that compel searchers to click. "
             "Respond ONLY with valid JSON, no other text."
         )
 
@@ -219,10 +241,17 @@ Write the complete blog post now in markdown:"""
 **Target keywords:** {', '.join(brief.target_keywords)}
 **Post content (first 500 chars):** {content[:500]}
 
+Rules:
+- Title: 50-60 chars, include the primary keyword near the start, make it compelling
+- Description: 150-155 chars, include a keyword naturally, end with a call-to-action or value proposition
+- Tags: 5-7 specific, searchable tags (mix of broad and long-tail)
+- Use power words in the title (Best, Guide, Deals, Top, How to) but don't overdo it
+- The description should read like a natural sentence, not a keyword dump
+
 Respond with ONLY this JSON structure:
 {{
-    "title": "An SEO-optimized title (50-60 chars, include main keyword)",
-    "description": "A compelling meta description (150-160 chars, include keyword, encourage click)",
+    "title": "SEO title here",
+    "description": "Compelling meta description here",
     "tags": ["tag1", "tag2", "tag3", "tag4", "tag5"]
 }}"""
 

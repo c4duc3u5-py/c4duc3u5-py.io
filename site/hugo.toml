@@ -2,6 +2,8 @@ baseURL = "https://c4duc3u5-py.github.io/c4duc3u5-py.io/"
 languageCode = "en-us"
 title = "Deals & Finds"
 theme = "ananke"
+enableRobotsTXT = true
+canonifyURLs = false
 
 [params]
   description = "Curated finds, buyer guides, and deals on collectibles, tech, games & more."
@@ -9,6 +11,10 @@ theme = "ananke"
   favicon = "/favicon.ico"
   site_logo = ""
   show_reading_time = true
+  body_classes = "avenir bg-near-white"
+  background_color_class = "bg-black"
+  text_color = "mid-gray"
+  custom_css = ["custom.css"]
 
 [params.social]
   # Add social links here if you want later
@@ -23,7 +29,7 @@ theme = "ananke"
       unsafe = true  # Allow raw HTML (for eBay images etc.)
 
 [outputs]
-  home = ["HTML", "RSS", "JSON"]
+  home = ["HTML", "RSS"]
   section = ["HTML", "RSS"]
 
 [sitemap]

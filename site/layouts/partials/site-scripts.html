@@ -1,0 +1,76 @@
+{{/* site-scripts.html — Minimal vanilla JS enhancements */}}
+<script>
+(function() {
+  'use strict';
+
+  /* ===== Reading Progress Bar ===== */
+  function initProgressBar() {
+    var bar = document.createElement('div');
+    bar.className = 'reading-progress';
+    bar.setAttribute('aria-hidden', 'true');
+    document.body.prepend(bar);
+
+    var ticking = false;
+    window.addEventListener('scroll', function() {
+      if (!ticking) {
+        requestAnimationFrame(function() {
+          var scrollTop = window.scrollY || document.documentElement.scrollTop;
+          var docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+          bar.style.width = docHeight > 0 ? (scrollTop / docHeight * 100) + '%' : '0%';
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+  }
+
+  /* ===== Lazy Loading for Images ===== */
+  function initLazyImages() {
+    if ('loading' in HTMLImageElement.prototype) {
+      var images = document.querySelectorAll('img:not([loading])');
+      for (var i = 0; i < images.length; i++) {
+        images[i].setAttribute('loading', 'lazy');
+      }
+    }
+  }
+
+  /* ===== External eBay Link Handler ===== */
+  function initExternalLinks() {
+    var links = document.querySelectorAll('a[href*="ebay.com"]');
+    for (var i = 0; i < links.length; i++) {
+      links[i].setAttribute('target', '_blank');
+      links[i].setAttribute('rel', 'noopener noreferrer');
+    }
+  }
+
+  /* ===== Smooth Scroll for Anchor Links ===== */
+  function initSmoothScroll() {
+    document.addEventListener('click', function(e) {
+      var link = e.target.closest('a[href^="#"]');
+      if (!link) return;
+      var id = link.getAttribute('href').slice(1);
+      if (!id) return;
+      var target = document.getElementById(id);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        history.pushState(null, '', '#' + id);
+      }
+    });
+  }
+
+  /* ===== Init on DOMContentLoaded ===== */
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+  function init() {
+    initProgressBar();
+    initLazyImages();
+    initExternalLinks();
+    initSmoothScroll();
+  }
+})();
+</script>

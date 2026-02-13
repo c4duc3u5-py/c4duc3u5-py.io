@@ -92,6 +92,8 @@ try {
                 git init -b gh-pages
                 git remote add origin https://github.com/c4duc3u5-py/c4duc3u5-py.io.git
             }
+            # Prevent GitHub from processing with Jekyll
+            New-Item -Path ".nojekyll" -ItemType File -Force | Out-Null
             git config user.name "c4duc3u5-py"
             git config user.email "c4duc3u5-py@users.noreply.github.com"
             git add -A

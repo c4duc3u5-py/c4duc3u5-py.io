@@ -1,0 +1,130 @@
+{{ define "main" }}
+
+  {{/* ===== Hero Section ===== */}}
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="hero-badge">🔥 Curated Daily Deals</span>
+      <h1 class="hero-title">{{ .Site.Title }}</h1>
+      <p class="hero-subtitle">{{ .Site.Params.description }}</p>
+      <div class="hero-cta">
+        <a href="{{ "posts/" | absURL }}" class="btn btn-primary">Browse All Posts</a>
+        <a href="{{ "tags/" | absURL }}" class="btn btn-outline">Explore by Category</a>
+      </div>
+    </div>
+  </section>
+
+  {{/* ===== Category Pills ===== */}}
+  {{ $categories := .Site.Taxonomies.categories }}
+  {{ if $categories }}
+  <section class="categories-bar">
+    <div class="container">
+      <div class="category-pills">
+        {{ range $name, $pages := $categories }}
+        <a href="{{ "categories/" | absURL }}{{ $name | urlize }}/" class="category-pill">
+          {{ $name | humanize | title }}
+          <span class="pill-count">{{ len $pages }}</span>
+        </a>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+  {{ end }}
+
+  {{/* ===== Featured Posts Grid ===== */}}
+  {{ $mainSections := site.Params.mainSections | compare.Default (collections.Slice "post") }}
+  {{ $section := collections.Where $.Site.RegularPages "Section" "in" $mainSections }}
+  {{ $section_count := len $section }}
+
+  {{ if ge $section_count 1 }}
+  <section class="posts-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Latest Posts</h2>
+        <p class="section-subtitle">Expert buyer guides, deal roundups, and honest reviews</p>
+      </div>
+
+      {{/* Featured post (first one, large card) */}}
+      {{ $featured := index $section 0 }}
+      <article class="post-card post-card--featured">
+        <a href="{{ $featured.RelPermalink }}" class="post-card-link">
+          {{ $img := partials.Include "func/GetFeaturedImage.html" $featured }}
+          {{ if $img }}
+          <div class="post-card-image" style="background-image: url('{{ $img }}')"></div>
+          {{ else }}
+          <div class="post-card-image post-card-image--placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M7 7h10v10H7z"/><path d="M7 3v4M17 3v4M3 7h4M17 7h4M7 17v4M17 17v4M3 17h4M17 17h4"/>
+            </svg>
+          </div>
+          {{ end }}
+          <div class="post-card-body">
+            {{ with $featured.Params.categories }}
+            <span class="post-card-category">{{ index . 0 }}</span>
+            {{ end }}
+            <h2 class="post-card-title">{{ $featured.Title }}</h2>
+            <p class="post-card-excerpt">{{ $featured.Summary | plainify | truncate 180 }}</p>
+            <div class="post-card-meta">
+              <time datetime="{{ $featured.Date.Format "2006-01-02" }}">{{ $featured.Date.Format "Jan 2, 2006" }}</time>
+              <span class="meta-dot">·</span>
+              <span>{{ $featured.ReadingTime }} min read</span>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      {{/* Remaining posts (grid) */}}
+      {{ if gt $section_count 1 }}
+      <div class="posts-grid">
+        {{ range after 1 $section }}
+        <article class="post-card">
+          <a href="{{ .RelPermalink }}" class="post-card-link">
+            {{ $img := partials.Include "func/GetFeaturedImage.html" . }}
+            {{ if $img }}
+            <div class="post-card-image post-card-image--small" style="background-image: url('{{ $img }}')"></div>
+            {{ else }}
+            <div class="post-card-image post-card-image--small post-card-image--placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+              </svg>
+            </div>
+            {{ end }}
+            <div class="post-card-body">
+              {{ with .Params.categories }}
+              <span class="post-card-category">{{ index . 0 }}</span>
+              {{ end }}
+              <h3 class="post-card-title">{{ .Title }}</h3>
+              <p class="post-card-excerpt">{{ .Summary | plainify | truncate 120 }}</p>
+              <div class="post-card-meta">
+                <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+                <span class="meta-dot">·</span>
+                <span>{{ .ReadingTime }} min read</span>
+              </div>
+            </div>
+          </a>
+        </article>
+        {{ end }}
+      </div>
+      {{ end }}
+
+    </div>
+  </section>
+  {{ end }}
+
+  {{/* ===== Browse by Tags ===== */}}
+  {{ $tags := .Site.Taxonomies.tags }}
+  {{ if $tags }}
+  <section class="tags-section">
+    <div class="container">
+      <h2 class="section-title">Browse by Topic</h2>
+      <div class="tags-cloud">
+        {{ range $name, $pages := $tags }}
+        <a href="{{ "tags/" | absURL }}{{ $name | urlize }}/" class="tag-chip">
+          {{ $name | humanize | title }}
+        </a>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+  {{ end }}
+
+{{ end }}

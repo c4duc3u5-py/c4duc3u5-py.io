@@ -1,4 +1,4 @@
-{{/* site-scripts.html — Minimal vanilla JS enhancements */}}
+{{/* site-scripts.html — Vanilla JS enhancements */}}
 <script>
 (function() {
   'use strict';
@@ -24,23 +24,53 @@
     }, { passive: true });
   }
 
+  /* ===== Mobile Nav Toggle ===== */
+  function initMobileNav() {
+    var toggle = document.querySelector('.nav-toggle');
+    var links = document.querySelector('.nav-links');
+    if (!toggle || !links) return;
+    toggle.addEventListener('click', function() {
+      var isOpen = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen);
+    });
+    // Close menu when clicking a link
+    links.querySelectorAll('.nav-link').forEach(function(link) {
+      link.addEventListener('click', function() {
+        links.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  /* ===== Sticky Nav Shadow on Scroll ===== */
+  function initNavScroll() {
+    var nav = document.querySelector('.site-nav');
+    if (!nav) return;
+    var scrolled = false;
+    window.addEventListener('scroll', function() {
+      var shouldShow = window.scrollY > 10;
+      if (shouldShow !== scrolled) {
+        scrolled = shouldShow;
+        nav.style.boxShadow = scrolled ? '0 1px 3px rgba(0,0,0,0.08)' : 'none';
+      }
+    }, { passive: true });
+  }
+
   /* ===== Lazy Loading for Images ===== */
   function initLazyImages() {
     if ('loading' in HTMLImageElement.prototype) {
-      var images = document.querySelectorAll('img:not([loading])');
-      for (var i = 0; i < images.length; i++) {
-        images[i].setAttribute('loading', 'lazy');
-      }
+      document.querySelectorAll('img:not([loading])').forEach(function(img) {
+        img.setAttribute('loading', 'lazy');
+      });
     }
   }
 
   /* ===== External eBay Link Handler ===== */
   function initExternalLinks() {
-    var links = document.querySelectorAll('a[href*="ebay.com"]');
-    for (var i = 0; i < links.length; i++) {
-      links[i].setAttribute('target', '_blank');
-      links[i].setAttribute('rel', 'noopener noreferrer');
-    }
+    document.querySelectorAll('a[href*="ebay.com"]').forEach(function(link) {
+      link.setAttribute('target', '_blank');
+      link.setAttribute('rel', 'noopener noreferrer');
+    });
   }
 
   /* ===== Smooth Scroll for Anchor Links ===== */
@@ -59,18 +89,20 @@
     });
   }
 
-  /* ===== Init on DOMContentLoaded ===== */
+  /* ===== Init ===== */
+  function init() {
+    initProgressBar();
+    initMobileNav();
+    initNavScroll();
+    initLazyImages();
+    initExternalLinks();
+    initSmoothScroll();
+  }
+
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {
     init();
-  }
-
-  function init() {
-    initProgressBar();
-    initLazyImages();
-    initExternalLinks();
-    initSmoothScroll();
   }
 })();
 </script>

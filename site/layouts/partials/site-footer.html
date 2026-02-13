@@ -1,34 +1,34 @@
-<footer class="{{ .Site.Params.background_color_class | default "bg-black" }} bottom-0 w-100 pa3 pa4-ns" role="contentinfo">
+<footer class="bg-dark-blue bottom-0 w-100 pa3 pa4-ns" role="contentinfo">
   <div class="mw8 center">
     {{/* Three-column grid */}}
     <div class="footer-grid flex flex-wrap justify-between pt3 pb3">
 
       {{/* Column 1: About */}}
       <div class="footer-col w-100 w-third-ns ph3 mb3 mb0-ns">
-        <h4 class="f6 fw6 ttu tracked white-90 mb2">About</h4>
-        <p class="f7 lh-copy white-60">
+        <h4>About</h4>
+        <p>
           {{ .Site.Title }} is a curated product blog featuring handpicked deals, buyer guides, and reviews across collectibles, tech, games, and more — all sourced from eBay listings.
         </p>
       </div>
 
       {{/* Column 2: Quick Links */}}
       <div class="footer-col w-100 w-third-ns ph3 mb3 mb0-ns">
-        <h4 class="f6 fw6 ttu tracked white-90 mb2">Quick Links</h4>
-        <ul class="list pl0 ma0">
-          <li class="mb1"><a class="f7 white-60 hover-white no-underline" href="{{ .Site.Home.Permalink }}">Home</a></li>
-          <li class="mb1"><a class="f7 white-60 hover-white no-underline" href="{{ "posts/" | absURL }}">All Posts</a></li>
-          <li class="mb1"><a class="f7 white-60 hover-white no-underline" href="{{ "tags/" | absURL }}">Tags</a></li>
-          <li class="mb1"><a class="f7 white-60 hover-white no-underline" href="{{ "categories/" | absURL }}">Categories</a></li>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="{{ .Site.Home.Permalink }}">Home</a></li>
+          <li><a href="{{ "posts/" | absURL }}">All Posts</a></li>
+          <li><a href="{{ "tags/" | absURL }}">Tags</a></li>
+          <li><a href="{{ "categories/" | absURL }}">Categories</a></li>
           {{ with .OutputFormats.Get "RSS" }}
-          <li class="mb1"><a class="f7 white-60 hover-white no-underline" href="{{ .RelPermalink }}">RSS Feed</a></li>
+          <li><a href="{{ .RelPermalink }}">RSS Feed</a></li>
           {{ end }}
         </ul>
       </div>
 
       {{/* Column 3: Disclaimer */}}
       <div class="footer-col w-100 w-third-ns ph3 mb3 mb0-ns">
-        <h4 class="f6 fw6 ttu tracked white-90 mb2">Disclaimer</h4>
-        <p class="footer-disclaimer f7 lh-copy white-50 i">
+        <h4>Disclaimer</h4>
+        <p class="footer-disclaimer">
           Prices and availability are subject to change. Always verify details on eBay before purchasing. Product information is provided for convenience and may not reflect real-time listing status.
         </p>
       </div>
@@ -36,13 +36,13 @@
     </div>
 
     {{/* Bottom bar */}}
-    <div class="bt b--white-20 pt3 mt3 flex flex-wrap justify-between items-center">
-      <p class="f7 white-50 ma0">
+    <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem; margin-top: 1rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;">
+      <p style="font-size: 0.75rem; color: rgba(255,255,255,0.4); margin: 0;">
         &copy; {{ now.Format "2006" }} {{ .Site.Title }}. All rights reserved.
       </p>
-      <p class="f7 white-40 ma0">
-        Powered by <a class="white-50 hover-white no-underline" href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a>
-        &amp; <a class="white-50 hover-white no-underline" href="https://github.com/theNewDynamic/gohugo-theme-ananke" target="_blank" rel="noopener noreferrer">Ananke</a>
+      <p style="font-size: 0.75rem; color: rgba(255,255,255,0.3); margin: 0;">
+        Powered by <a style="color: rgba(255,255,255,0.45); text-decoration: none;" href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a>
+        &amp; <a style="color: rgba(255,255,255,0.45); text-decoration: none;" href="https://github.com/theNewDynamic/gohugo-theme-ananke" target="_blank" rel="noopener noreferrer">Ananke</a>
       </p>
     </div>
   </div>

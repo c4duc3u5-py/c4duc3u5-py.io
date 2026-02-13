@@ -1,0 +1,89 @@
+{{ define "header" }}
+  {{ partials.Include "page-header.html" . }}
+{{ end }}
+
+{{ define "main" }}
+  {{ $page := . }}
+  {{ $section := .Site.GetPage "section" .Section }}
+
+  <article class="single-post">
+    {{/* ===== Post Header ===== */}}
+    <header class="post-header">
+      <div class="container container--narrow">
+        {{ with .Params.categories }}
+        <a href="{{ "categories/" | absURL }}{{ index . 0 | urlize }}/" class="post-category-badge">
+          {{ index . 0 | humanize | title }}
+        </a>
+        {{ end }}
+
+        <h1 class="post-title">{{ .Title }}</h1>
+
+        {{ with .Params.description }}
+        <p class="post-description">{{ . }}</p>
+        {{ end }}
+
+        <div class="post-meta-bar">
+          {{ with .Params.author | compare.Default .Site.Params.author }}
+          <div class="post-author">
+            <div class="author-avatar">{{ substr (. | plainify) 0 1 }}</div>
+            <span class="author-name">{{ . }}</span>
+          </div>
+          {{ end }}
+
+          {{ if not .Date.IsZero }}
+          <time class="post-date" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+            {{ .Date.Format "January 2, 2006" }}
+          </time>
+          {{ end }}
+
+          {{ if (or (compare.Eq (.Param "show_reading_time") true) (compare.Eq $section.Params.show_reading_time true)) }}
+          <span class="post-reading-time">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            {{ .ReadingTime }} min read
+          </span>
+          {{ end }}
+        </div>
+      </div>
+    </header>
+
+    {{/* ===== Post Content ===== */}}
+    <div class="post-content-wrapper">
+      <div class="container container--narrow">
+        <div class="post-content prose">
+          {{ .Content }}
+        </div>
+
+        {{/* ===== Tags ===== */}}
+        {{ with .Params.tags }}
+        <div class="post-tags">
+          <span class="tags-label">Topics:</span>
+          {{ range . }}
+          <a href="{{ "tags/" | absURL }}{{ . | urlize }}/" class="tag-chip">{{ . | humanize | title }}</a>
+          {{ end }}
+        </div>
+        {{ end }}
+
+        {{/* ===== Post Footer CTA ===== */}}
+        <div class="post-cta">
+          <p class="post-cta-text">💡 Found this helpful? Browse more guides and deals on our <a href="{{ $.Site.Home.Permalink }}">homepage</a>.</p>
+        </div>
+
+        {{/* ===== Related Posts ===== */}}
+        {{ $related := .Site.RegularPages.Related . | first 3 }}
+        {{ with $related }}
+        <section class="related-posts">
+          <h2 class="related-title">You Might Also Like</h2>
+          <div class="related-grid">
+            {{ range . }}
+            <a href="{{ .RelPermalink }}" class="related-card">
+              <h3 class="related-card-title">{{ .Title }}</h3>
+              <span class="related-card-meta">{{ .Date.Format "Jan 2, 2006" }} · {{ .ReadingTime }} min read</span>
+            </a>
+            {{ end }}
+          </div>
+        </section>
+        {{ end }}
+      </div>
+    </div>
+  </article>
+{{ end }}

@@ -8,16 +8,20 @@ canonifyURLs = false
 [params]
   description = "Curated finds, buyer guides, and deals on collectibles, tech, games & more."
   author = "Deals & Finds"
-  favicon = "/favicon.ico"
+  favicon = "/favicon.svg"
   site_logo = ""
   show_reading_time = true
   body_classes = "avenir bg-near-white"
   background_color_class = "bg-black"
   text_color = "mid-gray"
   custom_css = ["custom.css"]
+  mainSections = ["posts"]
 
 [params.social]
   # Add social links here if you want later
+
+[params.ananke]
+  show_recent_posts = true
 
 [taxonomies]
   tag = "tags"

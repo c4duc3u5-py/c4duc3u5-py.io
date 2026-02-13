@@ -2,7 +2,12 @@
 {{/* Ananke already provides: Open Graph, Twitter Cards, basic schema.html, canonical */}}
 {{/* This partial adds: preconnect hints, JSON-LD schemas, robots refinements, hreflang */}}
 
+{{/* ===== Favicon ===== */}}
+<link rel="icon" href="{{ "favicon.svg" | absURL }}" type="image/svg+xml">
+
 {{/* ===== Resource Hints ===== */}}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://i.ebayimg.com" crossorigin>
 <link rel="dns-prefetch" href="https://i.ebayimg.com">
 <link rel="dns-prefetch" href="https://www.ebay.com">

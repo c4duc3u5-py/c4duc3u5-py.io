@@ -1,0 +1,116 @@
+name: Generate Blog & Deploy
+
+on:
+  # Run daily at 6 AM UTC
+  schedule:
+    - cron: "0 6 * * *"
+  # Allow manual trigger
+  workflow_dispatch:
+    inputs:
+      seller_name:
+        description: "eBay seller username"
+        required: false
+      max_posts:
+        description: "Maximum posts to generate"
+        required: false
+        default: "5"
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  generate-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      # ── Checkout ──
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # ── Python setup ──
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install Python dependencies
+        run: pip install -r blog-generator/requirements.txt
+
+      # ── Hugo setup ──
+      - name: Set up Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: "latest"
+          extended: true
+
+      # ── Download Hugo theme ──
+      - name: Install Hugo theme
+        run: |
+          cd site
+          mkdir -p themes
+          git clone https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke --depth 1
+
+      # ── Restore cached listings and posts ──
+      - name: Restore cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            blog-generator/data
+            blog-generator/.cache
+            site/content/posts
+            site/static/images/products
+          key: blog-content-${{ github.run_number }}
+          restore-keys: |
+            blog-content-
+
+      # ── Run the blog generation pipeline ──
+      - name: Generate blog posts
+        env:
+          EBAY_SELLER_NAME: ${{ secrets.EBAY_SELLER_NAME || inputs.seller_name }}
+          LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
+          LLM_MODEL: ${{ secrets.LLM_MODEL || 'gpt-5-mini' }}
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          MAX_POSTS_PER_RUN: ${{ inputs.max_posts || '5' }}
+        run: |
+          cd blog-generator
+          python main.py --max-posts ${MAX_POSTS_PER_RUN}
+
+      # ── Build Hugo site ──
+      - name: Build Hugo site
+        run: |
+          cd site
+          hugo --minify --baseURL "${{ steps.deployment.outputs.page_url || 'https://c4duc3u5-py.github.io/c4duc3u5-py.io/' }}"
+
+      # ── Deploy to GitHub Pages ──
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site/public
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      # ── Commit generated content back to repo ──
+      - name: Commit generated posts
+        run: |
+          git config user.name "Blog Generator Bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add site/content/posts/ blog-generator/data/ site/static/images/products/ || true
+          git diff --staged --quiet || git commit -m "🤖 Auto-generated blog posts [$(date -u +%Y-%m-%d)]"
+          git push || true

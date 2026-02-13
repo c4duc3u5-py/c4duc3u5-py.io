@@ -1,0 +1,52 @@
+baseURL = "https://c4duc3u5-py.github.io/c4duc3u5-py.io/"
+languageCode = "en-us"
+title = "Deals & Finds"
+theme = "ananke"
+
+[params]
+  description = "Curated finds, buyer guides, and deals on collectibles, tech, games & more."
+  author = "Deals & Finds"
+  favicon = "/favicon.ico"
+  site_logo = ""
+  show_reading_time = true
+
+[params.social]
+  # Add social links here if you want later
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true  # Allow raw HTML (for eBay images etc.)
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  section = ["HTML", "RSS"]
+
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.5
+  filename = "sitemap.xml"
+
+# SEO-friendly URL structure
+[permalinks]
+  posts = "/:slug/"
+
+# Menu items
+[[menu.main]]
+  name = "Home"
+  url = "/"
+  weight = 1
+
+[[menu.main]]
+  name = "Posts"
+  url = "/posts/"
+  weight = 2
+
+[[menu.main]]
+  name = "Tags"
+  url = "/tags/"
+  weight = 3

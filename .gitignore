@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment files (contain secrets)
+.env
+
+# Hugo build output
+site/public/
+site/resources/
+site/.hugo_build.lock
+
+# Hugo theme (CI clones it fresh, see .github/workflows/generate.yml)
+site/themes/
+
+# Cache/temp
+blog-generator/.cache/
+blog-generator/pipeline.log
+.playwright-mcp/
+
+# Screenshots (local previews only)
+*.png
+*.jpeg
+*.jpg
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/

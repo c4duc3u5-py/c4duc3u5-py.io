@@ -34,7 +34,7 @@ class EbayListing:
     item_id: str = ""
     title: str = ""
     price: float = 0.0
-    currency: str = "USD"
+    currency: str = "GBP"
     condition: str = ""
     image_url: str = ""
     listing_url: str = ""
@@ -71,7 +71,7 @@ class EbayScraper:
       - "http": Uses httpx + selectolax (fast but often blocked)
     """
 
-    SEARCH_URL = "https://www.ebay.com/sch/m.html"
+    SEARCH_URL = "https://www.ebay.co.uk/sch/m.html"
 
     # Paths to system browsers (Playwright can use these directly)
     BROWSER_PATHS = [
@@ -405,11 +405,11 @@ class EbayScraper:
     @staticmethod
     def _detect_currency(price_text: str) -> str:
         """Detect currency from price text."""
-        if "£" in price_text or "GBP" in price_text:
-            return "GBP"
+        if "$" in price_text or "USD" in price_text:
+            return "USD"
         elif "€" in price_text or "EUR" in price_text:
             return "EUR"
-        return "USD"
+        return "GBP"
 
     # ─────────────────────────────────────────
     # HTTP backend (fallback)

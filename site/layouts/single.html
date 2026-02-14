@@ -32,8 +32,14 @@
 
           {{ if not .Date.IsZero }}
           <time class="post-date" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
-            {{ .Date.Format "January 2, 2006" }}
+            {{ .Date.Format "2 January 2006" }}
           </time>
+          {{ end }}
+
+          {{ if and (not .Lastmod.IsZero) (ne (.Lastmod.Format "2006-01-02") (.Date.Format "2006-01-02")) }}
+          <span class="post-updated" title="Last updated">
+            Updated {{ .Lastmod.Format "2 January 2006" }}
+          </span>
           {{ end }}
 
           {{ if (or (compare.Eq (.Param "show_reading_time") true) (compare.Eq $section.Params.show_reading_time true)) }}
@@ -50,6 +56,14 @@
     <div class="post-content-wrapper">
       <div class="container container--narrow">
         <div class="post-content prose">
+          {{ if and (.Params.toc) (gt .WordCount 500) }}
+          <nav class="post-toc" aria-label="Table of Contents">
+            <details open>
+              <summary><strong>In This Guide</strong></summary>
+              {{ .TableOfContents }}
+            </details>
+          </nav>
+          {{ end }}
           {{ .Content }}
         </div>
 

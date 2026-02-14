@@ -69,7 +69,7 @@ class ContentPlanner:
     # ── Post title templates per post type ──
     TITLE_TEMPLATES = {
         "buyers_guide": [
-            "Best {category} Under ${max_price} — A Buyer's Guide",
+            "Best {category} Under £{max_price} — A Buyer's Guide",
             "Top {count} {category} Picks for Every Budget",
             "{category}: What to Look for Before You Buy",
             "The Ultimate Guide to Buying {category} Online",
@@ -96,7 +96,7 @@ class ContentPlanner:
         ],
         "deals": [
             "Best {category} Deals This Week",
-            "{category} on Sale: Top Picks Under ${max_price}",
+            "{category} on Sale: Top Picks Under £{max_price}",
             "Deal Alert: {count} {category} at Great Prices",
             "Price Drops on {category} You'll Love",
         ],
@@ -202,7 +202,7 @@ class ContentPlanner:
         prices = [l.price for l in listings if l.price > 0]
         min_price = min(prices) if prices else 0
         max_price = max(prices) if prices else 0
-        price_range = f"${min_price:.0f} - ${max_price:.0f}"
+        price_range = f"£{min_price:.0f} - £{max_price:.0f}"
 
         # Pick 2-3 post types that make sense for this category
         viable_types = self._pick_post_types(category, listings)
@@ -390,6 +390,8 @@ class ContentPlanner:
         keywords.append(f"best {category.lower()}")
         keywords.append(f"cheap {category.lower()}")
         keywords.append(f"{category.lower()} for sale")
+        keywords.append(f"{category.lower()} uk")
+        keywords.append(f"buy {category.lower()} online uk")
 
         # Extract common meaningful words from listing titles
         word_freq: dict[str, int] = defaultdict(int)

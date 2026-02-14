@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://i.ebayimg.com" crossorigin>
 <link rel="dns-prefetch" href="https://i.ebayimg.com">
-<link rel="dns-prefetch" href="https://www.ebay.com">
+<link rel="dns-prefetch" href="https://www.ebay.co.uk">
 
 {{/* ===== Canonical URL Cleanup (strip trailing index.html, double slashes) ===== */}}
 {{ $canonical := .Permalink }}
@@ -19,6 +19,7 @@
 <link rel="canonical" href="{{ $canonical }}">
 
 {{/* ===== Hreflang ===== */}}
+<link rel="alternate" hreflang="en-gb" href="{{ $canonical }}">
 <link rel="alternate" hreflang="en" href="{{ $canonical }}">
 <link rel="alternate" hreflang="x-default" href="{{ $canonical }}">
 
@@ -102,10 +103,31 @@
   }
   {{- with .Params.featured_image -}}
   ,"image": "{{ . | absURL }}"
+  {{- else -}}
+  ,"image": "{{ .Site.BaseURL }}images/og-default.png"
   {{- end -}}
   {{- with .WordCount -}}
   ,"wordCount": {{ . }}
   {{- end -}}
+}
+</script>
+{{ end }}
+
+{{/* ===== JSON-LD: WebSite (homepage only — for sitelinks search box) ===== */}}
+{{ if .IsHome }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "{{ .Site.Title }}",
+  "url": "{{ .Site.BaseURL }}",
+  "description": "{{ .Site.Params.description }}",
+  "inLanguage": "en-GB",
+  "publisher": {
+    "@type": "Organization",
+    "name": "{{ .Site.Title }}",
+    "url": "{{ .Site.BaseURL }}"
+  }
 }
 </script>
 {{ end }}
@@ -135,9 +157,9 @@
   "name": "{{ .Title }}",
   "description": "{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 160 }}{{ end }}",
   "url": "{{ $canonical }}",
-  "numberOfItems": {{ len (findRE `ebay\.com/itm/` .RawContent) }},
+  "numberOfItems": {{ len (findRE `ebay\.co(?:\.uk|m)/itm/` .RawContent) }},
   "itemListElement": [
-    {{- $links := findRE `\(https://www\.ebay\.com/itm/[0-9]+\)` .RawContent -}}
+    {{- $links := findRE `\(https://www\.ebay\.co(?:\.uk|m)/itm/[0-9]+\)` .RawContent -}}
     {{- range $i, $link := $links -}}
       {{- $url := replaceRE `[()]` "" $link -}}
       {{ if $i }},{{ end }}{

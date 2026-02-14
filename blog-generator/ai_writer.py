@@ -177,6 +177,8 @@ class AIWriter:
             "- Well-structured — clear hierarchy of headings, short paragraphs, scannable lists\n"
             "- SEO-aware — naturally incorporate keywords without stuffing\n"
             "- Action-oriented — every section gives the reader something useful\n\n"
+            "IMPORTANT: All prices are in British Pounds Sterling (£). ALWAYS use the £ symbol, "
+            "NEVER use $ or USD. You are writing for a UK audience.\n\n"
             "You NEVER use filler phrases like 'dive in', 'buckle up', 'without further ado', "
             "'in today's post', 'let's get started', 'in this article we will'. "
             "You NEVER use excessive exclamation marks or hype language. "
@@ -216,6 +218,14 @@ class AIWriter:
 - Do NOT use clickbait language or excessive exclamation marks.
 - Do NOT pad content with generic filler. Every sentence should earn its place.
 - Do NOT use the word "affordable" more than once.
+- Do NOT use $ or USD. All prices MUST use the £ symbol (British Pounds).
+
+**SEO Guidance:**
+- Naturally weave target keywords into headings and opening paragraphs.
+- Use descriptive, keyword-rich ## and ### subheadings (not generic like "Conclusion").
+- Include the primary category keyword in the first 100 words.
+- Write a compelling opening sentence that could serve as a featured snippet.
+- Use short, punchy sentences for key recommendations — Google loves these for featured snippets.
 
 Write the complete blog post now in markdown:"""
 
@@ -268,7 +278,7 @@ Respond with ONLY this JSON structure:
         # Fallback metadata
         return {
             "title": brief.suggested_title,
-            "description": f"Discover the best {brief.category.lower()} — curated picks, honest reviews, and great deals.",
+            "description": f"Discover the best {brief.category.lower()} — curated picks, honest reviews, and great deals in the UK.",
             "tags": brief.target_keywords[:5],
         }
 
@@ -327,7 +337,7 @@ Respond with ONLY this JSON structure:
             shipping = item.get("shipping", "")
 
             entry = f"{i}. **{title}**\n"
-            entry += f"   - Price: ${price:.2f}\n"
+            entry += f"   - Price: £{price:.2f}\n"
             if condition:
                 entry += f"   - Condition: {condition}\n"
             if shipping:

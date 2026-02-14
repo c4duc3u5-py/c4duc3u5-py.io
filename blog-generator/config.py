@@ -31,7 +31,7 @@ CACHE_DIR = BLOG_GENERATOR_DIR / ".cache"
 EBAY_SELLER_NAME = os.getenv("EBAY_SELLER_NAME", "YOUR_SELLER_NAME")
 EBAY_STORE_URL = os.getenv(
     "EBAY_STORE_URL",
-    f"https://www.ebay.com/sch/{EBAY_SELLER_NAME}/m.html",
+    f"https://www.ebay.co.uk/sch/{EBAY_SELLER_NAME}/m.html",
 )
 
 # Maximum number of listings to scrape per run
@@ -72,7 +72,7 @@ TARGET_WORD_COUNT_MAX = int(os.getenv("TARGET_WORD_COUNT_MAX", "1500"))
 
 # Blog post types the AI can generate
 POST_TYPES = [
-    "buyers_guide",       # "Best X Under $Y" / "Top 10 Z for Beginners"
+    "buyers_guide",       # "Best X Under £Y" / "Top 10 Z for Beginners"
     "product_roundup",    # "New Arrivals: Vintage Tech This Week"
     "how_to",             # "How to Identify Rare Stamps" / "Beginner's Guide to X"
     "comparison",         # "X vs Y: Which Should You Buy?"
@@ -85,11 +85,32 @@ POST_TYPES = [
 SITE_TITLE = os.getenv("SITE_TITLE", "Deals & Finds")
 SITE_DESCRIPTION = os.getenv(
     "SITE_DESCRIPTION",
-    "Curated finds, buyer guides, and deals on collectibles, tech, games & more.",
+    "Curated finds, buyer guides, and deals on collectibles, tech, games & more. UK-based deals and honest reviews.",
 )
 SITE_BASE_URL = os.getenv("SITE_BASE_URL", "https://c4duc3u5-py.github.io/c4duc3u5-py.io/")
-SITE_LANGUAGE = os.getenv("SITE_LANGUAGE", "en")
+SITE_LANGUAGE = os.getenv("SITE_LANGUAGE", "en-GB")
 SITE_AUTHOR = os.getenv("SITE_AUTHOR", "Deals & Finds")
+
+# ─────────────────────────────────────────────
+# Pinterest Auto-Pinner
+# ─────────────────────────────────────────────
+# Enable/disable Pinterest pinning (set to "true" to enable)
+PINTEREST_ENABLED = os.getenv("PINTEREST_ENABLED", "false").lower() == "true"
+
+# Pinterest API access token (from https://developers.pinterest.com)
+PINTEREST_TOKEN = os.getenv("PINTEREST_TOKEN", "")
+
+# Pinterest board ID to pin to (use `python pinterest_pinner.py --list-boards` to find yours)
+PINTEREST_BOARD_ID = os.getenv("PINTEREST_BOARD_ID", "")
+
+# Enable image text overlays (requires Pillow)
+PINTEREST_OVERLAY_ENABLED = os.getenv("PINTEREST_OVERLAY_ENABLED", "true").lower() == "true"
+
+# Font size for pin overlay text
+PINTEREST_OVERLAY_FONT_SIZE = int(os.getenv("PINTEREST_OVERLAY_FONT_SIZE", "48"))
+
+# Delay between pin API calls (seconds) to respect rate limits
+PINTEREST_REQUEST_DELAY = float(os.getenv("PINTEREST_REQUEST_DELAY", "3.0"))
 
 # ─────────────────────────────────────────────
 # Scheduling / Automation

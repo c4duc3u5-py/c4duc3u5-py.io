@@ -1,25 +1,5 @@
-# eBay Promotion Ideas
+1. Auto-Generated Niche Blog — AI writes SEO blog posts like "Best Vintage Cameras Under $100" or "How to Identify Rare Stamps" and each post links to your eBay listings. You host it on something free like GitHub Pages or Cloudflare Pages. You never touch it — a pipeline just generates posts from your inventory data. Google indexes them, people find them, click through to your listings. Zero social media required.
 
-## Top 3 Picks
+2. Google Shopping / Free Listings Feed — Google lets you list products for free on Google Shopping. An AI pipeline could take your eBay inventory, reformat it into a Google Merchant Center feed, and keep it synced automatically. People search Google for products → your stuff shows up → they click through to eBay. No social media, no ad spend.
 
-1. **Auto-Generated Niche Blog** (Built!) - AI writes SEO blog posts and links to your eBay listings. Hosted free on GitHub Pages. Zero social media required.
-
-2. **Google Shopping / Free Listings Feed** - AI pipeline reformats eBay inventory into a Google Merchant Center feed. People search Google -> your stuff shows up -> click to eBay.
-
-3. **Pinterest Auto-Pinner** - AI auto-generates pins from product photos and posts to boards automatically. Visual search engine, not social media.
-
----
-
-## More Ideas
-
-4. **eBay Title & Description Optimizer** - AI rewrites listing titles for maximum Cassini search ranking.
-5. **Automated eBay Promoted Listings Tuner** - Script adjusts ad rates based on competition and margin.
-6. **Cross-List to Mercari / Poshmark / FB Marketplace** - AI reformats listings for other platforms.
-7. **Email Digest / Newsletter** - Weekly auto-generated "New Arrivals" email from latest listings.
-8. **Reddit / Forum Niche Responder** - AI drafts helpful replies that naturally reference your store.
-9. **AI Product Photography Enhancer** - Background removal, color correction, studio look.
-10. **YouTube Shorts / TikTok Auto-Generator** - AI generates 15-second product videos.
-11. **eBay Store Category & Tag Optimizer** - AI restructures store categories for better internal SEO.
-12. **Price Intelligence Bot** - Monitors sold listings and suggests repricing.
-13. **Similar Items Recommendation Widget** - Dynamic widget on blog showing related eBay items.
-14. **Listing Template Generator** - AI generates mobile-optimized HTML listing description templates.
+3. Pinterest Auto-Pinner — I know you said no social media, but hear me out: Pinterest isn't really "social" — it's a visual search engine. An AI tool could auto-generate pins from your product photos (add text overlays, resize, write descriptions) and post them to a board automatically. You never interact with anyone. It just generates search-indexed images that link to your listings. Very hands-off.

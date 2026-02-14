@@ -18,7 +18,8 @@
 param(
     [switch]$SkipScrape,
     [int]$MaxPosts = 5,
-    [switch]$NoPush
+    [switch]$NoPush,
+    [switch]$NoPinterest
 )
 
 $ErrorActionPreference = "Stop"
@@ -35,6 +36,10 @@ $pythonArgs = @("$ProjectRoot\blog-generator\main.py", "--max-posts", $MaxPosts)
 if ($SkipScrape) {
     $pythonArgs += "--skip-scrape"
     Write-Host "       (skipping scrape, using cached listings)" -ForegroundColor DarkGray
+}
+if ($NoPinterest) {
+    $pythonArgs += "--no-pinterest"
+    Write-Host "       (skipping Pinterest pinning)" -ForegroundColor DarkGray
 }
 
 python @pythonArgs

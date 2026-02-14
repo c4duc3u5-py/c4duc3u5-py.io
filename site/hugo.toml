@@ -1,12 +1,13 @@
 baseURL = "https://c4duc3u5-py.github.io/c4duc3u5-py.io/"
-languageCode = "en-us"
+languageCode = "en-gb"
+defaultContentLanguage = "en"
 title = "Deals & Finds"
 theme = "ananke"
 enableRobotsTXT = true
 canonifyURLs = false
 
 [params]
-  description = "Curated finds, buyer guides, and deals on collectibles, tech, games & more."
+  description = "Curated finds, buyer guides, and deals on collectibles, tech, games & more. UK-based deals and honest reviews."
   author = "Deals & Finds"
   favicon = "/favicon.svg"
   site_logo = ""
@@ -16,6 +17,7 @@ canonifyURLs = false
   text_color = "mid-gray"
   custom_css = ["custom.css"]
   mainSections = ["posts"]
+  og_image = "/images/og-default.png"
 
 [params.social]
   # Add social links here if you want later
@@ -38,7 +40,7 @@ canonifyURLs = false
 
 [sitemap]
   changefreq = "weekly"
-  priority = 0.5
+  priority = 0.7
   filename = "sitemap.xml"
 
 # SEO-friendly URL structure

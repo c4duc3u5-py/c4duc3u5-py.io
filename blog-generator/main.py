@@ -27,6 +27,7 @@ import config
 from ai_writer import AIWriter, GeneratedPost
 from content_planner import ContentPlanner
 from ebay_scraper import EbayScraper, ScrapeResult
+from pinterest_pinner import PinterestPinner, PinBatchResult
 from site_builder import SiteBuilder
 
 logger = logging.getLogger(__name__)
@@ -53,6 +54,7 @@ def run_pipeline(
     dry_run: bool = False,
     seller_name: str | None = None,
     backend: str = "browser",
+    pinterest: bool = True,
 ) -> dict:
     """
     Run the full pipeline end-to-end.
@@ -73,6 +75,7 @@ def run_pipeline(
         "posts_planned": 0,
         "posts_generated": 0,
         "posts_published": 0,
+        "pins_created": 0,
         "errors": [],
     }
 
@@ -205,6 +208,27 @@ def run_pipeline(
         if removed:
             logger.info("  🗑️  Removed %d stale posts", len(removed))
 
+    # ── Step 5: Pin to Pinterest ──
+    if pinterest and config.PINTEREST_ENABLED and generated_posts:
+        logger.info("\n📌 Step 5: Pinning to Pinterest...")
+        try:
+            with PinterestPinner() as pinner:
+                pin_result = pinner.pin_batch(generated_posts)
+                summary["pins_created"] = pin_result.total_created
+
+                if pin_result.total_failed > 0:
+                    summary["errors"].append(
+                        f"Pinterest: {pin_result.total_failed} pin(s) failed"
+                    )
+        except Exception as e:
+            error = f"Pinterest pinning failed: {e}"
+            logger.error("  ❌ %s", error)
+            summary["errors"].append(error)
+    elif pinterest and not config.PINTEREST_ENABLED:
+        logger.info("\n📌 Step 5: Pinterest disabled (set PINTEREST_ENABLED=true in .env)")
+    elif not pinterest:
+        logger.info("\n📌 Step 5: Pinterest skipped (--no-pinterest)")
+
     # ── Summary ──
     elapsed = time.time() - start_time
     summary["elapsed_seconds"] = round(elapsed, 1)
@@ -215,6 +239,7 @@ def run_pipeline(
     logger.info("   Posts planned:     %d", summary["posts_planned"])
     logger.info("   Posts generated:   %d", summary["posts_generated"])
     logger.info("   Posts published:   %d", summary["posts_published"])
+    logger.info("   Pins created:      %d", summary["pins_created"])
     logger.info("   Errors:            %d", len(summary["errors"]))
     logger.info("   Time:              %.1fs", elapsed)
     logger.info("=" * 60)
@@ -279,6 +304,11 @@ Examples:
         default="browser",
         help="Scraping backend: 'browser' (Playwright, default) or 'http' (httpx, often blocked)",
     )
+    parser.add_argument(
+        "--no-pinterest",
+        action="store_true",
+        help="Skip Pinterest pinning even if configured",
+    )
 
     args = parser.parse_args()
 
@@ -293,6 +323,7 @@ Examples:
         dry_run=args.dry_run,
         seller_name=args.seller,
         backend=args.backend,
+        pinterest=not args.no_pinterest,
     )
 
     # Exit with error code if there were failures

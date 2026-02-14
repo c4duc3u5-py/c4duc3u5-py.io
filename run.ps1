@@ -1,19 +1,23 @@
 #!/usr/bin/env pwsh
 <#
 .SYNOPSIS
-    Run the eBay blog pipeline locally and push to GitHub.
+    Run the eBay blog pipeline and deploy to GitHub Pages.
 .DESCRIPTION
-    This script runs the full pipeline (scrape → plan → write → build → push)
-    or skips scraping if listings.json already exists.
+    Full pipeline: scrape eBay → plan posts → AI write → build Hugo → commit ALL changes → push source → deploy gh-pages.
+    Commits everything: posts, images, templates, config, data, Python modules.
 .PARAMETER SkipScrape
     Skip eBay scraping and use cached listings.json
 .PARAMETER MaxPosts
     Maximum number of posts to generate (default: 5)
 .PARAMETER NoPush
-    Generate posts but don't push to GitHub
+    Generate and build but don't push/deploy to GitHub
+.PARAMETER NoPinterest
+    Skip Pinterest pinning step
 .EXAMPLE
-    .\run.ps1 -SkipScrape -MaxPosts 3
-    .\run.ps1 -NoPush
+    .\run.ps1                          # Full pipeline + deploy
+    .\run.ps1 -SkipScrape -MaxPosts 3  # Use cached listings, 3 posts
+    .\run.ps1 -NoPush                  # Build only, no deploy
+    .\run.ps1 -NoPinterest             # Skip Pinterest
 #>
 param(
     [switch]$SkipScrape,
@@ -30,7 +34,7 @@ Write-Host "Project: $ProjectRoot"
 Write-Host "Time:    $(Get-Date -Format 'yyyy-MM-dd HH:mm')`n"
 
 # ── Step 1: Run the Python pipeline ──
-Write-Host "[1/4] Running blog generator..." -ForegroundColor Yellow
+Write-Host "[1/5] Running blog generator..." -ForegroundColor Yellow
 
 $pythonArgs = @("$ProjectRoot\blog-generator\main.py", "--max-posts", $MaxPosts)
 if ($SkipScrape) {
@@ -49,7 +53,7 @@ if ($LASTEXITCODE -ne 0) {
 }
 
 # ── Step 2: Build Hugo site ──
-Write-Host "`n[2/4] Building Hugo site..." -ForegroundColor Yellow
+Write-Host "`n[2/5] Building Hugo site..." -ForegroundColor Yellow
 
 Push-Location "$ProjectRoot\site"
 try {
@@ -67,25 +71,41 @@ try {
     Pop-Location
 }
 
-# ── Step 3: Commit changes ──
-Write-Host "`n[3/4] Committing changes..." -ForegroundColor Yellow
+# ── Step 3: Commit ALL source changes ──
+Write-Host "`n[3/5] Committing changes..." -ForegroundColor Yellow
 
 Push-Location $ProjectRoot
 try {
-    git add site/content/posts/ blog-generator/data/
-    $hasChanges = git diff --staged --quiet 2>&1; $LASTEXITCODE -ne 0
+    # Stage everything: posts, images, data, templates, config, scripts, python modules
+    git add -A
+
+    # Check if there are staged changes
+    git diff --staged --quiet 2>$null
+    $hasChanges = $LASTEXITCODE -ne 0
+
     if ($hasChanges) {
+        # Build a descriptive commit message
         $date = Get-Date -Format "yyyy-MM-dd"
-        git commit -m "🤖 Auto-generated blog posts [$date]"
-        Write-Host "       Committed new posts" -ForegroundColor Green
+        $newPosts = (git diff --staged --name-only | Where-Object { $_ -like "site/content/posts/*.md" }).Count
+        $newImages = (git diff --staged --name-only | Where-Object { $_ -like "site/static/images/*" }).Count
+        $changedFiles = (git diff --staged --name-only).Count
+
+        $parts = @("🤖 Auto-update [$date]")
+        if ($newPosts -gt 0) { $parts += "$newPosts new posts" }
+        if ($newImages -gt 0) { $parts += "$newImages images" }
+        $parts += "$changedFiles files total"
+        $commitMsg = $parts -join " — "
+
+        git commit -m $commitMsg
+        Write-Host "       Committed: $commitMsg" -ForegroundColor Green
     } else {
         Write-Host "       No new changes to commit" -ForegroundColor DarkGray
     }
 
-    # ── Step 4: Push ──
+    # ── Step 4: Push source to main ──
     if (-not $NoPush) {
         Write-Host "`n[4/5] Pushing source to GitHub..." -ForegroundColor Yellow
-        git push
+        git push origin main
         Write-Host "       Pushed source to main" -ForegroundColor Green
 
         # ── Step 5: Deploy built site to gh-pages ──
@@ -102,7 +122,10 @@ try {
             git config user.name "c4duc3u5-py"
             git config user.email "c4duc3u5-py@users.noreply.github.com"
             git add -A
-            $siteChanged = git diff --staged --quiet 2>&1; $LASTEXITCODE -ne 0
+
+            git diff --staged --quiet 2>$null
+            $siteChanged = $LASTEXITCODE -ne 0
+
             if ($siteChanged) {
                 $date = Get-Date -Format "yyyy-MM-dd HH:mm"
                 git commit -m "Deploy site [$date]"

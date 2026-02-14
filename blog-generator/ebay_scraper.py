@@ -168,7 +168,10 @@ class EbayScraper:
                     "Chrome/131.0.0.0 Safari/537.36"
                 ),
                 viewport={"width": 1920, "height": 1080},
-                locale="en-US",
+                locale="en-GB",
+                extra_http_headers={
+                    "Accept-Language": "en-GB,en;q=0.9",
+                },
             )
 
             # Mask automation indicators
@@ -187,6 +190,7 @@ class EbayScraper:
                         "_ssn": self.seller_name,
                         "_pgn": str(page_number),
                         "_sop": "10",
+                        "_language": "en",  # Force English listings
                     }
                     url = f"{self.SEARCH_URL}?{urlencode(params)}"
                     logger.info("Navigating to page %d: %s", page_number, url)
@@ -423,7 +427,7 @@ class EbayScraper:
                 headers={
                     "User-Agent": config.HTTP_USER_AGENT,
                     "Accept": "text/html,application/xhtml+xml",
-                    "Accept-Language": "en-US,en;q=0.5",
+                    "Accept-Language": "en-GB,en;q=0.9",
                 },
                 follow_redirects=True,
                 timeout=30.0,

@@ -3,7 +3,7 @@
 .SYNOPSIS
     Run the eBay blog pipeline and deploy to GitHub Pages.
 .DESCRIPTION
-    Full pipeline: scrape eBay → plan posts → AI write → build Hugo → commit ALL changes → push source → deploy gh-pages.
+    Full pipeline: scrape eBay > plan posts > AI write > build Hugo > commit ALL changes > push source > deploy gh-pages.
     Commits everything: posts, images, templates, config, data, Python modules.
 .PARAMETER SkipScrape
     Skip eBay scraping and use cached listings.json
@@ -27,13 +27,30 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
+
+# Wrap everything in a try/catch so errors are visible
+try {
+
 $ProjectRoot = $PSScriptRoot
+# If $PSScriptRoot is empty (running interactively), use current dir
+if (-not $ProjectRoot) { $ProjectRoot = Get-Location }
+
+# Hugo is not on PATH - use full path from WinGet install
+$HugoPath = "$env:LOCALAPPDATA\Microsoft\WinGet\Packages\Hugo.Hugo.Extended_Microsoft.Winget.Source_8wekyb3d8bbwe\hugo.exe"
+if (-not (Test-Path $HugoPath)) {
+    # Fallback: try PATH
+    $HugoPath = "hugo"
+}
 
 Write-Host "`n=== eBay Auto-Blog Pipeline ===" -ForegroundColor Cyan
 Write-Host "Project: $ProjectRoot"
 Write-Host "Time:    $(Get-Date -Format 'yyyy-MM-dd HH:mm')`n"
 
-# ── Step 1: Run the Python pipeline ──
+# Force Python to use UTF-8 everywhere (Windows console fix for emojis)
+$env:PYTHONUTF8 = "1"
+$env:PYTHONIOENCODING = "utf-8"
+
+# -- Step 1: Run the Python pipeline --
 Write-Host "[1/5] Running blog generator..." -ForegroundColor Yellow
 
 $pythonArgs = @("$ProjectRoot\blog-generator\main.py", "--max-posts", $MaxPosts)
@@ -48,11 +65,11 @@ if ($NoPinterest) {
 
 python @pythonArgs
 if ($LASTEXITCODE -ne 0) {
-    Write-Host "ERROR: Pipeline failed!" -ForegroundColor Red
-    exit 1
+    Write-Host "       WARNING: Pipeline exited with code $LASTEXITCODE (some posts may have failed)" -ForegroundColor DarkYellow
+    Write-Host "       Continuing with build and deploy..." -ForegroundColor DarkYellow
 }
 
-# ── Step 2: Build Hugo site ──
+# -- Step 2: Build Hugo site --
 Write-Host "`n[2/5] Building Hugo site..." -ForegroundColor Yellow
 
 Push-Location "$ProjectRoot\site"
@@ -62,16 +79,15 @@ try {
         Write-Host "       Installing Ananke theme..." -ForegroundColor DarkGray
         git clone https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke --depth 1
     }
-    hugo --minify
+    & $HugoPath --minify --cleanDestinationDir
     if ($LASTEXITCODE -ne 0) {
-        Write-Host "ERROR: Hugo build failed!" -ForegroundColor Red
-        exit 1
+        throw "Hugo build failed! Exit code $LASTEXITCODE"
     }
 } finally {
     Pop-Location
 }
 
-# ── Step 3: Commit ALL source changes ──
+# -- Step 3: Commit ALL source changes --
 Write-Host "`n[3/5] Committing changes..." -ForegroundColor Yellow
 
 Push-Location $ProjectRoot
@@ -90,11 +106,11 @@ try {
         $newImages = (git diff --staged --name-only | Where-Object { $_ -like "site/static/images/*" }).Count
         $changedFiles = (git diff --staged --name-only).Count
 
-        $parts = @("🤖 Auto-update [$date]")
+        $parts = @("Auto-update [$date]")
         if ($newPosts -gt 0) { $parts += "$newPosts new posts" }
         if ($newImages -gt 0) { $parts += "$newImages images" }
         $parts += "$changedFiles files total"
-        $commitMsg = $parts -join " — "
+        $commitMsg = $parts -join " | "
 
         git commit -m $commitMsg
         Write-Host "       Committed: $commitMsg" -ForegroundColor Green
@@ -102,13 +118,13 @@ try {
         Write-Host "       No new changes to commit" -ForegroundColor DarkGray
     }
 
-    # ── Step 4: Push source to main ──
+    # -- Step 4: Push source to main --
     if (-not $NoPush) {
         Write-Host "`n[4/5] Pushing source to GitHub..." -ForegroundColor Yellow
         git push origin main
         Write-Host "       Pushed source to main" -ForegroundColor Green
 
-        # ── Step 5: Deploy built site to gh-pages ──
+        # -- Step 5: Deploy built site to gh-pages --
         Write-Host "`n[5/5] Deploying to gh-pages..." -ForegroundColor Yellow
 
         Push-Location "$ProjectRoot\site\public"
@@ -138,8 +154,8 @@ try {
             Pop-Location
         }
     } else {
-        Write-Host "`n[4/5] Skipping push (--NoPush)" -ForegroundColor DarkGray
-        Write-Host "[5/5] Skipping deploy (--NoPush)" -ForegroundColor DarkGray
+        Write-Host "`n[4/5] Skipping push (NoPush)" -ForegroundColor DarkGray
+        Write-Host "[5/5] Skipping deploy (NoPush)" -ForegroundColor DarkGray
     }
 } finally {
     Pop-Location
@@ -147,3 +163,13 @@ try {
 
 Write-Host "`n=== Done! ===" -ForegroundColor Cyan
 Write-Host "Site URL: https://c4duc3u5-py.github.io/c4duc3u5-py.io/`n"
+
+} catch {
+    Write-Host "`n=== ERROR ===" -ForegroundColor Red
+    Write-Host $_.Exception.Message -ForegroundColor Red
+    Write-Host $_.ScriptStackTrace -ForegroundColor DarkGray
+}
+
+# Keep window open so you can read the output
+Write-Host "`nPress any key to close..." -ForegroundColor DarkGray
+$null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")

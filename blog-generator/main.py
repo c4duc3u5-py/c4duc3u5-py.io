@@ -17,6 +17,7 @@ Usage:
 """
 
 import argparse
+import io
 import logging
 import sys
 import time
@@ -35,11 +36,13 @@ logger = logging.getLogger(__name__)
 
 def setup_logging():
     """Configure logging for the pipeline."""
+    # Force UTF-8 output on Windows console (supports emojis)
+    utf8_stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
     logging.basicConfig(
         level=config.LOG_LEVEL,
         format=config.LOG_FORMAT,
         handlers=[
-            logging.StreamHandler(sys.stdout),
+            logging.StreamHandler(utf8_stdout),
             logging.FileHandler(
                 config.BLOG_GENERATOR_DIR / "pipeline.log",
                 encoding="utf-8",
@@ -326,9 +329,13 @@ Examples:
         pinterest=not args.no_pinterest,
     )
 
-    # Exit with error code if there were failures
-    if summary.get("errors"):
-        sys.exit(1)
+    # Exit with error code only if nothing was published at all
+    published = summary.get("published", 0)
+    errors = summary.get("errors", 0)
+    if errors and published == 0:
+        sys.exit(1)  # Total failure - nothing published
+    elif errors:
+        sys.exit(0)  # Partial success - some posts published despite errors
 
 
 if __name__ == "__main__":

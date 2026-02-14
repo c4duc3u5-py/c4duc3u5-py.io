@@ -452,6 +452,7 @@ class EbayScraper:
                     "_ssn": self.seller_name,
                     "_pgn": str(page_number),
                     "_sop": "10",
+                    "_language": "en",  # Force English listings
                 }
                 url = f"{self.SEARCH_URL}?{urlencode(params)}"
                 response = client.get(url)

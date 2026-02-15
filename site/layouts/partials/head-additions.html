@@ -109,8 +109,76 @@
   {{- with .WordCount -}}
   ,"wordCount": {{ . }}
   {{- end -}}
+  {{- with .Params.keywords -}}
+  ,"keywords": [{{ range $i, $kw := . }}{{ if $i }}, {{ end }}"{{ $kw }}"{{ end }}]
+  {{- end -}}
 }
 </script>
+{{ end }}
+
+{{/* ===== JSON-LD: Product Schema (single product posts) ===== */}}
+{{ if .IsPage }}
+  {{ if eq (.Param "schema_type") "Product" }}
+    {{ with .Params.product_urls }}
+      {{ $firstUrl := index . 0 }}
+      {{ $price := 0.0 }}
+      {{ with $.Params.product_prices }}
+        {{ $price = index . 0 }}
+      {{ end }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "{{ $.Title | truncate 150 }}",
+  "description": "{{ with $.Description }}{{ . }}{{ else }}{{ $.Summary | plainify | truncate 300 }}{{ end }}",
+  "url": "{{ $canonical }}",
+  {{- with $.Params.featured_image }}
+  "image": "{{ . | absURL }}",
+  {{- end }}
+  "brand": {
+    "@type": "Brand",
+    "name": "{{ $.Site.Title }}"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "{{ $firstUrl }}",
+    "priceCurrency": "GBP",
+    "price": "{{ $price }}",
+    "availability": "https://schema.org/InStock",
+    "seller": {
+      "@type": "Organization",
+      "name": "eBay Seller"
+    }
+  }
+}
+</script>
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{/* ===== JSON-LD: FAQ Schema (posts with FAQ data) ===== */}}
+{{ if .IsPage }}
+  {{ with .Params.faq }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {{- range $i, $item := . -}}
+    {{ if $i }},{{ end }}
+    {
+      "@type": "Question",
+      "name": "{{ $item.question }}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{ $item.answer }}"
+      }
+    }
+    {{- end -}}
+  ]
+}
+</script>
+  {{ end }}
 {{ end }}
 
 {{/* ===== JSON-LD: WebSite (homepage only — for sitelinks search box) ===== */}}

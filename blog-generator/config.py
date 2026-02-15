@@ -60,11 +60,17 @@ LLM_REQUEST_TIMEOUT = int(os.getenv("LLM_REQUEST_TIMEOUT", "120"))
 # ─────────────────────────────────────────────
 # Content Generation Settings
 # ─────────────────────────────────────────────
-# Minimum listings in a category to justify a blog post
+# Minimum listings in a category to justify a grouped blog post
 MIN_LISTINGS_PER_POST = int(os.getenv("MIN_LISTINGS_PER_POST", "2"))
 
-# Maximum blog posts to generate per pipeline run
-MAX_POSTS_PER_RUN = int(os.getenv("MAX_POSTS_PER_RUN", "5"))
+# Maximum blog posts to generate per pipeline run (grouped + individual)
+MAX_POSTS_PER_RUN = int(os.getenv("MAX_POSTS_PER_RUN", "50"))
+
+# Generate individual product spotlight posts for every listing
+GENERATE_INDIVIDUAL_POSTS = os.getenv("GENERATE_INDIVIDUAL_POSTS", "true").lower() == "true"
+
+# Maximum individual product posts per run (separate from grouped posts)
+MAX_INDIVIDUAL_POSTS_PER_RUN = int(os.getenv("MAX_INDIVIDUAL_POSTS_PER_RUN", "100"))
 
 # Target word count range for generated articles
 TARGET_WORD_COUNT_MIN = int(os.getenv("TARGET_WORD_COUNT_MIN", "800"))
@@ -77,6 +83,7 @@ POST_TYPES = [
     "how_to",             # "How to Identify Rare Stamps" / "Beginner's Guide to X"
     "comparison",         # "X vs Y: Which Should You Buy?"
     "deals",              # "This Week's Best Deals on Collectibles"
+    "single_product",     # Individual product spotlight page for SEO
 ]
 
 # ─────────────────────────────────────────────

@@ -6,7 +6,7 @@
   {{ $page := . }}
   {{ $section := .Site.GetPage "section" .Section }}
 
-  <article class="single-post">
+  <article class="single-post" itemscope itemtype="https://schema.org/Article">
     {{/* ===== Post Header ===== */}}
     <header class="post-header">
       <div class="container container--narrow">
@@ -16,28 +16,29 @@
         </a>
         {{ end }}
 
-        <h1 class="post-title">{{ .Title }}</h1>
+        <h1 class="post-title" itemprop="headline">{{ .Title }}</h1>
 
         {{ with .Params.description }}
-        <p class="post-description">{{ . }}</p>
+        <p class="post-description" itemprop="description">{{ . }}</p>
         {{ end }}
 
         <div class="post-meta-bar">
           {{ with .Params.author | compare.Default .Site.Params.author }}
-          <div class="post-author">
+          <div class="post-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
             <div class="author-avatar">{{ substr (. | plainify) 0 1 }}</div>
-            <span class="author-name">{{ . }}</span>
+            <span class="author-name" itemprop="name">{{ . }}</span>
           </div>
           {{ end }}
 
           {{ if not .Date.IsZero }}
-          <time class="post-date" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+          <time class="post-date" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}" itemprop="datePublished">
             {{ .Date.Format "2 January 2006" }}
           </time>
           {{ end }}
 
           {{ if and (not .Lastmod.IsZero) (ne (.Lastmod.Format "2006-01-02") (.Date.Format "2006-01-02")) }}
           <span class="post-updated" title="Last updated">
+            <meta itemprop="dateModified" content="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">
             Updated {{ .Lastmod.Format "2 January 2006" }}
           </span>
           {{ end }}
@@ -78,9 +79,19 @@
         {{ end }}
 
         {{/* ===== Post Footer CTA ===== */}}
+        {{/* Product-specific CTA for single product posts */}}
+        {{ if eq (.Param "post_type") "single_product" }}
+          {{ with .Params.product_urls }}
+          <div class="post-cta post-cta--product">
+            <p class="post-cta-text">🛒 <strong>Ready to buy?</strong> View this item on eBay — check price, condition, and availability.</p>
+            <a href="{{ index . 0 }}" class="btn btn-primary" target="_blank" rel="noopener nofollow sponsored">View on eBay →</a>
+          </div>
+          {{ end }}
+        {{ else }}
         <div class="post-cta">
           <p class="post-cta-text">💡 Found this helpful? Browse more guides and deals on our <a href="{{ $.Site.Home.Permalink }}">homepage</a>.</p>
         </div>
+        {{ end }}
 
         {{/* ===== Related Posts ===== */}}
         {{ $related := .Site.RegularPages.Related . | first 3 }}

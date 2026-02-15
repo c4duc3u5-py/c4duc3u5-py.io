@@ -564,53 +564,165 @@ class EbayScraper:
     def _guess_category(title: str) -> str:
         """
         Guess a broad category from the listing title using keyword matching.
-        This is a rough heuristic — the content planner will refine it with AI.
+        Uses ordered matching — more specific categories are checked first.
         """
         title_lower = title.lower()
 
-        categories = {
-            "Video Games": [
-                "game", "xbox", "playstation", "nintendo", "ps5", "ps4", "ps3",
-                "ps2", "wii", "switch", "gameboy", "sega", "atari", "controller",
-                "console", "gaming",
-            ],
-            "Board Games & Puzzles": [
+        # Ordered list of (category, keywords) — more specific first
+        categories = [
+            ("Beauty & Health", [
+                "beauty", "skincare", "skin care", "makeup", "make up", "cosmetic",
+                "perfume", "fragrance", "cologne", "moisturiser", "moisturizer",
+                "serum", "cleanser", "toner", "face mask", "lipstick", "mascara",
+                "foundation", "concealer", "eyeshadow", "eyeliner", "nail polish",
+                "hair dryer", "hair straightener", "curling", "shampoo", "conditioner",
+                "body lotion", "body wash", "shower gel", "bath bomb", "bath set",
+                "soap", "essential oil", "diffuser", "aromatherapy", "candle",
+                "massage", "wellness", "self care", "manicure", "pedicure",
+                "hair care", "beard", "grooming", "electric shaver", "trimmer",
+                "dental", "toothbrush", "teeth", "whitening", "face cream",
+                "anti aging", "anti-aging", "wrinkle", "collagen", "vitamin",
+                "supplement", "protein", "health", "medical", "first aid",
+                "thermometer", "blood pressure", "bra", "breast form",
+                "mastectomy", "wig", "hair extension", "false eyelash",
+                "mirror", "vanity", "beauty box", "gift set",
+            ]),
+            ("Kitchen & Dining", [
+                "kitchen", "cookware", "bakeware", "pan", "pot", "skillet",
+                "cutlery", "flatware", "spoon", "fork", "knife set", "utensil",
+                "mug", "cup", "saucer", "teapot", "coffee", "espresso",
+                "kettle", "toaster", "blender", "mixer", "food processor",
+                "air fryer", "slow cooker", "pressure cooker", "microwave",
+                "chopping board", "cutting board", "colander", "sieve",
+                "baking", "cake tin", "rolling pin", "measuring",
+                "tupperware", "container", "lunch box", "flask", "water bottle",
+                "wine", "beer", "cocktail", "shaker", "corkscrew", "bottle opener",
+                "coaster", "placemat", "table", "napkin", "serving",
+                "toast rack", "egg cup", "butter dish", "salt pepper",
+                "dinner set", "plate", "bowl", "dish",
+            ]),
+            ("Glassware & Drinkware", [
+                "glass", "glasses", "tumbler", "goblet", "champagne", "whiskey",
+                "whisky", "brandy", "decanter", "carafe", "crystal", "pint",
+                "lager", "drinkware", "glassware", "shot glass",
+            ]),
+            ("Home Decor & Furnishings", [
+                "lamp", "rug", "curtain", "cushion", "pillow", "throw",
+                "vase", "ornament", "decoration", "decor", "wall art",
+                "picture frame", "photo frame", "mirror", "clock",
+                "candle holder", "lantern", "wreath", "artificial flower",
+                "doormat", "storage box", "shelf", "bookend",
+                "figurine", "sculpture", "pumpkin", "halloween", "christmas",
+                "seasonal", "festive", "terracotta", "ceramic",
+                "tapestry", "blanket", "bedding", "duvet",
+            ]),
+            ("Garden & Outdoor Living", [
+                "garden", "plant", "planter", "pot", "seed", "compost",
+                "lawn", "mower", "hedge", "pruner", "secateur", "hose",
+                "greenhouse", "shed", "fence", "patio", "bbq", "barbecue",
+                "outdoor", "parasol", "garden furniture", "bird feeder",
+                "soil tester", "soil ph", "watering", "sprinkler",
+            ]),
+            ("DIY & Tools", [
+                "tool", "drill", "saw", "wrench", "screwdriver", "spanner",
+                "pliers", "wire cutter", "clippers", "hammer", "chisel",
+                "sander", "grinder", "spray gun", "hvlp", "paint",
+                "tape measure", "spirit level", "workbench", "vice",
+                "soldering", "multimeter", "electrical", "socket set",
+                "toolbox", "tool kit", "diy", "adhesive", "sealant",
+                "tap", "taps", "pillar tap", "basin", "plumbing", "valve",
+            ]),
+            ("Hobbies & Models", [
+                "model kit", "model train", "locomotive", "railway",
+                "diecast", "die-cast", "die cast", "scale model", "1:96",
+                "1:72", "1:48", "1:35", "1:24", "1:18", "revell", "airfix",
+                "tamiya", "hornby", "atlas editions", "corgi",
+                "warhammer", "miniature", "miniatures", "paint set",
+                "rc car", "remote control", "radio control", "slot car",
+                "craft", "knitting", "sewing", "embroidery", "cross stitch",
+                "scrapbook", "stamp collecting", "philately",
+                "jigsaw", "model building", "airplane model", "ship model",
+                "mustang", "spitfire", "tempest", "messerschmitt",
+            ]),
+            ("Board Games & Puzzles", [
                 "board game", "puzzle", "card game", "dice", "tabletop",
-                "monopoly", "chess", "lego",
-            ],
-            "Tech & Electronics": [
+                "monopoly", "chess", "lego", "cursed island", "portal games",
+                "strategy game", "party game", "trivia",
+            ]),
+            ("Video Games & Consoles", [
+                "xbox", "playstation", "nintendo", "ps5", "ps4", "ps3",
+                "ps2", "wii", "switch", "gameboy", "sega", "atari",
+                "controller", "console", "gaming", "vr", "virtual reality",
+                "oculus", "valve index", "knuckle", "headset",
+                "steam deck", "video game",
+            ]),
+            ("Tech & Electronics", [
                 "phone", "laptop", "tablet", "computer", "monitor", "keyboard",
                 "mouse", "headphones", "speaker", "camera", "lens", "drone",
                 "charger", "cable", "adapter", "usb", "hdmi", "bluetooth",
                 "smart watch", "fitbit", "garmin", "router", "hard drive", "ssd",
                 "gpu", "cpu", "ram", "motherboard", "power supply",
-            ],
-            "Collectibles": [
+                "gimbal", "stabilizer", "stabiliser", "osmo", "dji",
+                "echo dot", "homepod", "alexa", "google home",
+                "power bank", "wireless", "earbuds", "earphones",
+                "printer", "scanner", "projector", "tv", "television",
+                "laptop stand", "computer stand", "ergonomic",
+                "modem", "tp-link", "netgear", "ethernet",
+                "led light", "rgb", "smart bulb", "smart plug",
+            ]),
+            ("Collectibles & Memorabilia", [
                 "vintage", "antique", "rare", "collectible", "collector",
                 "limited edition", "signed", "autograph", "memorabilia",
-                "coin", "stamp", "card", "figure", "figurine", "toy",
-            ],
-            "Books & Media": [
+                "coin", "stamp", "trading card", "figure", "figurine",
+                "retro", "nostalgia", "1970s", "1980s", "1990s",
+                "70s", "80s", "90s", "mid century", "mcm",
+            ]),
+            ("Books & Media", [
                 "book", "novel", "dvd", "blu-ray", "vinyl", "record", "cd",
-                "vhs", "comic", "manga", "magazine",
-            ],
-            "Clothing & Accessories": [
+                "vhs", "comic", "manga", "magazine", "hardback", "paperback",
+                "harry potter", "box set", "trilogy", "audiobook",
+            ]),
+            ("Clothing & Accessories", [
                 "shirt", "jacket", "coat", "jeans", "dress", "shoes", "boots",
-                "sneakers", "hat", "watch", "jewelry", "ring", "necklace",
-                "bracelet", "bag", "purse", "wallet", "sunglasses",
-            ],
-            "Home & Garden": [
-                "lamp", "rug", "curtain", "pillow", "kitchen", "cookware",
-                "garden", "tool", "drill", "saw", "wrench",
-            ],
-            "Sports & Outdoors": [
-                "bike", "bicycle", "golf", "fishing", "camping", "hiking",
-                "football", "basketball", "baseball", "tennis", "soccer",
-                "weights", "fitness", "yoga",
-            ],
-        }
+                "sneakers", "hat", "watch", "jewelry", "jewellery", "ring",
+                "necklace", "bracelet", "bag", "purse", "wallet", "sunglasses",
+                "scarf", "gloves", "belt", "tie", "cufflinks", "brooch",
+                "trainers", "sandals", "heels", "handbag", "backpack",
+                "hoodie", "jumper", "sweater", "cardigan", "blazer",
+            ]),
+            ("Gifts & Novelty", [
+                "gift set", "gift box", "novelty", "personalised", "personalized",
+                "stocking filler", "secret santa", "birthday", "christmas gift",
+                "mr potato", "mug set", "coasters set", "beside the seaside",
+                "boxed set mugs", "gift", "keepsake", "souvenir", "present",
+            ]),
+            ("Sports & Outdoors", [
+                "bike", "bicycle", "cycling", "golf", "fishing", "camping",
+                "hiking", "football", "basketball", "baseball", "tennis",
+                "soccer", "weights", "fitness", "yoga", "running",
+                "bike light", "bike mount", "phone mount", "cycling",
+                "helmet", "gloves", "jersey", "shorts",
+                "cricket", "rugby", "gym", "exercise", "treadmill",
+            ]),
+            ("Toys & Children", [
+                "toy", "teddy", "stuffed animal", "plush", "action figure",
+                "doll", "playset", "play set", "nerf", "lego",
+                "baby", "toddler", "children", "kids", "nursery",
+                "pushchair", "pram", "car seat", "highchair",
+            ]),
+            ("Pet Supplies", [
+                "pet", "dog", "cat", "fish tank", "aquarium", "hamster",
+                "rabbit", "bird cage", "pet bed", "pet food", "collar",
+                "lead", "leash", "pet carrier",
+            ]),
+            ("Automotive", [
+                "car", "vehicle", "automotive", "motor", "tyre", "tire",
+                "dash cam", "sat nav", "gps", "car seat cover",
+                "car charger", "car mount", "windscreen",
+            ]),
+        ]
 
-        for category, keywords in categories.items():
+        for category, keywords in categories:
             if any(kw in title_lower for kw in keywords):
                 return category
 

@@ -100,6 +100,12 @@ class ContentPlanner:
             "Deal Alert: {count} {category} at Great Prices",
             "Price Drops on {category} You'll Love",
         ],
+        "single_product": [
+            "{product_title} — Review & Where to Buy",
+            "{product_title} — Is It Worth It? Honest Review",
+            "Buy {product_title} — Price, Condition & Details",
+            "{product_title} — Best Price UK, Quick Review",
+        ],
     }
 
     def __init__(self, max_posts: int = config.MAX_POSTS_PER_RUN):
@@ -127,6 +133,10 @@ class ContentPlanner:
         """
         Generate a content plan from scraped listings.
 
+        Creates TWO types of posts:
+        1. Grouped posts (buyers guides, roundups, etc.) per category
+        2. Individual product spotlight posts for EVERY listing
+
         Returns a ContentPlan with up to `max_posts` PostBriefs.
         """
         plan = ContentPlan(
@@ -143,37 +153,60 @@ class ContentPlanner:
             list(category_groups.keys()),
         )
 
-        # Step 2: Generate candidate post briefs for each category
+        # Step 2: Generate GROUPED post briefs for each category
         candidates: list[PostBrief] = []
         for category, listings in category_groups.items():
             if len(listings) < config.MIN_LISTINGS_PER_POST:
                 logger.debug(
-                    "Skipping '%s' — only %d listings (min: %d)",
+                    "Skipping grouped posts for '%s' — only %d listings (min: %d)",
                     category, len(listings), config.MIN_LISTINGS_PER_POST,
                 )
-                continue
+            else:
+                category_briefs = self._generate_briefs_for_category(category, listings)
+                candidates.extend(category_briefs)
 
-            category_briefs = self._generate_briefs_for_category(category, listings)
-            candidates.extend(category_briefs)
+        # Step 3: Generate INDIVIDUAL product spotlight posts for every listing
+        individual_candidates: list[PostBrief] = []
+        if config.GENERATE_INDIVIDUAL_POSTS:
+            for listing in scrape_result.listings:
+                individual_brief = self._generate_individual_brief(listing)
+                if individual_brief:
+                    individual_candidates.append(individual_brief)
 
-        # Step 3: Filter out already-generated posts
-        novel_candidates = [
+            logger.info(
+                "Generated %d individual product post candidates.",
+                len(individual_candidates),
+            )
+
+        # Step 4: Filter out already-generated posts
+        novel_grouped = [
             b for b in candidates if b.post_id not in self._existing_post_ids
+        ]
+        novel_individual = [
+            b for b in individual_candidates if b.post_id not in self._existing_post_ids
         ]
 
         logger.info(
-            "Generated %d candidate briefs, %d are new (not already published).",
-            len(candidates),
-            len(novel_candidates),
+            "Grouped: %d candidates, %d new. Individual: %d candidates, %d new.",
+            len(candidates), len(novel_grouped),
+            len(individual_candidates), len(novel_individual),
         )
 
-        # Step 4: Prioritize and select top N
-        selected = self._prioritize(novel_candidates)[: self.max_posts]
+        # Step 5: Prioritize grouped posts, then add individual posts
+        selected_grouped = self._prioritize(novel_grouped)[:self.max_posts]
+        remaining_slots = config.MAX_INDIVIDUAL_POSTS_PER_RUN
+        selected_individual = self._prioritize(novel_individual)[:remaining_slots]
+
+        # Combine: grouped first, then individual
+        selected = selected_grouped + selected_individual
 
         plan.briefs = selected
         plan.total_briefs = len(selected)
 
-        logger.info("Content plan ready: %d posts to generate.", plan.total_briefs)
+        logger.info(
+            "Content plan ready: %d grouped + %d individual = %d total posts to generate.",
+            len(selected_grouped), len(selected_individual), plan.total_briefs,
+        )
         return plan
 
     # ─────────────────────────────────────────
@@ -260,12 +293,13 @@ class ContentPlanner:
         if len(listings) >= 3:
             types.append("deals")
 
-        # Return 2 types max per category per run to avoid flooding
+        # Return ALL viable types — no cap, we want maximum coverage
         random.shuffle(types)
-        return types[:2]
+        return types
 
     def _generate_title(
-        self, post_type: str, category: str, count: int, max_price: float
+        self, post_type: str, category: str, count: int, max_price: float,
+        product_title: str = "",
     ) -> str:
         """Pick and fill a title template."""
         templates = self.TITLE_TEMPLATES.get(post_type, self.TITLE_TEMPLATES["buyers_guide"])
@@ -275,6 +309,7 @@ class ContentPlanner:
             category=category,
             count=min(count, 10),
             max_price=int(max_price) if max_price > 0 else 100,
+            product_title=product_title,
         )
 
     def _select_featured_listings(
@@ -318,6 +353,75 @@ class ContentPlanner:
 
         scored.sort(key=lambda x: -x[0])
         return [listing for _, listing in scored[:max_featured]]
+
+    # ─────────────────────────────────────────
+    # Individual Product Briefs
+    # ─────────────────────────────────────────
+
+    def _generate_individual_brief(self, listing: EbayListing) -> Optional[PostBrief]:
+        """
+        Generate a single-product spotlight post brief for one listing.
+        Every listing gets its own dedicated SEO page.
+        """
+        if not listing.title or not listing.listing_url:
+            return None
+
+        category = listing.category_hint or "General"
+        title = self._generate_title(
+            "single_product", category, 1, listing.price,
+            product_title=listing.title,
+        )
+        post_id = self._make_post_id(title)
+
+        # Build product-specific keywords
+        keywords = self._extract_keywords(category, [listing])
+        # Add product-specific long-tail keywords
+        title_words = [w.strip(",.!?()[]{}\"'#-_").lower() for w in listing.title.split()]
+        meaningful_words = [w for w in title_words if len(w) > 3]
+        if meaningful_words:
+            keywords.append(" ".join(meaningful_words[:4]))
+        keywords.append(f"buy {listing.title.lower()[:50]}")
+
+        instructions = self._build_individual_writer_instructions(listing, category)
+
+        brief = PostBrief(
+            post_id=post_id,
+            post_type="single_product",
+            suggested_title=title,
+            category=category,
+            target_keywords=keywords,
+            listings=[asdict(listing)],
+            price_range=f"£{listing.price:.0f}",
+            listing_count=1,
+            instructions=instructions,
+            created_at=datetime.now(timezone.utc).isoformat(),
+        )
+        return brief
+
+    def _build_individual_writer_instructions(
+        self, listing: EbayListing, category: str
+    ) -> str:
+        """Build writing instructions for a single-product spotlight post."""
+        return (
+            f"Write a focused product spotlight blog post about this specific item: "
+            f"'{listing.title}' priced at £{listing.price:.2f} ({listing.condition or 'N/A'} condition). "
+            f"Category: {category}. "
+            f"\n\n"
+            f"The post MUST:\n"
+            f"1. Open with a compelling hook about why this specific product is worth attention.\n"
+            f"2. Include detailed product analysis — materials, features, use cases, who it's for.\n"
+            f"3. Discuss the condition ({listing.condition}) and what that means for the buyer.\n"
+            f"4. Include the eBay link prominently: {listing.listing_url}\n"
+            f"5. Add a section on 'What to check before buying' with category-specific tips.\n"
+            f"6. Compare the price (£{listing.price:.2f}) to typical market value.\n"
+            f"7. Include a clear verdict/recommendation.\n"
+            f"8. End with a strong call-to-action to view/buy on eBay.\n"
+            f"\n"
+            f"Write 400-800 words. This is a focused product page, not a general guide. "
+            f"Every sentence should be about THIS specific item. "
+            f"Use short, punchy paragraphs optimized for featured snippets. "
+            f"Include the product name and category in the first paragraph for SEO."
+        )
 
     # ─────────────────────────────────────────
     # Writer Instructions
@@ -370,6 +474,14 @@ class ContentPlanner:
                 "Lead with the best value-for-money item. "
                 "For each deal, explain what makes the price good (compare to typical market price if possible). "
                 "Create soft urgency without being pushy — focus on limited quantity or seasonal relevance."
+            ),
+            "single_product": (
+                " This is a SINGLE PRODUCT spotlight post. Focus entirely on this one item. "
+                "Structure as: compelling product overview, detailed features & specs, "
+                "condition assessment, value-for-money analysis, buying tips specific to this type of product, "
+                "and a clear buy/skip verdict. Include an FAQ section with 3-4 common buyer questions "
+                "about this type of product (use ### for each question — great for SEO featured snippets). "
+                "Make the eBay link prominent — include it at least 2-3 times throughout the post."
             ),
         }
 
@@ -436,11 +548,21 @@ class ContentPlanner:
                 "deals": 3.5,
                 "how_to": 3.0,
                 "comparison": 2.5,
+                "single_product": 4.5,  # High priority — every product needs exposure
             }
             s += type_weights.get(brief.post_type, 1.0)
             # Categories with actual names rank better than "General"
             if brief.category != "General":
                 s += 3.0
+            # Boost individual product posts with images (better for SEO)
+            if brief.post_type == "single_product" and brief.listings:
+                img = brief.listings[0].get("image_url", "")
+                if img and "ebayimg" in img:
+                    s += 2.0
+                # Boost products with good prices
+                price = brief.listings[0].get("price", 0)
+                if 5 <= price <= 100:
+                    s += 1.5
             return s
 
         return sorted(briefs, key=score, reverse=True)

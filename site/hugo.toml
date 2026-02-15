@@ -6,8 +6,12 @@ theme = "ananke"
 enableRobotsTXT = true
 canonifyURLs = false
 
+# SEO: Enable all content types in RSS feed for maximum exposure
+rssLimit = 100
+summaryLength = 50
+
 [params]
-  description = "Curated finds, buyer guides, and deals on collectibles, tech, games & more. UK-based deals and honest reviews."
+  description = "Curated finds, buyer guides, and deals on collectibles, tech, games, beauty, home & more. UK-based deals and honest reviews."
   author = "Deals & Finds"
   favicon = "/favicon.svg"
   site_logo = ""
@@ -18,6 +22,11 @@ canonifyURLs = false
   custom_css = ["custom.css"]
   mainSections = ["posts"]
   og_image = "/images/og-default.png"
+  # SEO: Extra params
+  images = ["/images/og-default.png"]
+  locale = "en_GB"
+  twitter_cards = true
+  og_type = "website"
 
 [params.social]
   # Add social links here if you want later
@@ -28,24 +37,41 @@ canonifyURLs = false
 [taxonomies]
   tag = "tags"
   category = "categories"
+  keyword = "keywords"
 
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true  # Allow raw HTML (for eBay images etc.)
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 4
+    ordered = false
 
 [outputs]
-  home = ["HTML", "RSS"]
+  home = ["HTML", "RSS", "JSON"]
   section = ["HTML", "RSS"]
+  taxonomy = ["HTML", "RSS"]
+  term = ["HTML", "RSS"]
+
+[outputFormats]
+  [outputFormats.RSS]
+    mediaType = "application/rss+xml"
+    baseName = "feed"
+  [outputFormats.JSON]
+    mediaType = "application/json"
+    baseName = "index"
 
 [sitemap]
-  changefreq = "weekly"
-  priority = 0.7
+  changefreq = "daily"
+  priority = 0.8
   filename = "sitemap.xml"
 
 # SEO-friendly URL structure
 [permalinks]
   posts = "/:slug/"
+  tags = "/tags/:slug/"
+  categories = "/categories/:slug/"
 
 # Menu items
 [[menu.main]]
@@ -59,6 +85,30 @@ canonifyURLs = false
   weight = 2
 
 [[menu.main]]
+  name = "Categories"
+  url = "/categories/"
+  weight = 3
+
+[[menu.main]]
   name = "Tags"
   url = "/tags/"
-  weight = 3
+  weight = 4
+
+# Related content (for "You Might Also Like" sections)
+[related]
+  includeNewer = true
+  threshold = 60
+  toLower = true
+  [[related.indices]]
+    name = "categories"
+    weight = 80
+  [[related.indices]]
+    name = "tags"
+    weight = 60
+  [[related.indices]]
+    name = "keywords"
+    weight = 40
+  [[related.indices]]
+    name = "date"
+    weight = 10
+    pattern = "2006"

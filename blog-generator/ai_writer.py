@@ -37,32 +37,75 @@ class GeneratedPost:
     word_count: int = 0
     generated_at: str = ""
     post_type: str = ""
+    # Enhanced SEO fields
+    keywords: list[str] = field(default_factory=list)     # focus keywords for SEO
+    product_prices: list[float] = field(default_factory=list)  # prices for schema
+    product_urls: list[str] = field(default_factory=list)      # eBay URLs for schema
+    faq_items: list[dict] = field(default_factory=list)        # FAQ schema data
 
     def to_hugo_markdown(self) -> str:
         """
         Render the post as a complete Hugo-compatible markdown file
-        with YAML front matter.
+        with YAML front matter optimized for SEO.
         """
         tags_yaml = "\n".join(f'  - "{tag}"' for tag in self.tags)
         categories_yaml = "\n".join(f'  - "{cat}"' for cat in self.categories)
+        keywords_yaml = "\n".join(f'  - "{kw}"' for kw in self.keywords[:10])
+
+        # Build product URLs for schema
+        product_urls_yaml = ""
+        if self.product_urls:
+            urls_lines = "\n".join(f'  - "{url}"' for url in self.product_urls[:20])
+            product_urls_yaml = f"\nproduct_urls:\n{urls_lines}"
+
+        # Build product prices for schema
+        product_prices_yaml = ""
+        if self.product_prices:
+            prices_lines = "\n".join(f"  - {p:.2f}" for p in self.product_prices[:20])
+            product_prices_yaml = f"\nproduct_prices:\n{prices_lines}"
+
+        # Build FAQ data for schema
+        faq_yaml = ""
+        if self.faq_items:
+            faq_entries = []
+            for item in self.faq_items[:8]:
+                q = self._escape_yaml(item.get("question", ""))
+                a = self._escape_yaml(item.get("answer", ""))
+                faq_entries.append(f'  - question: "{q}"\n    answer: "{a}"')
+            faq_yaml = "\nfaq:\n" + "\n".join(faq_entries)
 
         front_matter = f"""---
 title: "{self._escape_yaml(self.title)}"
 date: {self.generated_at}
 lastmod: {self.generated_at}
 description: "{self._escape_yaml(self.description)}"
+summary: "{self._escape_yaml(self.description)}"
 tags:
 {tags_yaml}
 categories:
 {categories_yaml}
+keywords:
+{keywords_yaml}
 featured_image: "{self.featured_image}"
 author: "Deals & Finds"
 draft: false
 toc: true
+post_type: "{self.post_type}"
+schema_type: "{self._get_schema_type()}"
+word_count: {self.word_count}{product_urls_yaml}{product_prices_yaml}{faq_yaml}
 ---
 
 """
         return front_matter + self.content_markdown
+
+    def _get_schema_type(self) -> str:
+        """Return the appropriate schema.org type for this post."""
+        if self.post_type == "single_product":
+            return "Product"
+        elif self.post_type in ("product_roundup", "deals"):
+            return "ItemList"
+        else:
+            return "Article"
 
     @staticmethod
     def _escape_yaml(text: str) -> str:
@@ -134,7 +177,22 @@ class AIWriter:
         # Step 2: Generate SEO metadata
         metadata = self._generate_metadata(brief, content)
 
-        # Step 3: Assemble the final post
+        # Step 3: Extract product data for schema markup
+        product_urls = [
+            item.get("listing_url", "")
+            for item in brief.listings
+            if item.get("listing_url")
+        ]
+        product_prices = [
+            item.get("price", 0)
+            for item in brief.listings
+            if item.get("price", 0) > 0
+        ]
+
+        # Step 4: Extract FAQ items from content (### headings that look like questions)
+        faq_items = self._extract_faq_from_content(content)
+
+        # Step 5: Assemble the final post
         post = GeneratedPost(
             post_id=brief.post_id,
             title=metadata.get("title", brief.suggested_title),
@@ -147,12 +205,18 @@ class AIWriter:
             word_count=len(content.split()),
             generated_at=datetime.now(timezone.utc).isoformat(),
             post_type=brief.post_type,
+            keywords=brief.target_keywords[:10],
+            product_urls=product_urls,
+            product_prices=product_prices,
+            faq_items=faq_items,
         )
 
         logger.info(
-            "Generated post '%s': %d words",
+            "Generated post '%s': %d words, %d product links, %d FAQ items",
             post.title,
             post.word_count,
+            len(product_urls),
+            len(faq_items),
         )
 
         return post
@@ -369,6 +433,33 @@ Respond with ONLY this JSON structure:
         text = text.strip()
 
         return text
+
+    @staticmethod
+    def _extract_faq_from_content(content: str) -> list[dict]:
+        """
+        Extract FAQ-style question/answer pairs from the blog content.
+        Looks for ### headings that end with '?' followed by paragraph text.
+        Used to generate FAQ schema markup for Google rich results.
+        """
+        faq_items = []
+        # Match ### headings that are questions
+        pattern = re.compile(
+            r"###\s+(.+\?)\s*\n+((?:(?!#{1,3}\s).+\n?)+)",
+            re.MULTILINE
+        )
+        for match in pattern.finditer(content):
+            question = match.group(1).strip()
+            answer = match.group(2).strip()
+            # Clean up markdown from the answer
+            answer = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", answer)  # Remove links
+            answer = re.sub(r"[*_]{1,2}([^*_]+)[*_]{1,2}", r"\1", answer)  # Remove bold/italic
+            answer = answer.replace("\n", " ").strip()
+            if question and answer and len(answer) > 20:
+                faq_items.append({
+                    "question": question[:200],
+                    "answer": answer[:500],
+                })
+        return faq_items[:8]  # Google supports up to 8 FAQ items well
 
     @staticmethod
     def _pick_featured_image(brief: PostBrief) -> str:

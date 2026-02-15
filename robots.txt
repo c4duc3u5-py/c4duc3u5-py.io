@@ -1,4 +1,10 @@
 User-agent: *
 Allow: /
+Disallow: /images/products/*/featured*
 
+# Sitemap locations
 Sitemap: https://c4duc3u5-py.github.io/c4duc3u5-py.io/sitemap.xml
+Sitemap: https://c4duc3u5-py.github.io/c4duc3u5-py.io/feed.xml
+
+# Crawl-delay for politeness (optional, most major engines ignore this)
+# Crawl-delay: 1

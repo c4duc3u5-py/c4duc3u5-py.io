@@ -16,7 +16,7 @@ draft: false
 
 ## The Ultimate Guide to Buying Collectibles Online
 
-Collecting is part treasure hunt, part personal history. Whether you’re drawn to model planes, boxed book sets, or military aviation replicas, buying collectibles online opens up options you won’t find locally. The three listings below fall in the £27–£41 range — affordable enough to start or expand a collection without breaking the bank. I’ll walk you through what makes each item worth buying, what to watch for when shopping, and how to score the best finds.
+Collecting is part treasure hunt, part personal history. Whether you’re drawn to model planes, boxed book sets, or military aviation replicas, buying collectibles online opens up options you won’t find locally. The three listings below fall in the $27–$41 range — affordable enough to start or expand a collection without breaking the bank. I’ll walk you through what makes each item worth buying, what to watch for when shopping, and how to score the best finds.
 
 ## Why these items make great collectibles
 
@@ -26,10 +26,10 @@ These picks are attractive for a few reasons. They’re affordable, in good cond
 
 ## Product Highlights
 
-### Atlas Editions P-51D Mustang & FW 190A-5 Die-Cast Models - New in Box — £27.23
-[Atlas Editions P-51D Mustang & FW 190A-5 Die-Cast Models - New in Box](https://www.ebay.co.uk/itm/227204389224)
+### Atlas Editions P-51D Mustang & FW 190A-5 Die-Cast Models - New in Box — $27.23
+[Atlas Editions P-51D Mustang & FW 190A-5 Die-Cast Models - New in Box](https://www.ebay.com/itm/227204389224)
 
-Price: £27.23 (shipping +£4.07)
+Price: $27.23 (shipping +$4.07)
 
 Why it’s worth buying:
 - These Atlas Editions die-cast models are new in box, which is a big plus for collectors who value mint condition.
@@ -47,10 +47,10 @@ Things to consider:
 
 ---
 
-### Harry Potter Books 1-3 Hardback Boxed Set Trilogy 1998 - Good Condition — £40.85
-[Harry Potter Books 1-3 Hardback Boxed Set Trilogy 1998 - Good Condition](https://www.ebay.co.uk/itm/227206323595)
+### Harry Potter Books 1-3 Hardback Boxed Set Trilogy 1998 - Good Condition — $40.85
+[Harry Potter Books 1-3 Hardback Boxed Set Trilogy 1998 - Good Condition](https://www.ebay.com/itm/227206323595)
 
-Price: £40.85 (shipping +£4.07)
+Price: $40.85 (shipping +$4.07)
 
 Why it’s worth buying:
 - Early hardback boxed sets of Harry Potter remain highly sought after by collectors and fans alike. This 1998 hardback boxed set covers Books 1–3 and can be a nostalgic centerpiece on a shelf.
@@ -67,10 +67,10 @@ Things to consider:
 
 ---
 
-### Atlas Editions Hawker Tempest & ME 262 'Defeat of Germany' Diecast - New — £31.32
-[Atlas Editions Hawker Tempest & ME 262 'Defeat of Germany' Diecast - New](https://www.ebay.co.uk/itm/227204399830)
+### Atlas Editions Hawker Tempest & ME 262 'Defeat of Germany' Diecast - New — $31.32
+[Atlas Editions Hawker Tempest & ME 262 'Defeat of Germany' Diecast - New](https://www.ebay.com/itm/227204399830)
 
-Price: £31.32 (shipping +£4.07)
+Price: $31.32 (shipping +$4.07)
 
 Why it’s worth buying:
 - Another solid Atlas Editions set, this pairing—Hawker Tempest and the German Me 262—represents two very different engineering approaches late in WWII. That historical contrast makes it a compelling display.
@@ -94,7 +94,7 @@ Buying collectibles online is convenient, but a few careful checks will help you
 - Check seller ratings and reviews. High positive feedback and recent sales of similar items are strong signs the seller is reliable.
 - Inspect photos and item descriptions closely. For boxed items, look for photos of all sides of the box and any included certificates or inserts.
 - Ask specific questions. If a listing lacks scale, production year, or close-up images of wear, message the seller. A quick clarification can save a return hassle later.
-- Compare pricing. Search the same model or edition across other listings to ensure you’re getting a fair deal. The range here (£27–£41) is a good benchmark for affordable collectibles.
+- Compare pricing. Search the same model or edition across other listings to ensure you’re getting a fair deal. The range here ($27–$41) is a good benchmark for affordable collectibles.
 - Consider shipping costs and packaging. Pay attention to shipping fees and how the seller plans to pack fragile models or boxed books. Proper packing reduces risk of damage during transit.
 - Know condition definitions. Sellers often use “New,” “Like New,” “Very Good,” “Good,” and so on. Ask what those terms mean for a specific item (e.g., whether dust jackets are included for books).
 - Look for provenance for higher-value items. If an item advertises historical significance or rarity, ask for documentation or serial numbers.
@@ -112,11 +112,11 @@ Buying collectibles online is convenient, but a few careful checks will help you
 
 ## Wrapping up
 
-These three listings offer a smart mix of affordable and collectible items: two Atlas Editions die-cast pairs for aviation fans and a classic Harry Potter hardback boxed set for literature collectors. Each falls within the £27–£41 range, making them accessible choices whether you’re just starting or adding to an existing collection.
+These three listings offer a smart mix of affordable and collectible items: two Atlas Editions die-cast pairs for aviation fans and a classic Harry Potter hardback boxed set for literature collectors. Each falls within the $27–$41 range, making them accessible choices whether you’re just starting or adding to an existing collection.
 
 If any of these speak to you, check the listings and ask the seller questions if you need clarifications:
-- [Atlas Editions P-51D Mustang & FW 190A-5 Die-Cast Models - New in Box](https://www.ebay.co.uk/itm/227204389224) — £27.23 (+£4.07 shipping)
-- [Harry Potter Books 1-3 Hardback Boxed Set Trilogy 1998 - Good Condition](https://www.ebay.co.uk/itm/227206323595) — £40.85 (+£4.07 shipping)
-- [Atlas Editions Hawker Tempest & ME 262 'Defeat of Germany' Diecast - New](https://www.ebay.co.uk/itm/227204399830) — £31.32 (+£4.07 shipping)
+- [Atlas Editions P-51D Mustang & FW 190A-5 Die-Cast Models - New in Box](https://www.ebay.com/itm/227204389224) — $27.23 (+$4.07 shipping)
+- [Harry Potter Books 1-3 Hardback Boxed Set Trilogy 1998 - Good Condition](https://www.ebay.com/itm/227206323595) — $40.85 (+$4.07 shipping)
+- [Atlas Editions Hawker Tempest & ME 262 'Defeat of Germany' Diecast - New](https://www.ebay.com/itm/227204399830) — $31.32 (+$4.07 shipping)
 
 Ready to buy? Click through the links above to view condition details, seller ratings, and secure checkout options. Happy collecting — and enjoy building a selection you’ll love to show off.

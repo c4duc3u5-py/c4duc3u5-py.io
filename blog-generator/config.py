@@ -34,8 +34,8 @@ EBAY_STORE_URL = os.getenv(
     f"https://www.ebay.co.uk/sch/{EBAY_SELLER_NAME}/m.html",
 )
 
-# Maximum number of listings to scrape per run
-EBAY_MAX_LISTINGS = int(os.getenv("EBAY_MAX_LISTINGS", "200"))
+# Maximum number of listings to scrape per run (0 = unlimited, scrape ALL listings)
+EBAY_MAX_LISTINGS = int(os.getenv("EBAY_MAX_LISTINGS", "0"))
 
 # Delay between page requests (seconds) — be polite to eBay's servers
 EBAY_REQUEST_DELAY = float(os.getenv("EBAY_REQUEST_DELAY", "2.0"))

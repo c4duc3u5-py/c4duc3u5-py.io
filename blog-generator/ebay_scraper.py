@@ -72,6 +72,9 @@ class EbayScraper:
     """
 
     SEARCH_URL = "https://www.ebay.co.uk/sch/m.html"
+    # Alternative URLs that sometimes show more items
+    STORE_SEARCH_URL = "https://www.ebay.co.uk/sch/i.html"
+    SELLER_PROFILE_URL = "https://www.ebay.co.uk/usr"
 
     # Paths to system browsers (Playwright can use these directly)
     BROWSER_PATHS = [
@@ -184,11 +187,19 @@ class EbayScraper:
 
             logger.info("Starting browser scrape for seller: %s", self.seller_name)
 
-            while len(result.listings) < self.max_listings:
+            seen_item_ids = set()  # Track seen items for deduplication
+
+            while True:
+                # Stop if we've hit max_listings (0 = unlimited)
+                if self.max_listings > 0 and len(result.listings) >= self.max_listings:
+                    logger.info("Reached max_listings cap (%d), stopping.", self.max_listings)
+                    break
+
                 try:
                     params = {
                         "_ssn": self.seller_name,
                         "_pgn": str(page_number),
+                        "_ipg": "240",   # Max items per page (eBay allows 25/50/100/200/240)
                         "_sop": "10",
                         "_language": "en",  # Force English listings
                     }
@@ -242,6 +253,14 @@ class EbayScraper:
                                 result.errors.append("CAPTCHA not resolved")
                                 break
 
+                    # Extract total results count from the page
+                    total_on_ebay = self._extract_total_results(page)
+                    if total_on_ebay and page_number == 1:
+                        logger.info("eBay reports %d total results for seller.", total_on_ebay)
+
+                    # Scroll down the page to trigger lazy-loaded listings
+                    self._scroll_to_load_all(page)
+
                     # Extract listings from the page
                     page_listings = self._extract_listings_from_page(page)
 
@@ -249,23 +268,48 @@ class EbayScraper:
                         logger.info("No listings on page %d, reached end.", page_number)
                         break
 
-                    result.listings.extend(page_listings)
+                    # Deduplicate: only add listings we haven't seen before
+                    new_listings = []
+                    for listing in page_listings:
+                        lid = listing.item_id or listing.title
+                        if lid not in seen_item_ids:
+                            seen_item_ids.add(lid)
+                            new_listings.append(listing)
+
+                    if not new_listings:
+                        logger.info("Page %d had only duplicate listings, stopping.", page_number)
+                        break
+
+                    result.listings.extend(new_listings)
                     result.pages_scraped += 1
                     logger.info(
-                        "Page %d: %d listings (total: %d)",
-                        page_number, len(page_listings), len(result.listings),
+                        "Page %d: %d new listings (%d dupes skipped, %d total so far)",
+                        page_number,
+                        len(new_listings),
+                        len(page_listings) - len(new_listings),
+                        len(result.listings),
                     )
 
-                    # Check for next page
-                    next_btn = page.query_selector(
-                        'a.pagination__next, a[aria-label="Go to next search page"], '
-                        'a[data-track*="next"], button[aria-label*="next" i]'
-                    )
-                    if not next_btn:
-                        logger.info("No next page, scrape complete.")
+                    # Determine if there are more pages to scrape
+                    if total_on_ebay and len(result.listings) >= total_on_ebay:
+                        logger.info(
+                            "Got all %d/%d listings, scrape complete.",
+                            len(result.listings), total_on_ebay,
+                        )
+                        break
+
+                    # Check for next page via multiple selector strategies
+                    has_next = self._has_next_page(page, page_number)
+                    if not has_next:
+                        logger.info("No next page detected, scrape complete.")
                         break
 
                     page_number += 1
+                    # Safety: don't go beyond 20 pages (20 * 240 = 4800 listings max)
+                    if page_number > 20:
+                        logger.warning("Hit 20-page safety limit, stopping.")
+                        break
+
                     time.sleep(self.request_delay)
 
                 except Exception as e:
@@ -274,9 +318,108 @@ class EbayScraper:
                     result.errors.append(error_msg)
                     break
 
+            # ── Second pass: try alternative URLs to catch hidden listings ──
+            # Some eBay listings take 24-48h to appear in search, or are
+            # filtered by category. Try multiple approaches.
+            for pass_name, pass_url in [
+                ("alt search", f"{self.STORE_SEARCH_URL}?{urlencode({'_ssn': self.seller_name, '_ipg': '240', 'rt': 'nc', 'LH_All': '1'})}"),
+                ("profile page", f"{self.SELLER_PROFILE_URL}/{self.seller_name}"),
+            ]:
+                try:
+                    logger.info("Extra pass (%s) to catch hidden listings: %s", pass_name, pass_url)
+                    page.goto(pass_url, wait_until="domcontentloaded", timeout=30000)
+                    try:
+                        page.wait_for_selector(
+                            'li[id^="item"], .s-item, .srp-results, a[href*="/itm/"]',
+                            timeout=15000,
+                        )
+                    except Exception:
+                        pass
+
+                    self._scroll_to_load_all(page)
+
+                    # Extract item links from the page (works for both search and profile)
+                    extra_items = page.evaluate("""
+                        () => {
+                            const links = document.querySelectorAll('a[href*="/itm/"]');
+                            const results = [];
+                            const seen = new Set();
+                            for (const link of links) {
+                                const href = link.href || '';
+                                const match = href.match(/\\/itm\\/(\\d+)/);
+                                if (!match) continue;
+                                const itemId = match[1];
+                                if (seen.has(itemId)) continue;
+                                seen.add(itemId);
+
+                                // Try to get title from the link text or nearby elements
+                                let title = link.textContent.trim()
+                                    .replace(/^(New Listing|SPONSORED|watch)\\s*/gi, '')
+                                    .replace(/Opens in a new window or tab$/i, '')
+                                    .trim();
+
+                                // Try to find price nearby
+                                let priceText = '';
+                                const parent = link.closest('li, .s-item, [class*="card"]');
+                                if (parent) {
+                                    const priceEl = parent.querySelector(
+                                        '.s-item__price, span.su-styled-text.bold, [class*="price"]'
+                                    );
+                                    if (priceEl) priceText = priceEl.textContent.trim();
+                                }
+
+                                // Try to find image
+                                let imageUrl = '';
+                                if (parent) {
+                                    const imgEl = parent.querySelector('img[src*="ebayimg"]');
+                                    if (imgEl) imageUrl = imgEl.src;
+                                }
+
+                                if (title && title !== 'Shop on eBay' && title.length > 5) {
+                                    results.push({
+                                        item_id: itemId,
+                                        title: title,
+                                        listing_url: 'https://www.ebay.co.uk/itm/' + itemId,
+                                        price_text: priceText,
+                                        image_url: imageUrl,
+                                    });
+                                }
+                            }
+                            return results;
+                        }
+                    """)
+
+                    new_from_pass = 0
+                    for item_data in extra_items:
+                        lid = item_data.get("item_id", "")
+                        if lid and lid not in seen_item_ids:
+                            seen_item_ids.add(lid)
+                            listing = EbayListing(
+                                item_id=lid,
+                                title=item_data.get("title", ""),
+                                price=self._parse_price(item_data.get("price_text", "")),
+                                currency=self._detect_currency(item_data.get("price_text", "")),
+                                image_url=item_data.get("image_url", ""),
+                                listing_url=item_data.get("listing_url", ""),
+                                category_hint=self._guess_category(item_data.get("title", "")),
+                                scraped_at=datetime.now(timezone.utc).isoformat(),
+                            )
+                            result.listings.append(listing)
+                            new_from_pass += 1
+
+                    if new_from_pass > 0:
+                        logger.info("Extra pass (%s) found %d additional listings!", pass_name, new_from_pass)
+                    else:
+                        logger.info("Extra pass (%s): no new listings found.", pass_name)
+
+                except Exception as e:
+                    logger.debug("Extra pass (%s) failed (non-fatal): %s", pass_name, e)
+
             browser.close()
 
-        result.listings = result.listings[:self.max_listings]
+        # Only truncate if max_listings is explicitly set (> 0)
+        if self.max_listings > 0:
+            result.listings = result.listings[:self.max_listings]
         result.total_listings = len(result.listings)
 
         logger.info(
@@ -407,6 +550,111 @@ class EbayScraper:
         return listings
 
     @staticmethod
+    def _scroll_to_load_all(page) -> None:
+        """Scroll the page incrementally to trigger lazy-loaded listing items."""
+        try:
+            page.evaluate("""
+                async () => {
+                    const delay = ms => new Promise(r => setTimeout(r, ms));
+                    const scrollHeight = () => document.body.scrollHeight;
+                    let prev = 0;
+                    let current = scrollHeight();
+                    // Scroll in 800px increments until we reach the bottom
+                    while (prev < current) {
+                        prev = current;
+                        window.scrollBy(0, 800);
+                        await delay(300);
+                        current = scrollHeight();
+                    }
+                    // Scroll back to top
+                    window.scrollTo(0, 0);
+                }
+            """)
+            # Give a moment for any final items to render
+            time.sleep(0.5)
+        except Exception as e:
+            logger.debug("Scroll helper error (non-fatal): %s", e)
+
+    @staticmethod
+    def _extract_total_results(page) -> Optional[int]:
+        """Extract the total results count from the eBay search page."""
+        try:
+            total_text = page.evaluate("""
+                () => {
+                    // Try multiple selectors for the results count
+                    const selectors = [
+                        '.srp-controls__count-heading span',     // Legacy: "1,234 results"
+                        '.srp-controls__count-heading',          // Legacy alt
+                        'h1.srp-controls__count-heading',        // Legacy h1
+                        '[class*="count"] span',                 // Generic count
+                        'h2[class*="result"]',                   // New layout
+                        '.su-styled-text',                       // New eBay styled text
+                    ];
+
+                    for (const sel of selectors) {
+                        const els = document.querySelectorAll(sel);
+                        for (const el of els) {
+                            const text = el.textContent.trim();
+                            // Match patterns like "29 results", "1,234 results", "37 Results"
+                            const match = text.match(/^([\\d,]+)\\s*results?/i);
+                            if (match) return match[1].replace(/,/g, '');
+                        }
+                    }
+
+                    // Fallback: search the entire page text for "X results"
+                    const bodyText = document.body.innerText;
+                    const match = bodyText.match(/(\\d[\\d,]*)\\s*results?/i);
+                    if (match) return match[1].replace(/,/g, '');
+
+                    return null;
+                }
+            """)
+            if total_text:
+                return int(total_text)
+        except Exception as e:
+            logger.debug("Could not extract total results: %s", e)
+        return None
+
+    @staticmethod
+    def _has_next_page(page, current_page: int) -> bool:
+        """Check if there is a next page using multiple strategies."""
+        try:
+            has_next = page.evaluate("""
+                (currentPage) => {
+                    // Strategy 1: Look for a "next" pagination link/button
+                    const nextSelectors = [
+                        'a.pagination__next',
+                        'a[aria-label="Go to next search page"]',
+                        'a[data-track*="next"]',
+                        'button[aria-label*="next" i]',
+                        'nav[aria-label*="pagination"] a[rel="next"]',
+                        '.pagination a[rel="next"]',
+                        'a[href*="_pgn=' + (currentPage + 1) + '"]',
+                    ];
+                    for (const sel of nextSelectors) {
+                        const el = document.querySelector(sel);
+                        if (el) return true;
+                    }
+
+                    // Strategy 2: Look for page number links higher than current
+                    const pageLinks = document.querySelectorAll(
+                        'a[href*="_pgn="], nav[aria-label*="pagination"] a'
+                    );
+                    for (const link of pageLinks) {
+                        const href = link.href || '';
+                        const match = href.match(/_pgn=(\\d+)/);
+                        if (match && parseInt(match[1]) > currentPage) return true;
+                    }
+
+                    return false;
+                }
+            """, current_page)
+            return bool(has_next)
+        except Exception as e:
+            logger.debug("Error checking for next page: %s", e)
+            return False
+
+    @staticmethod
     def _detect_currency(price_text: str) -> str:
         """Detect currency from price text."""
         if "$" in price_text or "USD" in price_text:
@@ -442,15 +690,21 @@ class EbayScraper:
         result = ScrapeResult(seller_name=self.seller_name)
         page_number = 1
         client = self._get_http_client()
+        seen_item_ids = set()
 
         logger.info("Starting HTTP scrape for seller: %s", self.seller_name)
         logger.warning("HTTP scraping may be blocked by eBay bot detection.")
 
-        while len(result.listings) < self.max_listings:
+        while True:
+            # Stop if we've hit max_listings (0 = unlimited)
+            if self.max_listings > 0 and len(result.listings) >= self.max_listings:
+                break
+
             try:
                 params = {
                     "_ssn": self.seller_name,
                     "_pgn": str(page_number),
+                    "_ipg": "240",   # Max items per page
                     "_sop": "10",
                     "_language": "en",  # Force English listings
                 }
@@ -464,9 +718,13 @@ class EbayScraper:
                     break
 
                 tree = HTMLParser(response.text)
-                items = tree.css(".s-item")
-                page_listings = []
 
+                # Try both new and legacy item selectors
+                items = tree.css('li[id^="item"]')
+                if not items:
+                    items = tree.css(".s-item")
+
+                page_listings = []
                 for item in items:
                     listing = self._parse_http_item(item)
                     if listing and listing.title and listing.title != "Shop on eBay":
@@ -475,23 +733,44 @@ class EbayScraper:
                 if not page_listings:
                     break
 
-                result.listings.extend(page_listings)
+                # Deduplicate
+                new_listings = []
+                for listing in page_listings:
+                    lid = listing.item_id or listing.title
+                    if lid not in seen_item_ids:
+                        seen_item_ids.add(lid)
+                        new_listings.append(listing)
+
+                if not new_listings:
+                    break
+
+                result.listings.extend(new_listings)
                 result.pages_scraped += 1
-                logger.info("Page %d: %d listings", page_number, len(page_listings))
+                logger.info(
+                    "Page %d: %d new listings (%d total)",
+                    page_number, len(new_listings), len(result.listings),
+                )
 
                 # Check next page
-                next_btn = tree.css_first("a.pagination__next")
+                next_btn = tree.css_first(
+                    'a.pagination__next, a[rel="next"], '
+                    f'a[href*="_pgn={page_number + 1}"]'
+                )
                 if not next_btn:
                     break
 
                 page_number += 1
+                if page_number > 20:
+                    break
+
                 time.sleep(self.request_delay)
 
             except Exception as e:
                 result.errors.append(f"Error on page {page_number}: {e}")
                 break
 
-        result.listings = result.listings[:self.max_listings]
+        if self.max_listings > 0:
+            result.listings = result.listings[:self.max_listings]
         result.total_listings = len(result.listings)
         return result
 

@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-02-16T18:52:45.806743+00:00",
-  "total_briefs": 20,
+  "generated_at": "2026-02-18T16:50:03.330047+00:00",
+  "total_briefs": 25,
   "briefs": [
     {
-      "post_id": "best-kitchen-dining-under-69-a-buyers-guide-185fa7",
+      "post_id": "best-kitchen-dining-under-139-a-buyers-guide-558634",
       "post_type": "buyers_guide",
-      "suggested_title": "Best Kitchen & Dining Under £69 — A Buyer's Guide",
+      "suggested_title": "Best Kitchen & Dining Under £139 — A Buyer's Guide",
       "category": "Kitchen & Dining",
       "target_keywords": [
         "kitchen & dining",
@@ -17,39 +17,11 @@
         "buy kitchen & dining online uk",
         "box",
         "boxed",
+        "cutlery",
         "rare",
-        "1970's",
-        "dema"
+        "1970's"
       ],
       "listings": [
-        {
-          "item_id": "227206341105",
-          "title": "Mr Potato Head 3D Mug 7 Face Pieces Ceramic Toy Story - New in Box",
-          "price": 15.99,
-          "currency": "GBP",
-          "condition": "New (other)",
-          "image_url": "https://i.ebayimg.com/images/g/yNAAAeSw5B9phoX0/s-l140.webp",
-          "listing_url": "https://www.ebay.co.uk/itm/227206341105",
-          "shipping": "",
-          "bids": null,
-          "listing_type": "fixed",
-          "category_hint": "Kitchen & Dining",
-          "scraped_at": "2026-02-16T18:52:45.640570+00:00"
-        },
-        {
-          "item_id": "227204941809",
-          "title": "Boxed Set Mugs + Coasters - Beside the Seaside - New",
-          "price": 15.99,
-          "currency": "GBP",
-          "condition": "Brand new",
-          "image_url": "https://i.ebayimg.com/images/g/TSgAAeSwOkpphU39/s-l140.webp",
-          "listing_url": "https://www.ebay.co.uk/itm/227204941809",
-          "shipping": "",
-          "bids": null,
-          "listing_type": "fixed",
-          "category_hint": "Kitchen & Dining",
-          "scraped_at": "2026-02-16T18:52:45.640570+00:00"
-        },
         {
           "item_id": "227204568075",
           "title": "Lurpak Limited Edition Douglas Toast Rack - Very Good Condition w/ Box",
@@ -62,21 +34,7 @@
           "bids": null,
           "listing_type": "fixed",
           "category_hint": "Kitchen & Dining",
-          "scraped_at": "2026-02-16T18:52:45.640570+00:00"
-        },
-        {
-          "item_id": "227212807970",
-          "title": "UFCW Color Cutlery Set Stainless Steel Flatware Set  6 Spoon 6 Fork",
-          "price": 21.99,
-          "currency": "GBP",
-          "condition": "Brand new",
-          "image_url": "https://i.ebayimg.com/images/g/euIAAOSwwCxns6Qs/s-l140.webp",
-          "listing_url": "https://www.ebay.co.uk/itm/227212807970",
-          "shipping": "",
-          "bids": null,
-          "listing_type": "fixed",
-          "category_hint": "Kitchen & Dining",
-          "scraped_at": "2026-02-16T18:52:45.640570+00:00"
+          "scraped_at": "2026-02-18T16:49:58.395859+00:00"
         },
         {
           "item_id": "227204428854",
@@ -90,7 +48,7 @@
           "bids": null,
           "listing_type": "fixed",
           "category_hint": "Kitchen & Dining",
-          "scraped_at": "2026-02-16T18:52:45.640570+00:00"
+          "scraped_at": "2026-02-18T16:49:58.395859+00:00"
         },
         {
           "item_id": "227212808599",
@@ -104,41 +62,83 @@
           "bids": null,
           "listing_type": "fixed",
           "category_hint": "Kitchen & Dining",
-          "scraped_at": "2026-02-16T18:52:45.640570+00:00"
+          "scraped_at": "2026-02-18T16:49:58.396853+00:00"
         },
         {
-          "item_id": "227206323595",
-          "title": "Harry Potter Books 1-3 Hardback Boxed Set Trilogy 1998 - Good Condition",
-          "price": 29.99,
-          "currency": "GBP",
-          "condition": "Pre-owned",
-          "image_url": "https://i.ebayimg.com/images/g/EAYAAeSwo9hphoIr/s-l140.webp",
-          "listing_url": "https://www.ebay.co.uk/itm/227206323595",
-          "shipping": "",
-          "bids": null,
-          "listing_type": "fixed",
-          "category_hint": "Kitchen & Dining",
-          "scraped_at": "2026-02-16T18:52:45.640570+00:00"
-        },
-        {
-          "item_id": "227215524657",
-          "title": "RARE 1970's Dema Gold Gilt Flying Pheasant Beer/Lager Glasses X1 - Multibuy",
-          "price": 12.99,
+          "item_id": "227206341105",
+          "title": "Mr Potato Head 3D Mug 7 Face Pieces Ceramic Toy Story - New in Box",
+          "price": 15.99,
           "currency": "GBP",
           "condition": "New (other)",
-          "image_url": "https://i.ebayimg.com/images/g/27MAAeSw-8Fpjw9N/s-l140.webp",
-          "listing_url": "https://www.ebay.co.uk/itm/227215524657",
+          "image_url": "https://i.ebayimg.com/images/g/yNAAAeSw5B9phoX0/s-l140.webp",
+          "listing_url": "https://www.ebay.co.uk/itm/227206341105",
           "shipping": "",
           "bids": null,
           "listing_type": "fixed",
           "category_hint": "Kitchen & Dining",
-          "scraped_at": "2026-02-16T18:52:45.640570+00:00"
+          "scraped_at": "2026-02-18T16:49:58.395859+00:00"
+        },
+        {
+          "item_id": "227212807970",
+          "title": "UFCW Color Cutlery Set Stainless Steel Flatware Set  6 Spoon 6 Fork",
+          "price": 21.99,
+          "currency": "GBP",
+          "condition": "Brand new",
+          "image_url": "https://i.ebayimg.com/images/g/euIAAOSwwCxns6Qs/s-l140.webp",
+          "listing_url": "https://www.ebay.co.uk/itm/227212807970",
+          "shipping": "",
+          "bids": null,
+          "listing_type": "fixed",
+          "category_hint": "Kitchen & Dining",
+          "scraped_at": "2026-02-18T16:49:58.395859+00:00"
+        },
+        {
+          "item_id": "227204561614",
+          "title": "Vintage Solid Bronze Tableware Cutlery Set Thailand - New in Box",
+          "price": 139.99,
+          "currency": "GBP",
+          "condition": "Brand new",
+          "image_url": "https://i.ebayimg.com/images/g/TYMAAeSwjVFphOj0/s-l140.webp",
+          "listing_url": "https://www.ebay.co.uk/itm/227204561614",
+          "shipping": "",
+          "bids": null,
+          "listing_type": "fixed",
+          "category_hint": "Kitchen & Dining",
+          "scraped_at": "2026-02-18T16:49:58.395859+00:00"
+        },
+        {
+          "item_id": "227204941809",
+          "title": "Boxed Set Mugs + Coasters - Beside the Seaside - New",
+          "price": 15.99,
+          "currency": "GBP",
+          "condition": "Brand new",
+          "image_url": "https://i.ebayimg.com/images/g/TSgAAeSwOkpphU39/s-l140.webp",
+          "listing_url": "https://www.ebay.co.uk/itm/227204941809",
+          "shipping": "",
+          "bids": null,
+          "listing_type": "fixed",
+          "category_hint": "Kitchen & Dining",
+          "scraped_at": "2026-02-18T16:49:58.395859+00:00"
+        },
+        {
+          "item_id": "227217241043",
+          "title": "Acne Treatment BREYLEE Japanese Ultra Fine Fibre Mask Cloth -7 Sheets - Free P&P",
+          "price": 14.99,
+          "currency": "GBP",
+          "condition": "Brand new",
+          "image_url": "https://i.ebayimg.com/images/g/ysoAAOSwM6RoFQ3G/s-l140.webp",
+          "listing_url": "https://www.ebay.co.uk/itm/227217241043",
+          "shipping": "",
+          "bids": null,
+          "listing_type": "fixed",
+          "category_hint": "Kitchen & Dining",
+          "scraped_at": "2026-02-18T16:49:58.395859+00:00"
         }
       ],
-      "price_range": "£10 - £70",
-      "listing_count": 8,
-      "instructions": "Write an SEO-optimized blog post about Kitchen & Dining. There are 8 listings available in the £10 - £70 range. Each product mentioned MUST include its eBay link so readers can buy. Write in a friendly, knowledgeable tone — like a trusted friend who's done the homework. Use short paragraphs (2-3 sentences max) and descriptive subheadings for scannability. Do NOT mention that this is AI-generated. Do NOT use excessive exclamation marks, hype language, or filler phrases. Include a clear call-to-action encouraging readers to check out the listings. Add genuine buying advice — what to look for, what to avoid, care tips, or sizing guidance. Mention specific details about each product (materials, dimensions, features) that show real expertise. Structure the post as: hook intro explaining why these items are worth buying, individual product highlights with specific pros and practical use cases, a 'what to look for when buying' tips section with genuine expertise, and a conclusion naming your top pick with reasoning.",
-      "created_at": "2026-02-16T18:52:45.806743+00:00"
+      "price_range": "£10 - £140",
+      "listing_count": 10,
+      "instructions": "Write an SEO-optimized blog post about Kitchen & Dining. There are 10 listings available in the £10 - £140 range. Each product mentioned MUST include its eBay link so readers can buy. Write in a friendly, knowledgeable tone — like a trusted friend who's done the homework. Use short paragraphs (2-3 sentences max) and descriptive subheadings for scannability. Do NOT mention that this is AI-generated. Do NOT use excessive exclamation marks, hype language, or filler phrases. Include a clear call-to-action encouraging readers to check out the listings. Add genuine buying advice — what to look for, what to avoid, care tips, or sizing guidance. Mention specific details about each product (materials, dimensions, features) that show real expertise. Structure the post as: hook intro explaining why these items are worth buying, individual product highlights with specific pros and practical use cases, a 'what to look for when buying' tips section with genuine expertise, and a conclusion naming your top pick with reasoning.",
+      "created_at": "2026-02-18T16:50:03.331039+00:00"
     },
     {
       "post_id": "this-weeks-best-kitchen-dining-picks-1f3df3",
@@ -155,39 +155,11 @@
         "buy kitchen & dining online uk",
         "box",
         "boxed",
+        "cutlery",
         "rare",
-        "1970's",
-        "dema"
+        "1970's"
       ],
       "listings": [
-        {
-          "item_id": "227204941809",
-          "title": "Boxed Set Mugs + Coasters - Beside the Seaside - New",
-          "price": 15.99,
-          "currency": "GBP",
-          "condition": "Brand new",
-          "image_url": "https://i.ebayimg.com/images/g/TSgAAeSwOkpphU39/s-l140.webp",
-          "listing_url": "https://www.ebay.co.uk/itm/227204941809",
-          "shipping": "",
-          "bids": null,
-          "listing_type": "fixed",
-          "category_hint": "Kitchen & Dining",
-          "scraped_at": "2026-02-16T18:52:45.640570+00:00"
-        },
-        {
-          "item_id": "227204568075",
-          "title": "Lurpak Limited Edition Douglas Toast Rack - Very Good Condition w/ Box",
-          "price": 9.72,
-          "currency": "GBP",
-          "condition": "Pre-owned",
-          "image_url": "https://i.ebayimg.com/images/g/mY4AAeSwKAJphOqv/s-l140.webp",
-          "listing_url": "https://www.ebay.co.uk/itm/227204568075",
-          "shipping": "",
-          "bids": null,
-          "listing_type": "fixed",
-          "category_hint": "Kitchen & Dining",
-          "scraped_at": "2026-02-16T18:52:45.640570+00:00"
-        },
         {
           "item_id": "227212807970",
           "title": "UFCW Color Cutlery Set Stainless Steel Flatware Set  6 Spoon 6 Fork",
@@ -200,35 +172,7 @@
           "bids": null,
           "listing_type": "fixed",
           "category_hint": "Kitchen & Dining",
-          "scraped_at": "2026-02-16T18:52:45.640570+00:00"
-        },
-        {
-          "item_id": "227212808599",
-          "title": "Cath Kidston Provence Rose Set Of 4 Cups &  Saucers Bnib",
-          "price": 69.99,
-          "currency": "GBP",
-          "condition": "Brand new",
-          "image_url": "https://i.ebayimg.com/images/g/hIgAAOSww5Rm-9C~/s-l140.webp",
-          "listing_url": "https://www.ebay.co.uk/itm/227212808599",
-          "shipping": "",
-          "bids": null,
-          "listing_type": "fixed",
-          "category_hint": "Kitchen & Dining",
-          "scraped_at": "2026-02-16T18:52:45.640570+00:00"
-        },
-        {
-          "item_id": "227206341105",
-          "title": "Mr Potato Head 3D Mug 7 Face Pieces Ceramic Toy Story - New in Box",
-          "price": 15.99,
-          "currency": "GBP",
-          "condition": "New (other)",
-          "image_url": "https://i.ebayimg.com/images/g/yNAAAeSw5B9phoX0/s-l140.webp",
-          "listing_url": "https://www.ebay.co.uk/itm/227206341105",
-          "shipping": "",
-          "bids": null,
-          "listing_type": "fixed",
-          "category_hint": "Kitchen & Dining",
-          "scraped_at": "2026-02-16T18:52:45.640570+00:00"
+          "scraped_at": "2026-02-18T16:49:58.395859+00:00"
         },
         {
           "item_id": "227204428854",
@@ -242,21 +186,77 @@
           "bids": null,
           "listing_type": "fixed",
           "category_hint": "Kitchen & Dining",
-          "scraped_at": "2026-02-16T18:52:45.640570+00:00"
+          "scraped_at": "2026-02-18T16:49:58.395859+00:00"
         },
         {
-          "item_id": "227215524657",
-          "title": "RARE 1970's Dema Gold Gilt Flying Pheasant Beer/Lager Glasses X1 - Multibuy",
-          "price": 12.99,
+          "item_id": "227206341105",
+          "title": "Mr Potato Head 3D Mug 7 Face Pieces Ceramic Toy Story - New in Box",
+          "price": 15.99,
           "currency": "GBP",
           "condition": "New (other)",
-          "image_url": "https://i.ebayimg.com/images/g/27MAAeSw-8Fpjw9N/s-l140.webp",
-          "listing_url": "https://www.ebay.co.uk/itm/227215524657",
+          "image_url": "https://i.ebayimg.com/images/g/yNAAAeSw5B9phoX0/s-l140.webp",
+          "listing_url": "https://www.ebay.co.uk/itm/227206341105",
           "shipping": "",
           "bids": null,
           "listing_type": "fixed",
           "category_hint": "Kitchen & Dining",
-          "scraped_at": "2026-02-16T18:52:45.640570+00:00"
+          "scraped_at": "2026-02-18T16:49:58.395859+00:00"
+        },
+        {
+          "item_id": "227204561614",
+          "title": "Vintage Solid Bronze Tableware Cutlery Set Thailand - New in Box",
+          "price": 139.99,
+          "currency": "GBP",
+          "condition": "Brand new",
+          "image_url": "https://i.ebayimg.com/images/g/TYMAAeSwjVFphOj0/s-l140.webp",
+          "listing_url": "https://www.ebay.co.uk/itm/227204561614",
+          "shipping": "",
+          "bids": null,
+          "listing_type": "fixed",
+          "category_hint": "Kitchen & Dining",
+          "scraped_at": "2026-02-18T16:49:58.395859+00:00"
+        },
+        {
+          "item_id": "227204568075",
+          "title": "Lurpak Limited Edition Douglas Toast Rack - Very Good Condition w/ Box",
+          "price": 9.72,
+          "currency": "GBP",
+          "condition": "Pre-owned",
+          "image_url": "https://i.ebayimg.com/images/g/mY4AAeSwKAJphOqv/s-l140.webp",
+          "listing_url": "https://www.ebay.co.uk/itm/227204568075",
+          "shipping": "",
+          "bids": null,
+          "listing_type": "fixed",
+          "category_hint": "Kitchen & Dining",
+          "scraped_at": "2026-02-18T16:49:58.395859+00:00"
+        },
+        {
+          "item_id": "227212808599",
+          "title": "Cath Kidston Provence Rose Set Of 4 Cups &  Saucers Bnib",
+          "price": 69.99,
+          "currency": "GBP",
+          "condition": "Brand new",
+          "image_url": "https://i.ebayimg.com/images/g/hIgAAOSww5Rm-9C~/s-l140.webp",
+          "listing_url": "https://www.ebay.co.uk/itm/227212808599",
+          "shipping": "",
+          "bids": null,
+          "listing_type": "fixed",
+          "category_hint": "Kitchen & Dining",
+          "scraped_at": "2026-02-18T16:49:58.396853+00:00"
+        },
+        {
+          "item_id": "227204941809",
+          "title": "Boxed Set Mugs + Coasters - Beside the Seaside - New",
+          "price": 15.99,
+          "currency": "GBP",
+          "condition": "Brand new",
+          "image_url": "https://i.ebayimg.com/images/g/TSgAAeSwOkpphU39/s-l140.webp",
+          "listing_url": "https://www.ebay.co.uk/itm/227204941809",
+          "shipping": "",
+          "bids": null,
+          "listing_type": "fixed",
+          "category_hint": "Kitchen & Dining",
+          "scraped_at": "2026-02-18T16:49:58.395859+00:00"
         },
         {
           "item_id": "227206323595",
@@ -270,18 +270,18 @@
           "bids": null,
           "listing_type": "fixed",
           "category_hint": "Kitchen & Dining",
-          "scraped_at": "2026-02-16T18:52:45.640570+00:00"
+          "scraped_at": "2026-02-18T16:49:58.395859+00:00"
         }
       ],
-      "price_range": "£10 - £70",
-      "listing_count": 8,
-      "instructions": "Write an SEO-optimized blog post about Kitchen & Dining. There are 8 listings available in the £10 - £70 range. Each product mentioned MUST include its eBay link so readers can buy. Write in a friendly, knowledgeable tone — like a trusted friend who's done the homework. Use short paragraphs (2-3 sentences max) and descriptive subheadings for scannability. Do NOT mention that this is AI-generated. Do NOT use excessive exclamation marks, hype language, or filler phrases. Include a clear call-to-action encouraging readers to check out the listings. Add genuine buying advice — what to look for, what to avoid, care tips, or sizing guidance. Mention specific details about each product (materials, dimensions, features) that show real expertise. Structure as a listicle — strong intro paragraph, then each product with its own ### subheading, price, condition, and 2-3 sentences on why it's notable. Include a comparison angle (best for X, best for Y). End with a 'best overall' pick and summary table if 4+ products.",
-      "created_at": "2026-02-16T18:52:45.808245+00:00"
+      "price_range": "£10 - £140",
+      "listing_count": 10,
+      "instructions": "Write an SEO-optimized blog post about Kitchen & Dining. There are 10 listings available in the £10 - £140 range. Each product mentioned MUST include its eBay link so readers can buy. Write in a friendly, knowledgeable tone — like a trusted friend who's done the homework. Use short paragraphs (2-3 sentences max) and descriptive subheadings for scannability. Do NOT mention that this is AI-generated. Do NOT use excessive exclamation marks, hype language, or filler phrases. Include a clear call-to-action encouraging readers to check out the listings. Add genuine buying advice — what to look for, what to avoid, care tips, or sizing guidance. Mention specific details about each product (materials, dimensions, features) that show real expertise. Structure as a listicle — strong intro paragraph, then each product with its own ### subheading, price, condition, and 2-3 sentences on why it's notable. Include a comparison angle (best for X, best for Y). End with a 'best overall' pick and summary table if 4+ products.",
+      "created_at": "2026-02-18T16:50:03.331039+00:00"
     },
     {
-      "post_id": "kitchen-dining-on-sale-top-picks-under-69-4552b7",
+      "post_id": "deal-alert-10-kitchen-dining-at-great-prices-e5e72c",
       "post_type": "deals",
-      "suggested_title": "Kitchen & Dining on Sale: Top Picks Under £69",
+      "suggested_title": "Deal Alert: 10 Kitchen & Dining at Great Prices",
       "category": "Kitchen & Dining",
       "target_keywords": [
         "kitchen & dining",
@@ -293,39 +293,11 @@
         "buy kitchen & dining online uk",
         "box",
         "boxed",
+        "cutlery",
         "rare",
-        "1970's",
-        "dema"
+        "1970's"
       ],
       "listings": [
-        {
-          "item_id": "227204941809",
-          "title": "Boxed Set Mugs + Coasters - Beside the Seaside - New",
-          "price": 15.99,
-          "currency": "GBP",
-          "condition": "Brand new",
-          "image_url": "https://i.ebayimg.com/images/g/TSgAAeSwOkpphU39/s-l140.webp",
-          "listing_url": "https://www.ebay.co.uk/itm/227204941809",
-          "shipping": "",
-          "bids": null,
-          "listing_type": "fixed",
-          "category_hint": "Kitchen & Dining",
-          "scraped_at": "2026-02-16T18:52:45.640570+00:00"
-        },
-        {
-          "item_id": "227206341105",
-          "title": "Mr Potato Head 3D Mug 7 Face Pieces Ceramic Toy Story - New in Box",
-          "price": 15.99,
-          "currency": "GBP",
-          "condition": "New (other)",
-          "image_url": "https://i.ebayimg.com/images/g/yNAAAeSw5B9phoX0/s-l140.webp",
-          "listing_url": "https://www.ebay.co.uk/itm/227206341105",
-          "shipping": "",
-          "bids": null,
-          "listing_type": "fixed",
-          "category_hint": "Kitchen & Dining",
-          "scraped_at": "2026-02-16T18:52:45.640570+00:00"
-        },
         {
           "item_id": "227204568075",
           "title": "Lurpak Limited Edition Douglas Toast Rack - Very Good Condition w/ Box",
@@ -338,7 +310,21 @@
           "bids": null,
           "listing_type": "fixed",
           "category_hint": "Kitchen & Dining",
-          "scraped_at": "2026-02-16T18:52:45.640570+00:00"
+          "scraped_at": "2026-02-18T16:49:58.395859+00:00"
+        },
+        {
+          "item_id": "227204941809",
+          "title": "Boxed Set Mugs + Coasters - Beside the Seaside - New",
+          "price": 15.99,
+          "currency": "GBP",
+          "condition": "Brand new",
+          "image_url": "https://i.ebayimg.com/images/g/TSgAAeSwOkpphU39/s-l140.webp",
+          "listing_url": "https://www.ebay.co.uk/itm/227204941809",
+          "shipping": "",
+          "bids": null,
+          "listing_type": "fixed",
+          "category_hint": "Kitchen & Dining",
+          "scraped_at": "2026-02-18T16:49:58.395859+00:00"
         },
         {
           "item_id": "227212808599",
@@ -352,21 +338,7 @@
           "bids": null,
           "listing_type": "fixed",
           "category_hint": "Kitchen & Dining",
-          "scraped_at": "2026-02-16T18:52:45.640570+00:00"
-        },
-        {
-          "item_id": "227212807970",
-          "title": "UFCW Color Cutlery Set Stainless Steel Flatware Set  6 Spoon 6 Fork",
-          "price": 21.99,
-          "currency": "GBP",
-          "condition": "Brand new",
-          "image_url": "https://i.ebayimg.com/images/g/euIAAOSwwCxns6Qs/s-l140.webp",
-          "listing_url": "https://www.ebay.co.uk/itm/227212807970",
-          "shipping": "",
-          "bids": null,
-          "listing_type": "fixed",
-          "category_hint": "Kitchen & Dining",
-          "scraped_at": "2026-02-16T18:52:45.640570+00:00"
+          "scraped_at": "2026-02-18T16:49:58.396853+00:00"
         },
         {
           "item_id": "227204428854",
@@ -380,21 +352,187 @@
           "bids": null,
           "listing_type": "fixed",
           "category_hint": "Kitchen & Dining",
-          "scraped_at": "2026-02-16T18:52:45.640570+00:00"
+          "scraped_at": "2026-02-18T16:49:58.395859+00:00"
         },
         {
-          "item_id": "227206323595",
-          "title": "Harry Potter Books 1-3 Hardback Boxed Set Trilogy 1998 - Good Condition",
-          "price": 29.99,
+          "item_id": "227204561614",
+          "title": "Vintage Solid Bronze Tableware Cutlery Set Thailand - New in Box",
+          "price": 139.99,
           "currency": "GBP",
-          "condition": "Pre-owned",
-          "image_url": "https://i.ebayimg.com/images/g/EAYAAeSwo9hphoIr/s-l140.webp",
-          "listing_url": "https://www.ebay.co.uk/itm/227206323595",
+          "condition": "Brand new",
+          "image_url": "https://i.ebayimg.com/images/g/TYMAAeSwjVFphOj0/s-l140.webp",
+          "listing_url": "https://www.ebay.co.uk/itm/227204561614",
           "shipping": "",
           "bids": null,
           "listing_type": "fixed",
           "category_hint": "Kitchen & Dining",
-          "scraped_at": "2026-02-16T18:52:45.640570+00:00"
+          "scraped_at": "2026-02-18T16:49:58.395859+00:00"
+        },
+        {
+          "item_id": "227206341105",
+          "title": "Mr Potato Head 3D Mug 7 Face Pieces Ceramic Toy Story - New in Box",
+          "price": 15.99,
+          "currency": "GBP",
+          "condition": "New (other)",
+          "image_url": "https://i.ebayimg.com/images/g/yNAAAeSw5B9phoX0/s-l140.webp",
+          "listing_url": "https://www.ebay.co.uk/itm/227206341105",
+          "shipping": "",
+          "bids": null,
+          "listing_type": "fixed",
+          "category_hint": "Kitchen & Dining",
+          "scraped_at": "2026-02-18T16:49:58.395859+00:00"
+        },
+        {
+          "item_id": "227212807970",
+          "title": "UFCW Color Cutlery Set Stainless Steel Flatware Set  6 Spoon 6 Fork",
+          "price": 21.99,
+          "currency": "GBP",
+          "condition": "Brand new",
+          "image_url": "https://i.ebayimg.com/images/g/euIAAOSwwCxns6Qs/s-l140.webp",
+          "listing_url": "https://www.ebay.co.uk/itm/227212807970",
+          "shipping": "",
+          "bids": null,
+          "listing_type": "fixed",
+          "category_hint": "Kitchen & Dining",
+          "scraped_at": "2026-02-18T16:49:58.395859+00:00"
+        },
+        {
+          "item_id": "227217241043",
+          "title": "Acne Treatment BREYLEE Japanese Ultra Fine Fibre Mask Cloth -7 Sheets - Free P&P",
+          "price": 14.99,
+          "currency": "GBP",
+          "condition": "Brand new",
+          "image_url": "https://i.ebayimg.com/images/g/ysoAAOSwM6RoFQ3G/s-l140.webp",
+          "listing_url": "https://www.ebay.co.uk/itm/227217241043",
+          "shipping": "",
+          "bids": null,
+          "listing_type": "fixed",
+          "category_hint": "Kitchen & Dining",
+          "scraped_at": "2026-02-18T16:49:58.395859+00:00"
+        }
+      ],
+      "price_range": "£10 - £140",
+      "listing_count": 10,
+      "instructions": "Write an SEO-optimized blog post about Kitchen & Dining. There are 10 listings available in the £10 - £140 range. Each product mentioned MUST include its eBay link so readers can buy. Write in a friendly, knowledgeable tone — like a trusted friend who's done the homework. Use short paragraphs (2-3 sentences max) and descriptive subheadings for scannability. Do NOT mention that this is AI-generated. Do NOT use excessive exclamation marks, hype language, or filler phrases. Include a clear call-to-action encouraging readers to check out the listings. Add genuine buying advice — what to look for, what to avoid, care tips, or sizing guidance. Mention specific details about each product (materials, dimensions, features) that show real expertise. Focus on value — why each item is a good deal at its current price. Lead with the best value-for-money item. For each deal, explain what makes the price good (compare to typical market price if possible). Create soft urgency without being pushy — focus on limited quantity or seasonal relevance.",
+      "created_at": "2026-02-18T16:50:03.331039+00:00"
+    },
+    {
+      "post_id": "kitchen-dining-101-tips-for-first-time-buyers-e4a28b",
+      "post_type": "how_to",
+      "suggested_title": "Kitchen & Dining 101: Tips for First-Time Buyers",
+      "category": "Kitchen & Dining",
+      "target_keywords": [
+        "kitchen & dining",
+        "buy kitchen & dining",
+        "best kitchen & dining",
+        "cheap kitchen & dining",
+        "kitchen & dining for sale",
+        "kitchen & dining uk",
+        "buy kitchen & dining online uk",
+        "box",
+        "boxed",
+        "cutlery",
+        "rare",
+        "1970's"
+      ],
+      "listings": [
+        {
+          "item_id": "227204428854",
+          "title": "Dromedary HVLP Spray Gun 1.7mm Tip 600ml Pot Blue - New Sealed",
+          "price": 29.99,
+          "currency": "GBP",
+          "condition": "Brand new",
+          "image_url": "https://i.ebayimg.com/images/g/3sQAAeSwwFFphMcF/s-l140.webp",
+          "listing_url": "https://www.ebay.co.uk/itm/227204428854",
+          "shipping": "",
+          "bids": null,
+          "listing_type": "fixed",
+          "category_hint": "Kitchen & Dining",
+          "scraped_at": "2026-02-18T16:49:58.395859+00:00"
+        },
+        {
+          "item_id": "227204561614",
+          "title": "Vintage Solid Bronze Tableware Cutlery Set Thailand - New in Box",
+          "price": 139.99,
+          "currency": "GBP",
+          "condition": "Brand new",
+          "image_url": "https://i.ebayimg.com/images/g/TYMAAeSwjVFphOj0/s-l140.webp",
+          "listing_url": "https://www.ebay.co.uk/itm/227204561614",
+          "shipping": "",
+          "bids": null,
+          "listing_type": "fixed",
+          "category_hint": "Kitchen & Dining",
+          "scraped_at": "2026-02-18T16:49:58.395859+00:00"
+        },
+        {
+          "item_id": "227204568075",
+          "title": "Lurpak Limited Edition Douglas Toast Rack - Very Good Condition w/ Box",
+          "price": 9.72,
+          "currency": "GBP",
+          "condition": "Pre-owned",
+          "image_url": "https://i.ebayimg.com/images/g/mY4AAeSwKAJphOqv/s-l140.webp",
+          "listing_url": "https://www.ebay.co.uk/itm/227204568075",
+          "shipping": "",
+          "bids": null,
+          "listing_type": "fixed",
+          "category_hint": "Kitchen & Dining",
+          "scraped_at": "2026-02-18T16:49:58.395859+00:00"
+        },
+        {
+          "item_id": "227212807970",
+          "title": "UFCW Color Cutlery Set Stainless Steel Flatware Set  6 Spoon 6 Fork",
+          "price": 21.99,
+          "currency": "GBP",
+          "condition": "Brand new",
+          "image_url": "https://i.ebayimg.com/images/g/euIAAOSwwCxns6Qs/s-l140.webp",
+          "listing_url": "https://www.ebay.co.uk/itm/227212807970",
+          "shipping": "",
+          "bids": null,
+          "listing_type": "fixed",
+          "category_hint": "Kitchen & Dining",
+          "scraped_at": "2026-02-18T16:49:58.395859+00:00"
+        },
+        {
+          "item_id": "227204941809",
+          "title": "Boxed Set Mugs + Coasters - Beside the Seaside - New",
+          "price": 15.99,
+          "currency": "GBP",
+          "condition": "Brand new",
+          "image_url": "https://i.ebayimg.com/images/g/TSgAAeSwOkpphU39/s-l140.webp",
+          "listing_url": "https://www.ebay.co.uk/itm/227204941809",
+          "shipping": "",
+          "bids": null,
+          "listing_type": "fixed",
+          "category_hint": "Kitchen & Dining",
+          "scraped_at": "2026-02-18T16:49:58.395859+00:00"
+        },
+        {
+          "item_id": "227212808599",
+          "title": "Cath Kidston Provence Rose Set Of 4 Cups &  Saucers Bnib",
+          "price": 69.99,
+          "currency": "GBP",
+          "condition": "Brand new",
+          "image_url": "https://i.ebayimg.com/images/g/hIgAAOSww5Rm-9C~/s-l140.webp",
+          "listing_url": "https://www.ebay.co.uk/itm/227212808599",
+          "shipping": "",
+          "bids": null,
+          "listing_type": "fixed",
+          "category_hint": "Kitchen & Dining",
+          "scraped_at": "2026-02-18T16:49:58.396853+00:00"
+        },
+        {
+          "item_id": "227206341105",
+          "title": "Mr Potato Head 3D Mug 7 Face Pieces Ceramic Toy Story - New in Box",
+          "price": 15.99,
+          "currency": "GBP",
+          "condition": "New (other)",
+          "image_url": "https://i.ebayimg.com/images/g/yNAAAeSw5B9phoX0/s-l140.webp",
+          "listing_url": "https://www.ebay.co.uk/itm/227206341105",
+          "shipping": "",
+          "bids": null,
+          "listing_type": "fixed",
+          "category_hint": "Kitchen & Dining",
+          "scraped_at": "2026-02-18T16:49:58.395859+00:00"
         },
         {
           "item_id": "227215524657",
@@ -402,106 +540,24 @@
           "price": 12.99,
           "currency": "GBP",
           "condition": "New (other)",
-          "image_url": "https://i.ebayimg.com/images/g/27MAAeSw-8Fpjw9N/s-l140.webp",
+          "image_url": "https://i.ebayimg.com/images/g/27MAAeSw-8Fpjw9N/s-l500.webp",
           "listing_url": "https://www.ebay.co.uk/itm/227215524657",
           "shipping": "",
           "bids": null,
           "listing_type": "fixed",
           "category_hint": "Kitchen & Dining",
-          "scraped_at": "2026-02-16T18:52:45.640570+00:00"
+          "scraped_at": "2026-02-18T16:49:58.394859+00:00"
         }
       ],
-      "price_range": "£10 - £70",
-      "listing_count": 8,
-      "instructions": "Write an SEO-optimized blog post about Kitchen & Dining. There are 8 listings available in the £10 - £70 range. Each product mentioned MUST include its eBay link so readers can buy. Write in a friendly, knowledgeable tone — like a trusted friend who's done the homework. Use short paragraphs (2-3 sentences max) and descriptive subheadings for scannability. Do NOT mention that this is AI-generated. Do NOT use excessive exclamation marks, hype language, or filler phrases. Include a clear call-to-action encouraging readers to check out the listings. Add genuine buying advice — what to look for, what to avoid, care tips, or sizing guidance. Mention specific details about each product (materials, dimensions, features) that show real expertise. Focus on value — why each item is a good deal at its current price. Lead with the best value-for-money item. For each deal, explain what makes the price good (compare to typical market price if possible). Create soft urgency without being pushy — focus on limited quantity or seasonal relevance.",
-      "created_at": "2026-02-16T18:52:45.808245+00:00"
+      "price_range": "£10 - £140",
+      "listing_count": 10,
+      "instructions": "Write an SEO-optimized blog post about Kitchen & Dining. There are 10 listings available in the £10 - £140 range. Each product mentioned MUST include its eBay link so readers can buy. Write in a friendly, knowledgeable tone — like a trusted friend who's done the homework. Use short paragraphs (2-3 sentences max) and descriptive subheadings for scannability. Do NOT mention that this is AI-generated. Do NOT use excessive exclamation marks, hype language, or filler phrases. Include a clear call-to-action encouraging readers to check out the listings. Add genuine buying advice — what to look for, what to avoid, care tips, or sizing guidance. Mention specific details about each product (materials, dimensions, features) that show real expertise. Structure as an educational guide — start with why this knowledge saves money or time, give practical step-by-step advice based on real buying experience, weave in specific product recommendations with links as examples, and include a 'common mistakes to avoid' section.",
+      "created_at": "2026-02-18T16:50:03.331039+00:00"
     },
     {
-      "post_id": "best-tech-electronics-under-80-a-buyers-guide-91f15c",
+      "post_id": "beauty-health-what-to-look-for-before-you-buy-9e41bc",
       "post_type": "buyers_guide",
-      "suggested_title": "Best Tech & Electronics Under £80 — A Buyer's Guide",
-      "category": "Tech & Electronics",
-      "target_keywords": [
-        "tech & electronics",
-        "buy tech & electronics",
-        "best tech & electronics",
-        "cheap tech & electronics",
-        "tech & electronics for sale",
-        "tech & electronics uk",
-        "buy tech & electronics online uk",
-        "stand",
-        "dji",
-        "osmo",
-        "mobile",
-        "gimbal"
-      ],
-      "listings": [
-        {
-          "item_id": "227215512715",
-          "title": "DJI Osmo Mobile 4 - Gimbal Stabilizer",
-          "price": 80.0,
-          "currency": "GBP",
-          "condition": "Opened – never used",
-          "image_url": "https://i.ebayimg.com/images/g/2MIAAeSwLixpjwu7/s-l140.webp",
-          "listing_url": "https://www.ebay.co.uk/itm/227215512715",
-          "shipping": "",
-          "bids": null,
-          "listing_type": "fixed",
-          "category_hint": "Tech & Electronics",
-          "scraped_at": "2026-02-16T18:52:45.640570+00:00"
-        },
-        {
-          "item_id": "227204918144",
-          "title": "Bike Phone Mount Frame Bag Touch Screen MTB Road Cycling Holder - New",
-          "price": 13.99,
-          "currency": "GBP",
-          "condition": "Brand new",
-          "image_url": "https://i.ebayimg.com/images/g/1CoAAeSwWZRphUpQ/s-l140.webp",
-          "listing_url": "https://www.ebay.co.uk/itm/227204918144",
-          "shipping": "",
-          "bids": null,
-          "listing_type": "fixed",
-          "category_hint": "Tech & Electronics",
-          "scraped_at": "2026-02-16T18:52:45.640570+00:00"
-        },
-        {
-          "item_id": "227204576588",
-          "title": "GOKEDA Aluminium Laptop Stand Ergonomic Computer Desk Stand - New",
-          "price": 19.99,
-          "currency": "GBP",
-          "condition": "Brand new",
-          "image_url": "https://i.ebayimg.com/images/g/V~UAAeSwHtBphOze/s-l140.webp",
-          "listing_url": "https://www.ebay.co.uk/itm/227204576588",
-          "shipping": "",
-          "bids": null,
-          "listing_type": "fixed",
-          "category_hint": "Tech & Electronics",
-          "scraped_at": "2026-02-16T18:52:45.640570+00:00"
-        },
-        {
-          "item_id": "227204904735",
-          "title": "Mecha Stand For Amazon Echo Dot 4 & Apple HomePod Mini - Orange - Opened Unused",
-          "price": 9.99,
-          "currency": "GBP",
-          "condition": "Pre-owned",
-          "image_url": "https://i.ebayimg.com/images/g/uqsAAeSw-PpphUVk/s-l140.webp",
-          "listing_url": "https://www.ebay.co.uk/itm/227204904735",
-          "shipping": "",
-          "bids": null,
-          "listing_type": "fixed",
-          "category_hint": "Tech & Electronics",
-          "scraped_at": "2026-02-16T18:52:45.640570+00:00"
-        }
-      ],
-      "price_range": "£10 - £80",
-      "listing_count": 4,
-      "instructions": "Write an SEO-optimized blog post about Tech & Electronics. There are 4 listings available in the £10 - £80 range. Each product mentioned MUST include its eBay link so readers can buy. Write in a friendly, knowledgeable tone — like a trusted friend who's done the homework. Use short paragraphs (2-3 sentences max) and descriptive subheadings for scannability. Do NOT mention that this is AI-generated. Do NOT use excessive exclamation marks, hype language, or filler phrases. Include a clear call-to-action encouraging readers to check out the listings. Add genuine buying advice — what to look for, what to avoid, care tips, or sizing guidance. Mention specific details about each product (materials, dimensions, features) that show real expertise. Structure the post as: hook intro explaining why these items are worth buying, individual product highlights with specific pros and practical use cases, a 'what to look for when buying' tips section with genuine expertise, and a conclusion naming your top pick with reasoning.",
-      "created_at": "2026-02-16T18:52:45.808245+00:00"
-    },
-    {
-      "post_id": "best-beauty-health-under-85-a-buyers-guide-87acca",
-      "post_type": "buyers_guide",
-      "suggested_title": "Best Beauty & Health Under £85 — A Buyer's Guide",
+      "suggested_title": "Beauty & Health: What to Look for Before You Buy",
       "category": "Beauty & Health",
       "target_keywords": [
         "beauty & health",
@@ -519,20 +575,6 @@
       ],
       "listings": [
         {
-          "item_id": "227204571197",
-          "title": "Multifunctional Aluminium Alloy Portable Stand 9.5\" - Brand New Boxed",
-          "price": 12.94,
-          "currency": "GBP",
-          "condition": "Brand new",
-          "image_url": "https://i.ebayimg.com/images/g/HvwAAeSw0RhphOvw/s-l140.webp",
-          "listing_url": "https://www.ebay.co.uk/itm/227204571197",
-          "shipping": "",
-          "bids": null,
-          "listing_type": "fixed",
-          "category_hint": "Beauty & Health",
-          "scraped_at": "2026-02-16T18:52:45.640570+00:00"
-        },
-        {
           "item_id": "227210111091",
           "title": "Revell 05422 1:96 Cutty Sark Model Kit - Brand New Sealed",
           "price": 85.99,
@@ -544,7 +586,7 @@
           "bids": null,
           "listing_type": "fixed",
           "category_hint": "Beauty & Health",
-          "scraped_at": "2026-02-16T18:52:45.640570+00:00"
+          "scraped_at": "2026-02-18T16:49:58.395859+00:00"
         },
         {
           "item_id": "227204587061",
@@ -558,7 +600,35 @@
           "bids": null,
           "listing_type": "fixed",
           "category_hint": "Beauty & Health",
-          "scraped_at": "2026-02-16T18:52:45.640570+00:00"
+          "scraped_at": "2026-02-18T16:49:58.395859+00:00"
+        },
+        {
+          "item_id": "227204571197",
+          "title": "Multifunctional Aluminium Alloy Portable Stand 9.5\" - Brand New Boxed",
+          "price": 12.94,
+          "currency": "GBP",
+          "condition": "Brand new",
+          "image_url": "https://i.ebayimg.com/images/g/HvwAAeSw0RhphOvw/s-l140.webp",
+          "listing_url": "https://www.ebay.co.uk/itm/227204571197",
+          "shipping": "",
+          "bids": null,
+          "listing_type": "fixed",
+          "category_hint": "Beauty & Health",
+          "scraped_at": "2026-02-18T16:49:58.395859+00:00"
+        },
+        {
+          "item_id": "227206299139",
+          "title": "Lloyds Pharmacy ARM Blood Pressure Monitor + Cuff - Very Good Condition",
+          "price": 12.99,
+          "currency": "GBP",
+          "condition": "Pre-owned",
+          "image_url": "https://i.ebayimg.com/images/g/XVQAAeSwrHtphnvu/s-l140.webp",
+          "listing_url": "https://www.ebay.co.uk/itm/227206299139",
+          "shipping": "",
+          "bids": null,
+          "listing_type": "fixed",
+          "category_hint": "Beauty & Health",
+          "scraped_at": "2026-02-18T16:49:58.395859+00:00"
         },
         {
           "item_id": "227215678758",
@@ -572,60 +642,32 @@
           "bids": null,
           "listing_type": "fixed",
           "category_hint": "Beauty & Health",
-          "scraped_at": "2026-02-16T18:52:45.640570+00:00"
-        }
-      ],
-      "price_range": "£13 - £86",
-      "listing_count": 4,
-      "instructions": "Write an SEO-optimized blog post about Beauty & Health. There are 4 listings available in the £13 - £86 range. Each product mentioned MUST include its eBay link so readers can buy. Write in a friendly, knowledgeable tone — like a trusted friend who's done the homework. Use short paragraphs (2-3 sentences max) and descriptive subheadings for scannability. Do NOT mention that this is AI-generated. Do NOT use excessive exclamation marks, hype language, or filler phrases. Include a clear call-to-action encouraging readers to check out the listings. Add genuine buying advice — what to look for, what to avoid, care tips, or sizing guidance. Mention specific details about each product (materials, dimensions, features) that show real expertise. Structure the post as: hook intro explaining why these items are worth buying, individual product highlights with specific pros and practical use cases, a 'what to look for when buying' tips section with genuine expertise, and a conclusion naming your top pick with reasoning.",
-      "created_at": "2026-02-16T18:52:45.808245+00:00"
-    },
-    {
-      "post_id": "rare-1970s-dema-gold-gilt-flying-pheasant-beerlager-glasses-748084",
-      "post_type": "single_product",
-      "suggested_title": "RARE 1970's Dema Gold Gilt Flying Pheasant Beer/Lager Glasses X1 - Multibuy — Best Price UK, Quick Review",
-      "category": "Kitchen & Dining",
-      "target_keywords": [
-        "kitchen & dining",
-        "buy kitchen & dining",
-        "best kitchen & dining",
-        "cheap kitchen & dining",
-        "kitchen & dining for sale",
-        "kitchen & dining uk",
-        "buy kitchen & dining online uk",
-        "rare",
-        "1970's",
-        "dema",
-        "gold",
-        "gilt",
-        "rare 1970's dema gold",
-        "buy rare 1970's dema gold gilt flying pheasant beer/la"
-      ],
-      "listings": [
+          "scraped_at": "2026-02-18T16:49:58.395859+00:00"
+        },
         {
-          "item_id": "227215524657",
-          "title": "RARE 1970's Dema Gold Gilt Flying Pheasant Beer/Lager Glasses X1 - Multibuy",
+          "item_id": "227217241045",
+          "title": "HOYGI Collagen Overnight Wrapping Peel Off Facial Mask Renewal Night Skin Care",
           "price": 12.99,
           "currency": "GBP",
-          "condition": "New (other)",
-          "image_url": "https://i.ebayimg.com/images/g/27MAAeSw-8Fpjw9N/s-l140.webp",
-          "listing_url": "https://www.ebay.co.uk/itm/227215524657",
+          "condition": "Brand new",
+          "image_url": "https://i.ebayimg.com/images/g/7w0AAOSwMuhoFRX1/s-l140.webp",
+          "listing_url": "https://www.ebay.co.uk/itm/227217241045",
           "shipping": "",
           "bids": null,
           "listing_type": "fixed",
-          "category_hint": "Kitchen & Dining",
-          "scraped_at": "2026-02-16T18:52:45.640570+00:00"
+          "category_hint": "Beauty & Health",
+          "scraped_at": "2026-02-18T16:49:58.395859+00:00"
         }
       ],
-      "price_range": "£13",
-      "listing_count": 1,
-      "instructions": "Write a focused product spotlight blog post about this specific item: 'RARE 1970's Dema Gold Gilt Flying Pheasant Beer/Lager Glasses X1 - Multibuy' priced at £12.99 (New (other) condition). Category: Kitchen & Dining. \n\nThe post MUST:\n1. Open with a compelling hook about why this specific product is worth attention.\n2. Include detailed product analysis — materials, features, use cases, who it's for.\n3. Discuss the condition (New (other)) and what that means for the buyer.\n4. Include the eBay link prominently: https://www.ebay.co.uk/itm/227215524657\n5. Add a section on 'What to check before buying' with category-specific tips.\n6. Compare the price (£12.99) to typical market value.\n7. Include a clear verdict/recommendation.\n8. End with a strong call-to-action to view/buy on eBay.\n\nWrite 400-800 words. This is a focused product page, not a general guide. Every sentence should be about THIS specific item. Use short, punchy paragraphs optimized for featured snippets. Include the product name and category in the first paragraph for SEO.",
-      "created_at": "2026-02-16T18:52:45.808245+00:00"
+      "price_range": "£13 - £86",
+      "listing_count": 6,
+      "instructions": "Write an SEO-optimized blog post about Beauty & Health. There are 6 listings available in the £13 - £86 range. Each product mentioned MUST include its eBay link so readers can buy. Write in a friendly, knowledgeable tone — like a trusted friend who's done the homework. Use short paragraphs (2-3 sentences max) and descriptive subheadings for scannability. Do NOT mention that this is AI-generated. Do NOT use excessive exclamation marks, hype language, or filler phrases. Include a clear call-to-action encouraging readers to check out the listings. Add genuine buying advice — what to look for, what to avoid, care tips, or sizing guidance. Mention specific details about each product (materials, dimensions, features) that show real expertise. Structure the post as: hook intro explaining why these items are worth buying, individual product highlights with specific pros and practical use cases, a 'what to look for when buying' tips section with genuine expertise, and a conclusion naming your top pick with reasoning.",
+      "created_at": "2026-02-18T16:50:03.332066+00:00"
     },
     {
-      "post_id": "buy-pheasant-tumbler-glass-x1-whiskey-glasses-retro-gold-rim-093a18",
+      "post_id": "buy-vintage-pheasant-whiskey-glasses-gold-gilt-country-core-6a94d0",
       "post_type": "single_product",
-      "suggested_title": "Buy Pheasant Tumbler Glass X1 Whiskey Glasses Retro Gold Rimmed - Multibuy — Price, Condition & Details",
+      "suggested_title": "Buy Vintage pheasant whiskey glasses gold gilt country core - x1 - Multibuy — Price, Condition & Details",
       "category": "Glassware & Drinkware",
       "target_keywords": [
         "glassware & drinkware",
@@ -635,39 +677,81 @@
         "glassware & drinkware for sale",
         "glassware & drinkware uk",
         "buy glassware & drinkware online uk",
+        "vintage",
         "pheasant",
-        "tumbler",
-        "glass",
         "whiskey",
         "glasses",
-        "pheasant tumbler glass whiskey",
-        "buy pheasant tumbler glass x1 whiskey glasses retro go"
+        "gold",
+        "vintage pheasant whiskey glasses",
+        "buy vintage pheasant whiskey glasses gold gilt country"
       ],
       "listings": [
         {
-          "item_id": "227215521492",
-          "title": "Pheasant Tumbler Glass X1 Whiskey Glasses Retro Gold Rimmed - Multibuy",
+          "item_id": "227215528118",
+          "title": "Vintage pheasant whiskey glasses gold gilt country core - x1 - Multibuy",
           "price": 12.99,
           "currency": "GBP",
-          "condition": "Pre-owned",
-          "image_url": "https://i.ebayimg.com/images/g/2gEAAeSwT-tpjw3h/s-l140.webp",
-          "listing_url": "https://www.ebay.co.uk/itm/227215521492",
+          "condition": "New (other)",
+          "image_url": "https://i.ebayimg.com/images/g/wpUAAeSwnPZpjxBS/s-l500.webp",
+          "listing_url": "https://www.ebay.co.uk/itm/227215528118",
           "shipping": "",
           "bids": null,
           "listing_type": "fixed",
           "category_hint": "Glassware & Drinkware",
-          "scraped_at": "2026-02-16T18:52:45.640570+00:00"
+          "scraped_at": "2026-02-18T16:49:58.394859+00:00"
         }
       ],
       "price_range": "£13",
       "listing_count": 1,
-      "instructions": "Write a focused product spotlight blog post about this specific item: 'Pheasant Tumbler Glass X1 Whiskey Glasses Retro Gold Rimmed - Multibuy' priced at £12.99 (Pre-owned condition). Category: Glassware & Drinkware. \n\nThe post MUST:\n1. Open with a compelling hook about why this specific product is worth attention.\n2. Include detailed product analysis — materials, features, use cases, who it's for.\n3. Discuss the condition (Pre-owned) and what that means for the buyer.\n4. Include the eBay link prominently: https://www.ebay.co.uk/itm/227215521492\n5. Add a section on 'What to check before buying' with category-specific tips.\n6. Compare the price (£12.99) to typical market value.\n7. Include a clear verdict/recommendation.\n8. End with a strong call-to-action to view/buy on eBay.\n\nWrite 400-800 words. This is a focused product page, not a general guide. Every sentence should be about THIS specific item. Use short, punchy paragraphs optimized for featured snippets. Include the product name and category in the first paragraph for SEO.",
-      "created_at": "2026-02-16T18:52:45.808245+00:00"
+      "instructions": "Write a focused product spotlight blog post about this specific item: 'Vintage pheasant whiskey glasses gold gilt country core - x1 - Multibuy' priced at £12.99 (New (other) condition). Category: Glassware & Drinkware. \n\nThe post MUST:\n1. Open with a compelling hook about why this specific product is worth attention.\n2. Include detailed product analysis — materials, features, use cases, who it's for.\n3. Discuss the condition (New (other)) and what that means for the buyer.\n4. Include the eBay link prominently: https://www.ebay.co.uk/itm/227215528118\n5. Add a section on 'What to check before buying' with category-specific tips.\n6. Compare the price (£12.99) to typical market value.\n7. Include a clear verdict/recommendation.\n8. End with a strong call-to-action to view/buy on eBay.\n\nWrite 400-800 words. This is a focused product page, not a general guide. Every sentence should be about THIS specific item. Use short, punchy paragraphs optimized for featured snippets. Include the product name and category in the first paragraph for SEO.",
+      "created_at": "2026-02-18T16:50:03.333067+00:00"
     },
     {
-      "post_id": "mr-potato-head-3d-mug-7-face-pieces-ceramic-toy-story---new-20e45e",
+      "post_id": "dji-osmo-mobile-4---gimbal-stabilizer-is-it-worth-it-honest-6723d6",
       "post_type": "single_product",
-      "suggested_title": "Mr Potato Head 3D Mug 7 Face Pieces Ceramic Toy Story - New in Box — Review & Where to Buy",
+      "suggested_title": "DJI Osmo Mobile 4 - Gimbal Stabilizer — Is It Worth It? Honest Review",
+      "category": "Tech & Electronics",
+      "target_keywords": [
+        "tech & electronics",
+        "buy tech & electronics",
+        "best tech & electronics",
+        "cheap tech & electronics",
+        "tech & electronics for sale",
+        "tech & electronics uk",
+        "buy tech & electronics online uk",
+        "dji",
+        "osmo",
+        "mobile",
+        "gimbal",
+        "stabilizer",
+        "osmo mobile gimbal stabilizer",
+        "buy dji osmo mobile 4 - gimbal stabilizer"
+      ],
+      "listings": [
+        {
+          "item_id": "227215512715",
+          "title": "DJI Osmo Mobile 4 - Gimbal Stabilizer",
+          "price": 80.0,
+          "currency": "GBP",
+          "condition": "Opened – never used",
+          "image_url": "https://i.ebayimg.com/images/g/2MIAAeSwLixpjwu7/s-l140.webp",
+          "listing_url": "https://www.ebay.co.uk/itm/227215512715",
+          "shipping": "",
+          "bids": null,
+          "listing_type": "fixed",
+          "category_hint": "Tech & Electronics",
+          "scraped_at": "2026-02-18T16:49:58.394859+00:00"
+        }
+      ],
+      "price_range": "£80",
+      "listing_count": 1,
+      "instructions": "Write a focused product spotlight blog post about this specific item: 'DJI Osmo Mobile 4 - Gimbal Stabilizer' priced at £80.00 (Opened – never used condition). Category: Tech & Electronics. \n\nThe post MUST:\n1. Open with a compelling hook about why this specific product is worth attention.\n2. Include detailed product analysis — materials, features, use cases, who it's for.\n3. Discuss the condition (Opened – never used) and what that means for the buyer.\n4. Include the eBay link prominently: https://www.ebay.co.uk/itm/227215512715\n5. Add a section on 'What to check before buying' with category-specific tips.\n6. Compare the price (£80.00) to typical market value.\n7. Include a clear verdict/recommendation.\n8. End with a strong call-to-action to view/buy on eBay.\n\nWrite 400-800 words. This is a focused product page, not a general guide. Every sentence should be about THIS specific item. Use short, punchy paragraphs optimized for featured snippets. Include the product name and category in the first paragraph for SEO.",
+      "created_at": "2026-02-18T16:50:03.333067+00:00"
+    },
+    {
+      "post_id": "mr-potato-head-3d-mug-7-face-pieces-ceramic-toy-story---new-076135",
+      "post_type": "single_product",
+      "suggested_title": "Mr Potato Head 3D Mug 7 Face Pieces Ceramic Toy Story - New in Box — Is It Worth It? Honest Review",
       "category": "Kitchen & Dining",
       "target_keywords": [
         "kitchen & dining",
@@ -698,18 +782,18 @@
           "bids": null,
           "listing_type": "fixed",
           "category_hint": "Kitchen & Dining",
-          "scraped_at": "2026-02-16T18:52:45.640570+00:00"
+          "scraped_at": "2026-02-18T16:49:58.395859+00:00"
         }
       ],
       "price_range": "£16",
       "listing_count": 1,
       "instructions": "Write a focused product spotlight blog post about this specific item: 'Mr Potato Head 3D Mug 7 Face Pieces Ceramic Toy Story - New in Box' priced at £15.99 (New (other) condition). Category: Kitchen & Dining. \n\nThe post MUST:\n1. Open with a compelling hook about why this specific product is worth attention.\n2. Include detailed product analysis — materials, features, use cases, who it's for.\n3. Discuss the condition (New (other)) and what that means for the buyer.\n4. Include the eBay link prominently: https://www.ebay.co.uk/itm/227206341105\n5. Add a section on 'What to check before buying' with category-specific tips.\n6. Compare the price (£15.99) to typical market value.\n7. Include a clear verdict/recommendation.\n8. End with a strong call-to-action to view/buy on eBay.\n\nWrite 400-800 words. This is a focused product page, not a general guide. Every sentence should be about THIS specific item. Use short, punchy paragraphs optimized for featured snippets. Include the product name and category in the first paragraph for SEO.",
-      "created_at": "2026-02-16T18:52:45.808245+00:00"
+      "created_at": "2026-02-18T16:50:03.333067+00:00"
     },
     {
-      "post_id": "buy-harry-potter-books-1-3-hardback-boxed-set-trilogy-1998-344b30",
+      "post_id": "harry-potter-books-1-3-hardback-boxed-set-trilogy-1998---goo-3358ca",
       "post_type": "single_product",
-      "suggested_title": "Buy Harry Potter Books 1-3 Hardback Boxed Set Trilogy 1998 - Good Condition — Price, Condition & Details",
+      "suggested_title": "Harry Potter Books 1-3 Hardback Boxed Set Trilogy 1998 - Good Condition — Review & Where to Buy",
       "category": "Kitchen & Dining",
       "target_keywords": [
         "kitchen & dining",
@@ -740,60 +824,18 @@
           "bids": null,
           "listing_type": "fixed",
           "category_hint": "Kitchen & Dining",
-          "scraped_at": "2026-02-16T18:52:45.640570+00:00"
+          "scraped_at": "2026-02-18T16:49:58.395859+00:00"
         }
       ],
       "price_range": "£30",
       "listing_count": 1,
       "instructions": "Write a focused product spotlight blog post about this specific item: 'Harry Potter Books 1-3 Hardback Boxed Set Trilogy 1998 - Good Condition' priced at £29.99 (Pre-owned condition). Category: Kitchen & Dining. \n\nThe post MUST:\n1. Open with a compelling hook about why this specific product is worth attention.\n2. Include detailed product analysis — materials, features, use cases, who it's for.\n3. Discuss the condition (Pre-owned) and what that means for the buyer.\n4. Include the eBay link prominently: https://www.ebay.co.uk/itm/227206323595\n5. Add a section on 'What to check before buying' with category-specific tips.\n6. Compare the price (£29.99) to typical market value.\n7. Include a clear verdict/recommendation.\n8. End with a strong call-to-action to view/buy on eBay.\n\nWrite 400-800 words. This is a focused product page, not a general guide. Every sentence should be about THIS specific item. Use short, punchy paragraphs optimized for featured snippets. Include the product name and category in the first paragraph for SEO.",
-      "created_at": "2026-02-16T18:52:45.808245+00:00"
+      "created_at": "2026-02-18T16:50:03.333067+00:00"
     },
     {
-      "post_id": "mecha-stand-for-amazon-echo-dot-4-apple-homepod-mini---orang-3671d0",
+      "post_id": "lloyds-pharmacy-arm-blood-pressure-monitor-cuff---very-good-944bf6",
       "post_type": "single_product",
-      "suggested_title": "Mecha Stand For Amazon Echo Dot 4 & Apple HomePod Mini - Orange - Opened Unused — Is It Worth It? Honest Review",
-      "category": "Tech & Electronics",
-      "target_keywords": [
-        "tech & electronics",
-        "buy tech & electronics",
-        "best tech & electronics",
-        "cheap tech & electronics",
-        "tech & electronics for sale",
-        "tech & electronics uk",
-        "buy tech & electronics online uk",
-        "mecha",
-        "stand",
-        "amazon",
-        "echo",
-        "dot",
-        "mecha stand amazon echo",
-        "buy mecha stand for amazon echo dot 4 & apple homepod "
-      ],
-      "listings": [
-        {
-          "item_id": "227204904735",
-          "title": "Mecha Stand For Amazon Echo Dot 4 & Apple HomePod Mini - Orange - Opened Unused",
-          "price": 9.99,
-          "currency": "GBP",
-          "condition": "Pre-owned",
-          "image_url": "https://i.ebayimg.com/images/g/uqsAAeSw-PpphUVk/s-l140.webp",
-          "listing_url": "https://www.ebay.co.uk/itm/227204904735",
-          "shipping": "",
-          "bids": null,
-          "listing_type": "fixed",
-          "category_hint": "Tech & Electronics",
-          "scraped_at": "2026-02-16T18:52:45.640570+00:00"
-        }
-      ],
-      "price_range": "£10",
-      "listing_count": 1,
-      "instructions": "Write a focused product spotlight blog post about this specific item: 'Mecha Stand For Amazon Echo Dot 4 & Apple HomePod Mini - Orange - Opened Unused' priced at £9.99 (Pre-owned condition). Category: Tech & Electronics. \n\nThe post MUST:\n1. Open with a compelling hook about why this specific product is worth attention.\n2. Include detailed product analysis — materials, features, use cases, who it's for.\n3. Discuss the condition (Pre-owned) and what that means for the buyer.\n4. Include the eBay link prominently: https://www.ebay.co.uk/itm/227204904735\n5. Add a section on 'What to check before buying' with category-specific tips.\n6. Compare the price (£9.99) to typical market value.\n7. Include a clear verdict/recommendation.\n8. End with a strong call-to-action to view/buy on eBay.\n\nWrite 400-800 words. This is a focused product page, not a general guide. Every sentence should be about THIS specific item. Use short, punchy paragraphs optimized for featured snippets. Include the product name and category in the first paragraph for SEO.",
-      "created_at": "2026-02-16T18:52:45.808245+00:00"
-    },
-    {
-      "post_id": "cocktail-hour-cocktail-shaker-set---drinks-kit---brand-new-r-cf8329",
-      "post_type": "single_product",
-      "suggested_title": "Cocktail Hour | Cocktail Shaker Set - Drinks Kit - Brand New — Review & Where to Buy",
+      "suggested_title": "Lloyds Pharmacy ARM Blood Pressure Monitor + Cuff - Very Good Condition — Best Price UK, Quick Review",
       "category": "Beauty & Health",
       "target_keywords": [
         "beauty & health",
@@ -803,39 +845,39 @@
         "beauty & health for sale",
         "beauty & health uk",
         "buy beauty & health online uk",
-        "cocktail",
-        "hour",
-        "shaker",
-        "drinks",
-        "kit",
-        "cocktail hour cocktail shaker",
-        "buy cocktail hour | cocktail shaker set - drinks kit -"
+        "lloyds",
+        "pharmacy",
+        "arm",
+        "blood",
+        "pressure",
+        "lloyds pharmacy blood pressure",
+        "buy lloyds pharmacy arm blood pressure monitor + cuff "
       ],
       "listings": [
         {
-          "item_id": "227204587061",
-          "title": "Cocktail Hour | Cocktail Shaker Set - Drinks Kit - Brand New",
-          "price": 15.99,
+          "item_id": "227206299139",
+          "title": "Lloyds Pharmacy ARM Blood Pressure Monitor + Cuff - Very Good Condition",
+          "price": 12.99,
           "currency": "GBP",
-          "condition": "Brand new",
-          "image_url": "https://i.ebayimg.com/images/g/EFMAAeSwXwpphO4w/s-l140.webp",
-          "listing_url": "https://www.ebay.co.uk/itm/227204587061",
+          "condition": "Pre-owned",
+          "image_url": "https://i.ebayimg.com/images/g/XVQAAeSwrHtphnvu/s-l140.webp",
+          "listing_url": "https://www.ebay.co.uk/itm/227206299139",
           "shipping": "",
           "bids": null,
           "listing_type": "fixed",
           "category_hint": "Beauty & Health",
-          "scraped_at": "2026-02-16T18:52:45.640570+00:00"
+          "scraped_at": "2026-02-18T16:49:58.395859+00:00"
         }
       ],
-      "price_range": "£16",
+      "price_range": "£13",
       "listing_count": 1,
-      "instructions": "Write a focused product spotlight blog post about this specific item: 'Cocktail Hour | Cocktail Shaker Set - Drinks Kit - Brand New' priced at £15.99 (Brand new condition). Category: Beauty & Health. \n\nThe post MUST:\n1. Open with a compelling hook about why this specific product is worth attention.\n2. Include detailed product analysis — materials, features, use cases, who it's for.\n3. Discuss the condition (Brand new) and what that means for the buyer.\n4. Include the eBay link prominently: https://www.ebay.co.uk/itm/227204587061\n5. Add a section on 'What to check before buying' with category-specific tips.\n6. Compare the price (£15.99) to typical market value.\n7. Include a clear verdict/recommendation.\n8. End with a strong call-to-action to view/buy on eBay.\n\nWrite 400-800 words. This is a focused product page, not a general guide. Every sentence should be about THIS specific item. Use short, punchy paragraphs optimized for featured snippets. Include the product name and category in the first paragraph for SEO.",
-      "created_at": "2026-02-16T18:52:45.808245+00:00"
+      "instructions": "Write a focused product spotlight blog post about this specific item: 'Lloyds Pharmacy ARM Blood Pressure Monitor + Cuff - Very Good Condition' priced at £12.99 (Pre-owned condition). Category: Beauty & Health. \n\nThe post MUST:\n1. Open with a compelling hook about why this specific product is worth attention.\n2. Include detailed product analysis — materials, features, use cases, who it's for.\n3. Discuss the condition (Pre-owned) and what that means for the buyer.\n4. Include the eBay link prominently: https://www.ebay.co.uk/itm/227206299139\n5. Add a section on 'What to check before buying' with category-specific tips.\n6. Compare the price (£12.99) to typical market value.\n7. Include a clear verdict/recommendation.\n8. End with a strong call-to-action to view/buy on eBay.\n\nWrite 400-800 words. This is a focused product page, not a general guide. Every sentence should be about THIS specific item. Use short, punchy paragraphs optimized for featured snippets. Include the product name and category in the first paragraph for SEO.",
+      "created_at": "2026-02-18T16:50:03.334066+00:00"
     },
     {
-      "post_id": "buy-gokeda-aluminium-laptop-stand-ergonomic-computer-desk-st-14bd6e",
+      "post_id": "bike-phone-mount-frame-bag-touch-screen-mtb-road-cycling-hol-502c56",
       "post_type": "single_product",
-      "suggested_title": "Buy GOKEDA Aluminium Laptop Stand Ergonomic Computer Desk Stand - New — Price, Condition & Details",
+      "suggested_title": "Bike Phone Mount Frame Bag Touch Screen MTB Road Cycling Holder - New — Is It Worth It? Honest Review",
       "category": "Tech & Electronics",
       "target_keywords": [
         "tech & electronics",
@@ -845,39 +887,39 @@
         "tech & electronics for sale",
         "tech & electronics uk",
         "buy tech & electronics online uk",
-        "stand",
-        "gokeda",
-        "aluminium",
-        "laptop",
-        "ergonomic",
-        "gokeda aluminium laptop stand",
-        "buy gokeda aluminium laptop stand ergonomic computer d"
+        "bike",
+        "phone",
+        "mount",
+        "frame",
+        "bag",
+        "bike phone mount frame",
+        "buy bike phone mount frame bag touch screen mtb road c"
       ],
       "listings": [
         {
-          "item_id": "227204576588",
-          "title": "GOKEDA Aluminium Laptop Stand Ergonomic Computer Desk Stand - New",
-          "price": 19.99,
+          "item_id": "227204918144",
+          "title": "Bike Phone Mount Frame Bag Touch Screen MTB Road Cycling Holder - New",
+          "price": 13.99,
           "currency": "GBP",
           "condition": "Brand new",
-          "image_url": "https://i.ebayimg.com/images/g/V~UAAeSwHtBphOze/s-l140.webp",
-          "listing_url": "https://www.ebay.co.uk/itm/227204576588",
+          "image_url": "https://i.ebayimg.com/images/g/1CoAAeSwWZRphUpQ/s-l140.webp",
+          "listing_url": "https://www.ebay.co.uk/itm/227204918144",
           "shipping": "",
           "bids": null,
           "listing_type": "fixed",
           "category_hint": "Tech & Electronics",
-          "scraped_at": "2026-02-16T18:52:45.640570+00:00"
+          "scraped_at": "2026-02-18T16:49:58.395859+00:00"
         }
       ],
-      "price_range": "£20",
+      "price_range": "£14",
       "listing_count": 1,
-      "instructions": "Write a focused product spotlight blog post about this specific item: 'GOKEDA Aluminium Laptop Stand Ergonomic Computer Desk Stand - New' priced at £19.99 (Brand new condition). Category: Tech & Electronics. \n\nThe post MUST:\n1. Open with a compelling hook about why this specific product is worth attention.\n2. Include detailed product analysis — materials, features, use cases, who it's for.\n3. Discuss the condition (Brand new) and what that means for the buyer.\n4. Include the eBay link prominently: https://www.ebay.co.uk/itm/227204576588\n5. Add a section on 'What to check before buying' with category-specific tips.\n6. Compare the price (£19.99) to typical market value.\n7. Include a clear verdict/recommendation.\n8. End with a strong call-to-action to view/buy on eBay.\n\nWrite 400-800 words. This is a focused product page, not a general guide. Every sentence should be about THIS specific item. Use short, punchy paragraphs optimized for featured snippets. Include the product name and category in the first paragraph for SEO.",
-      "created_at": "2026-02-16T18:52:45.808245+00:00"
+      "instructions": "Write a focused product spotlight blog post about this specific item: 'Bike Phone Mount Frame Bag Touch Screen MTB Road Cycling Holder - New' priced at £13.99 (Brand new condition). Category: Tech & Electronics. \n\nThe post MUST:\n1. Open with a compelling hook about why this specific product is worth attention.\n2. Include detailed product analysis — materials, features, use cases, who it's for.\n3. Discuss the condition (Brand new) and what that means for the buyer.\n4. Include the eBay link prominently: https://www.ebay.co.uk/itm/227204918144\n5. Add a section on 'What to check before buying' with category-specific tips.\n6. Compare the price (£13.99) to typical market value.\n7. Include a clear verdict/recommendation.\n8. End with a strong call-to-action to view/buy on eBay.\n\nWrite 400-800 words. This is a focused product page, not a general guide. Every sentence should be about THIS specific item. Use short, punchy paragraphs optimized for featured snippets. Include the product name and category in the first paragraph for SEO.",
+      "created_at": "2026-02-18T16:50:03.334066+00:00"
     },
     {
-      "post_id": "multifunctional-aluminium-alloy-portable-stand-95---brand-ne-5ba809",
+      "post_id": "buy-multifunctional-aluminium-alloy-portable-stand-95---bran-2b5860",
       "post_type": "single_product",
-      "suggested_title": "Multifunctional Aluminium Alloy Portable Stand 9.5\" - Brand New Boxed — Review & Where to Buy",
+      "suggested_title": "Buy Multifunctional Aluminium Alloy Portable Stand 9.5\" - Brand New Boxed — Price, Condition & Details",
       "category": "Beauty & Health",
       "target_keywords": [
         "beauty & health",
@@ -908,18 +950,18 @@
           "bids": null,
           "listing_type": "fixed",
           "category_hint": "Beauty & Health",
-          "scraped_at": "2026-02-16T18:52:45.640570+00:00"
+          "scraped_at": "2026-02-18T16:49:58.395859+00:00"
         }
       ],
       "price_range": "£13",
       "listing_count": 1,
       "instructions": "Write a focused product spotlight blog post about this specific item: 'Multifunctional Aluminium Alloy Portable Stand 9.5\" - Brand New Boxed' priced at £12.94 (Brand new condition). Category: Beauty & Health. \n\nThe post MUST:\n1. Open with a compelling hook about why this specific product is worth attention.\n2. Include detailed product analysis — materials, features, use cases, who it's for.\n3. Discuss the condition (Brand new) and what that means for the buyer.\n4. Include the eBay link prominently: https://www.ebay.co.uk/itm/227204571197\n5. Add a section on 'What to check before buying' with category-specific tips.\n6. Compare the price (£12.94) to typical market value.\n7. Include a clear verdict/recommendation.\n8. End with a strong call-to-action to view/buy on eBay.\n\nWrite 400-800 words. This is a focused product page, not a general guide. Every sentence should be about THIS specific item. Use short, punchy paragraphs optimized for featured snippets. Include the product name and category in the first paragraph for SEO.",
-      "created_at": "2026-02-16T18:52:45.808245+00:00"
+      "created_at": "2026-02-18T16:50:03.334066+00:00"
     },
     {
-      "post_id": "dromedary-hvlp-spray-gun-17mm-tip-600ml-pot-blue---new-seale-565f46",
+      "post_id": "lurpak-limited-edition-douglas-toast-rack---very-good-condit-7a177c",
       "post_type": "single_product",
-      "suggested_title": "Dromedary HVLP Spray Gun 1.7mm Tip 600ml Pot Blue - New Sealed — Is It Worth It? Honest Review",
+      "suggested_title": "Lurpak Limited Edition Douglas Toast Rack - Very Good Condition w/ Box — Is It Worth It? Honest Review",
       "category": "Kitchen & Dining",
       "target_keywords": [
         "kitchen & dining",
@@ -929,39 +971,39 @@
         "kitchen & dining for sale",
         "kitchen & dining uk",
         "buy kitchen & dining online uk",
-        "dromedary",
-        "hvlp",
-        "spray",
-        "gun",
-        "1.7mm",
-        "dromedary hvlp spray 1.7mm",
-        "buy dromedary hvlp spray gun 1.7mm tip 600ml pot blue "
+        "lurpak",
+        "limited",
+        "edition",
+        "douglas",
+        "toast",
+        "lurpak limited edition douglas",
+        "buy lurpak limited edition douglas toast rack - very g"
       ],
       "listings": [
         {
-          "item_id": "227204428854",
-          "title": "Dromedary HVLP Spray Gun 1.7mm Tip 600ml Pot Blue - New Sealed",
-          "price": 29.99,
+          "item_id": "227204568075",
+          "title": "Lurpak Limited Edition Douglas Toast Rack - Very Good Condition w/ Box",
+          "price": 9.72,
           "currency": "GBP",
-          "condition": "Brand new",
-          "image_url": "https://i.ebayimg.com/images/g/3sQAAeSwwFFphMcF/s-l140.webp",
-          "listing_url": "https://www.ebay.co.uk/itm/227204428854",
+          "condition": "Pre-owned",
+          "image_url": "https://i.ebayimg.com/images/g/mY4AAeSwKAJphOqv/s-l140.webp",
+          "listing_url": "https://www.ebay.co.uk/itm/227204568075",
           "shipping": "",
           "bids": null,
           "listing_type": "fixed",
           "category_hint": "Kitchen & Dining",
-          "scraped_at": "2026-02-16T18:52:45.640570+00:00"
+          "scraped_at": "2026-02-18T16:49:58.395859+00:00"
         }
       ],
-      "price_range": "£30",
+      "price_range": "£10",
       "listing_count": 1,
-      "instructions": "Write a focused product spotlight blog post about this specific item: 'Dromedary HVLP Spray Gun 1.7mm Tip 600ml Pot Blue - New Sealed' priced at £29.99 (Brand new condition). Category: Kitchen & Dining. \n\nThe post MUST:\n1. Open with a compelling hook about why this specific product is worth attention.\n2. Include detailed product analysis — materials, features, use cases, who it's for.\n3. Discuss the condition (Brand new) and what that means for the buyer.\n4. Include the eBay link prominently: https://www.ebay.co.uk/itm/227204428854\n5. Add a section on 'What to check before buying' with category-specific tips.\n6. Compare the price (£29.99) to typical market value.\n7. Include a clear verdict/recommendation.\n8. End with a strong call-to-action to view/buy on eBay.\n\nWrite 400-800 words. This is a focused product page, not a general guide. Every sentence should be about THIS specific item. Use short, punchy paragraphs optimized for featured snippets. Include the product name and category in the first paragraph for SEO.",
-      "created_at": "2026-02-16T18:52:45.808245+00:00"
+      "instructions": "Write a focused product spotlight blog post about this specific item: 'Lurpak Limited Edition Douglas Toast Rack - Very Good Condition w/ Box' priced at £9.72 (Pre-owned condition). Category: Kitchen & Dining. \n\nThe post MUST:\n1. Open with a compelling hook about why this specific product is worth attention.\n2. Include detailed product analysis — materials, features, use cases, who it's for.\n3. Discuss the condition (Pre-owned) and what that means for the buyer.\n4. Include the eBay link prominently: https://www.ebay.co.uk/itm/227204568075\n5. Add a section on 'What to check before buying' with category-specific tips.\n6. Compare the price (£9.72) to typical market value.\n7. Include a clear verdict/recommendation.\n8. End with a strong call-to-action to view/buy on eBay.\n\nWrite 400-800 words. This is a focused product page, not a general guide. Every sentence should be about THIS specific item. Use short, punchy paragraphs optimized for featured snippets. Include the product name and category in the first paragraph for SEO.",
+      "created_at": "2026-02-18T16:50:03.334066+00:00"
     },
     {
-      "post_id": "buy-warhammer-age-of-sigmar-stormcast-eternals-paint-set---o-7c05fe",
+      "post_id": "warhammer-age-of-sigmar-stormcast-eternals-paint-set---opene-12e96f",
       "post_type": "single_product",
-      "suggested_title": "Buy Warhammer Age of Sigmar Stormcast Eternals Paint Set - Opened - Complete — Price, Condition & Details",
+      "suggested_title": "Warhammer Age of Sigmar Stormcast Eternals Paint Set - Opened - Complete — Is It Worth It? Honest Review",
       "category": "DIY & Tools",
       "target_keywords": [
         "diy & tools",
@@ -992,55 +1034,223 @@
           "bids": null,
           "listing_type": "fixed",
           "category_hint": "DIY & Tools",
-          "scraped_at": "2026-02-16T18:52:45.640570+00:00"
+          "scraped_at": "2026-02-18T16:49:58.395859+00:00"
         }
       ],
       "price_range": "£15",
       "listing_count": 1,
       "instructions": "Write a focused product spotlight blog post about this specific item: 'Warhammer Age of Sigmar Stormcast Eternals Paint Set - Opened - Complete' priced at £14.99 (Pre-owned condition). Category: DIY & Tools. \n\nThe post MUST:\n1. Open with a compelling hook about why this specific product is worth attention.\n2. Include detailed product analysis — materials, features, use cases, who it's for.\n3. Discuss the condition (Pre-owned) and what that means for the buyer.\n4. Include the eBay link prominently: https://www.ebay.co.uk/itm/227204419061\n5. Add a section on 'What to check before buying' with category-specific tips.\n6. Compare the price (£14.99) to typical market value.\n7. Include a clear verdict/recommendation.\n8. End with a strong call-to-action to view/buy on eBay.\n\nWrite 400-800 words. This is a focused product page, not a general guide. Every sentence should be about THIS specific item. Use short, punchy paragraphs optimized for featured snippets. Include the product name and category in the first paragraph for SEO.",
-      "created_at": "2026-02-16T18:52:45.808245+00:00"
+      "created_at": "2026-02-18T16:50:03.334066+00:00"
     },
     {
-      "post_id": "modella-basin-pillar-taps-pair-polished-gold-cross-lever-hot-d3b48d",
+      "post_id": "atlas-editions-p-51d-mustang-fw-190a-5-die-cast-models---new-0cc467",
       "post_type": "single_product",
-      "suggested_title": "Modella Basin Pillar Taps Pair Polished Gold Cross Lever Hot Cold - Very Good — Is It Worth It? Honest Review",
-      "category": "Garden & Outdoor Living",
+      "suggested_title": "Atlas Editions P-51D Mustang & FW 190A-5 Die-Cast Models - New in Box — Is It Worth It? Honest Review",
+      "category": "Hobbies & Models",
       "target_keywords": [
-        "garden & outdoor living",
-        "buy garden & outdoor living",
-        "best garden & outdoor living",
-        "cheap garden & outdoor living",
-        "garden & outdoor living for sale",
-        "garden & outdoor living uk",
-        "buy garden & outdoor living online uk",
-        "modella",
-        "basin",
-        "pillar",
-        "taps",
-        "pair",
-        "modella basin pillar taps",
-        "buy modella basin pillar taps pair polished gold cross"
+        "hobbies & models",
+        "buy hobbies & models",
+        "best hobbies & models",
+        "cheap hobbies & models",
+        "hobbies & models for sale",
+        "hobbies & models uk",
+        "buy hobbies & models online uk",
+        "atlas",
+        "editions",
+        "p-51d",
+        "mustang",
+        "190a-5",
+        "atlas editions p-51d mustang",
+        "buy atlas editions p-51d mustang & fw 190a-5 die-cast "
       ],
       "listings": [
         {
-          "item_id": "227204381621",
-          "title": "Modella Basin Pillar Taps Pair Polished Gold Cross Lever Hot Cold - Very Good",
-          "price": 39.99,
+          "item_id": "227204389224",
+          "title": "Atlas Editions P-51D Mustang & FW 190A-5 Die-Cast Models - New in Box",
+          "price": 19.99,
           "currency": "GBP",
-          "condition": "Pre-owned",
-          "image_url": "https://i.ebayimg.com/images/g/RJoAAeSw1u1phLwX/s-l140.webp",
-          "listing_url": "https://www.ebay.co.uk/itm/227204381621",
+          "condition": "Brand new",
+          "image_url": "https://i.ebayimg.com/images/g/X4EAAeSwmpNphL0g/s-l140.webp",
+          "listing_url": "https://www.ebay.co.uk/itm/227204389224",
           "shipping": "",
           "bids": null,
           "listing_type": "fixed",
-          "category_hint": "Garden & Outdoor Living",
-          "scraped_at": "2026-02-16T18:52:45.640570+00:00"
+          "category_hint": "Hobbies & Models",
+          "scraped_at": "2026-02-18T16:49:58.395859+00:00"
         }
       ],
-      "price_range": "£40",
+      "price_range": "£20",
       "listing_count": 1,
-      "instructions": "Write a focused product spotlight blog post about this specific item: 'Modella Basin Pillar Taps Pair Polished Gold Cross Lever Hot Cold - Very Good' priced at £39.99 (Pre-owned condition). Category: Garden & Outdoor Living. \n\nThe post MUST:\n1. Open with a compelling hook about why this specific product is worth attention.\n2. Include detailed product analysis — materials, features, use cases, who it's for.\n3. Discuss the condition (Pre-owned) and what that means for the buyer.\n4. Include the eBay link prominently: https://www.ebay.co.uk/itm/227204381621\n5. Add a section on 'What to check before buying' with category-specific tips.\n6. Compare the price (£39.99) to typical market value.\n7. Include a clear verdict/recommendation.\n8. End with a strong call-to-action to view/buy on eBay.\n\nWrite 400-800 words. This is a focused product page, not a general guide. Every sentence should be about THIS specific item. Use short, punchy paragraphs optimized for featured snippets. Include the product name and category in the first paragraph for SEO.",
-      "created_at": "2026-02-16T18:52:45.809248+00:00"
+      "instructions": "Write a focused product spotlight blog post about this specific item: 'Atlas Editions P-51D Mustang & FW 190A-5 Die-Cast Models - New in Box' priced at £19.99 (Brand new condition). Category: Hobbies & Models. \n\nThe post MUST:\n1. Open with a compelling hook about why this specific product is worth attention.\n2. Include detailed product analysis — materials, features, use cases, who it's for.\n3. Discuss the condition (Brand new) and what that means for the buyer.\n4. Include the eBay link prominently: https://www.ebay.co.uk/itm/227204389224\n5. Add a section on 'What to check before buying' with category-specific tips.\n6. Compare the price (£19.99) to typical market value.\n7. Include a clear verdict/recommendation.\n8. End with a strong call-to-action to view/buy on eBay.\n\nWrite 400-800 words. This is a focused product page, not a general guide. Every sentence should be about THIS specific item. Use short, punchy paragraphs optimized for featured snippets. Include the product name and category in the first paragraph for SEO.",
+      "created_at": "2026-02-18T16:50:03.334066+00:00"
+    },
+    {
+      "post_id": "hoygi-collagen-overnight-wrapping-peel-off-facial-mask-renew-361c03",
+      "post_type": "single_product",
+      "suggested_title": "HOYGI Collagen Overnight Wrapping Peel Off Facial Mask Renewal Night Skin Care — Best Price UK, Quick Review",
+      "category": "Beauty & Health",
+      "target_keywords": [
+        "beauty & health",
+        "buy beauty & health",
+        "best beauty & health",
+        "cheap beauty & health",
+        "beauty & health for sale",
+        "beauty & health uk",
+        "buy beauty & health online uk",
+        "hoygi",
+        "collagen",
+        "overnight",
+        "wrapping",
+        "peel",
+        "hoygi collagen overnight wrapping",
+        "buy hoygi collagen overnight wrapping peel off facial "
+      ],
+      "listings": [
+        {
+          "item_id": "227217241045",
+          "title": "HOYGI Collagen Overnight Wrapping Peel Off Facial Mask Renewal Night Skin Care",
+          "price": 12.99,
+          "currency": "GBP",
+          "condition": "Brand new",
+          "image_url": "https://i.ebayimg.com/images/g/7w0AAOSwMuhoFRX1/s-l140.webp",
+          "listing_url": "https://www.ebay.co.uk/itm/227217241045",
+          "shipping": "",
+          "bids": null,
+          "listing_type": "fixed",
+          "category_hint": "Beauty & Health",
+          "scraped_at": "2026-02-18T16:49:58.395859+00:00"
+        }
+      ],
+      "price_range": "£13",
+      "listing_count": 1,
+      "instructions": "Write a focused product spotlight blog post about this specific item: 'HOYGI Collagen Overnight Wrapping Peel Off Facial Mask Renewal Night Skin Care' priced at £12.99 (Brand new condition). Category: Beauty & Health. \n\nThe post MUST:\n1. Open with a compelling hook about why this specific product is worth attention.\n2. Include detailed product analysis — materials, features, use cases, who it's for.\n3. Discuss the condition (Brand new) and what that means for the buyer.\n4. Include the eBay link prominently: https://www.ebay.co.uk/itm/227217241045\n5. Add a section on 'What to check before buying' with category-specific tips.\n6. Compare the price (£12.99) to typical market value.\n7. Include a clear verdict/recommendation.\n8. End with a strong call-to-action to view/buy on eBay.\n\nWrite 400-800 words. This is a focused product page, not a general guide. Every sentence should be about THIS specific item. Use short, punchy paragraphs optimized for featured snippets. Include the product name and category in the first paragraph for SEO.",
+      "created_at": "2026-02-18T16:50:03.334066+00:00"
+    },
+    {
+      "post_id": "pierced-by-claires-ear-piercing-rapid-3-week-hygiene-after-c-8294da",
+      "post_type": "single_product",
+      "suggested_title": "Pierced By CLAIRE'S Ear Piercing Rapid 3 Week Hygiene After Care Lotion 100ml — Is It Worth It? Honest Review",
+      "category": "Automotive",
+      "target_keywords": [
+        "automotive",
+        "buy automotive",
+        "best automotive",
+        "cheap automotive",
+        "automotive for sale",
+        "automotive uk",
+        "buy automotive online uk",
+        "pierced",
+        "claire's",
+        "ear",
+        "piercing",
+        "rapid",
+        "pierced claire's piercing rapid",
+        "buy pierced by claire's ear piercing rapid 3 week hygi"
+      ],
+      "listings": [
+        {
+          "item_id": "227217241047",
+          "title": "Pierced By CLAIRE'S Ear Piercing Rapid 3 Week Hygiene After Care Lotion 100ml",
+          "price": 12.99,
+          "currency": "GBP",
+          "condition": "Brand new",
+          "image_url": "https://i.ebayimg.com/images/g/vEoAAOSwmexoFRTa/s-l140.webp",
+          "listing_url": "https://www.ebay.co.uk/itm/227217241047",
+          "shipping": "",
+          "bids": null,
+          "listing_type": "fixed",
+          "category_hint": "Automotive",
+          "scraped_at": "2026-02-18T16:49:58.395859+00:00"
+        }
+      ],
+      "price_range": "£13",
+      "listing_count": 1,
+      "instructions": "Write a focused product spotlight blog post about this specific item: 'Pierced By CLAIRE'S Ear Piercing Rapid 3 Week Hygiene After Care Lotion 100ml' priced at £12.99 (Brand new condition). Category: Automotive. \n\nThe post MUST:\n1. Open with a compelling hook about why this specific product is worth attention.\n2. Include detailed product analysis — materials, features, use cases, who it's for.\n3. Discuss the condition (Brand new) and what that means for the buyer.\n4. Include the eBay link prominently: https://www.ebay.co.uk/itm/227217241047\n5. Add a section on 'What to check before buying' with category-specific tips.\n6. Compare the price (£12.99) to typical market value.\n7. Include a clear verdict/recommendation.\n8. End with a strong call-to-action to view/buy on eBay.\n\nWrite 400-800 words. This is a focused product page, not a general guide. Every sentence should be about THIS specific item. Use short, punchy paragraphs optimized for featured snippets. Include the product name and category in the first paragraph for SEO.",
+      "created_at": "2026-02-18T16:50:03.334066+00:00"
+    },
+    {
+      "post_id": "acne-treatment-breylee-japanese-ultra-fine-fibre-mask-cloth-0f4e18",
+      "post_type": "single_product",
+      "suggested_title": "Acne Treatment BREYLEE Japanese Ultra Fine Fibre Mask Cloth -7 Sheets - Free P&P — Review & Where to Buy",
+      "category": "Kitchen & Dining",
+      "target_keywords": [
+        "kitchen & dining",
+        "buy kitchen & dining",
+        "best kitchen & dining",
+        "cheap kitchen & dining",
+        "kitchen & dining for sale",
+        "kitchen & dining uk",
+        "buy kitchen & dining online uk",
+        "acne",
+        "treatment",
+        "breylee",
+        "japanese",
+        "ultra",
+        "acne treatment breylee japanese",
+        "buy acne treatment breylee japanese ultra fine fibre m"
+      ],
+      "listings": [
+        {
+          "item_id": "227217241043",
+          "title": "Acne Treatment BREYLEE Japanese Ultra Fine Fibre Mask Cloth -7 Sheets - Free P&P",
+          "price": 14.99,
+          "currency": "GBP",
+          "condition": "Brand new",
+          "image_url": "https://i.ebayimg.com/images/g/ysoAAOSwM6RoFQ3G/s-l140.webp",
+          "listing_url": "https://www.ebay.co.uk/itm/227217241043",
+          "shipping": "",
+          "bids": null,
+          "listing_type": "fixed",
+          "category_hint": "Kitchen & Dining",
+          "scraped_at": "2026-02-18T16:49:58.395859+00:00"
+        }
+      ],
+      "price_range": "£15",
+      "listing_count": 1,
+      "instructions": "Write a focused product spotlight blog post about this specific item: 'Acne Treatment BREYLEE Japanese Ultra Fine Fibre Mask Cloth -7 Sheets - Free P&P' priced at £14.99 (Brand new condition). Category: Kitchen & Dining. \n\nThe post MUST:\n1. Open with a compelling hook about why this specific product is worth attention.\n2. Include detailed product analysis — materials, features, use cases, who it's for.\n3. Discuss the condition (Brand new) and what that means for the buyer.\n4. Include the eBay link prominently: https://www.ebay.co.uk/itm/227217241043\n5. Add a section on 'What to check before buying' with category-specific tips.\n6. Compare the price (£14.99) to typical market value.\n7. Include a clear verdict/recommendation.\n8. End with a strong call-to-action to view/buy on eBay.\n\nWrite 400-800 words. This is a focused product page, not a general guide. Every sentence should be about THIS specific item. Use short, punchy paragraphs optimized for featured snippets. Include the product name and category in the first paragraph for SEO.",
+      "created_at": "2026-02-18T16:50:03.334066+00:00"
+    },
+    {
+      "post_id": "buy-genuine-anti-snoring-mouth-guarddevice-sleep-aide-price-158f5c",
+      "post_type": "single_product",
+      "suggested_title": "Buy GENUINE ANTI SNORING MOUTH GUARD,DEVICE SLEEP AIDE — Price, Condition & Details",
+      "category": "DIY & Tools",
+      "target_keywords": [
+        "diy & tools",
+        "buy diy & tools",
+        "best diy & tools",
+        "cheap diy & tools",
+        "diy & tools for sale",
+        "diy & tools uk",
+        "buy diy & tools online uk",
+        "genuine",
+        "anti",
+        "snoring",
+        "mouth",
+        "guard,device",
+        "genuine anti snoring mouth",
+        "buy genuine anti snoring mouth guard,device sleep aide"
+      ],
+      "listings": [
+        {
+          "item_id": "227217241046",
+          "title": "GENUINE ANTI SNORING MOUTH GUARD,DEVICE SLEEP AIDE",
+          "price": 9.99,
+          "currency": "GBP",
+          "condition": "Brand new",
+          "image_url": "https://i.ebayimg.com/images/g/0~kAAOSwc0JoDsK~/s-l140.webp",
+          "listing_url": "https://www.ebay.co.uk/itm/227217241046",
+          "shipping": "",
+          "bids": null,
+          "listing_type": "fixed",
+          "category_hint": "DIY & Tools",
+          "scraped_at": "2026-02-18T16:49:58.395859+00:00"
+        }
+      ],
+      "price_range": "£10",
+      "listing_count": 1,
+      "instructions": "Write a focused product spotlight blog post about this specific item: 'GENUINE ANTI SNORING MOUTH GUARD,DEVICE SLEEP AIDE' priced at £9.99 (Brand new condition). Category: DIY & Tools. \n\nThe post MUST:\n1. Open with a compelling hook about why this specific product is worth attention.\n2. Include detailed product analysis — materials, features, use cases, who it's for.\n3. Discuss the condition (Brand new) and what that means for the buyer.\n4. Include the eBay link prominently: https://www.ebay.co.uk/itm/227217241046\n5. Add a section on 'What to check before buying' with category-specific tips.\n6. Compare the price (£9.99) to typical market value.\n7. Include a clear verdict/recommendation.\n8. End with a strong call-to-action to view/buy on eBay.\n\nWrite 400-800 words. This is a focused product page, not a general guide. Every sentence should be about THIS specific item. Use short, punchy paragraphs optimized for featured snippets. Include the product name and category in the first paragraph for SEO.",
+      "created_at": "2026-02-18T16:50:03.334066+00:00"
     },
     {
       "post_id": "buy-ivita-mastectomy-bra-silicone-breast-forms-bra-pad-form-e536a2",
@@ -1076,18 +1286,18 @@
           "bids": null,
           "listing_type": "fixed",
           "category_hint": "Beauty & Health",
-          "scraped_at": "2026-02-16T18:52:45.640570+00:00"
+          "scraped_at": "2026-02-18T16:49:58.395859+00:00"
         }
       ],
       "price_range": "£15",
       "listing_count": 1,
       "instructions": "Write a focused product spotlight blog post about this specific item: 'IVITA Mastectomy Bra Silicone Breast Forms Bra Pad Form Pocket Bra - Size 42' priced at £14.99 (Brand new condition). Category: Beauty & Health. \n\nThe post MUST:\n1. Open with a compelling hook about why this specific product is worth attention.\n2. Include detailed product analysis — materials, features, use cases, who it's for.\n3. Discuss the condition (Brand new) and what that means for the buyer.\n4. Include the eBay link prominently: https://www.ebay.co.uk/itm/227215678758\n5. Add a section on 'What to check before buying' with category-specific tips.\n6. Compare the price (£14.99) to typical market value.\n7. Include a clear verdict/recommendation.\n8. End with a strong call-to-action to view/buy on eBay.\n\nWrite 400-800 words. This is a focused product page, not a general guide. Every sentence should be about THIS specific item. Use short, punchy paragraphs optimized for featured snippets. Include the product name and category in the first paragraph for SEO.",
-      "created_at": "2026-02-16T18:52:45.809248+00:00"
+      "created_at": "2026-02-18T16:50:03.334066+00:00"
     },
     {
-      "post_id": "buy-igan-p6-6-inch-ultra-sharp-powerful-wire-cutter-clippers-e4ed95",
+      "post_id": "igan-p6-6-inch-ultra-sharp-powerful-wire-cutter-clippers-wit-5d3756",
       "post_type": "single_product",
-      "suggested_title": "Buy Igan P6 6-inch Ultra Sharp & Powerful Wire Cutter Clippers with Longer Flush x2 — Price, Condition & Details",
+      "suggested_title": "Igan P6 6-inch Ultra Sharp & Powerful Wire Cutter Clippers with Longer Flush x2 — Is It Worth It? Honest Review",
       "category": "DIY & Tools",
       "target_keywords": [
         "diy & tools",
@@ -1118,18 +1328,18 @@
           "bids": null,
           "listing_type": "fixed",
           "category_hint": "DIY & Tools",
-          "scraped_at": "2026-02-16T18:52:45.640570+00:00"
+          "scraped_at": "2026-02-18T16:49:58.395859+00:00"
         }
       ],
       "price_range": "£17",
       "listing_count": 1,
       "instructions": "Write a focused product spotlight blog post about this specific item: 'Igan P6 6-inch Ultra Sharp & Powerful Wire Cutter Clippers with Longer Flush x2' priced at £16.99 (Brand new condition). Category: DIY & Tools. \n\nThe post MUST:\n1. Open with a compelling hook about why this specific product is worth attention.\n2. Include detailed product analysis — materials, features, use cases, who it's for.\n3. Discuss the condition (Brand new) and what that means for the buyer.\n4. Include the eBay link prominently: https://www.ebay.co.uk/itm/227209631168\n5. Add a section on 'What to check before buying' with category-specific tips.\n6. Compare the price (£16.99) to typical market value.\n7. Include a clear verdict/recommendation.\n8. End with a strong call-to-action to view/buy on eBay.\n\nWrite 400-800 words. This is a focused product page, not a general guide. Every sentence should be about THIS specific item. Use short, punchy paragraphs optimized for featured snippets. Include the product name and category in the first paragraph for SEO.",
-      "created_at": "2026-02-16T18:52:45.809248+00:00"
+      "created_at": "2026-02-18T16:50:03.335127+00:00"
     },
     {
-      "post_id": "terracotta-jack-o-lantern-pumpkin-decoration-unused-boxed-102e70",
+      "post_id": "terracotta-jack-o-lantern-pumpkin-decoration-unused-boxed-ab7e21",
       "post_type": "single_product",
-      "suggested_title": "Terracotta Jack O' Lantern Pumpkin Decoration Unused Boxed  - Halloween — Is It Worth It? Honest Review",
+      "suggested_title": "Terracotta Jack O' Lantern Pumpkin Decoration Unused Boxed  - Halloween — Best Price UK, Quick Review",
       "category": "Home Decor & Furnishings",
       "target_keywords": [
         "home decor & furnishings",
@@ -1160,18 +1370,18 @@
           "bids": null,
           "listing_type": "fixed",
           "category_hint": "Home Decor & Furnishings",
-          "scraped_at": "2026-02-16T18:52:45.640570+00:00"
+          "scraped_at": "2026-02-18T16:49:58.396853+00:00"
         }
       ],
       "price_range": "£40",
       "listing_count": 1,
       "instructions": "Write a focused product spotlight blog post about this specific item: 'Terracotta Jack O' Lantern Pumpkin Decoration Unused Boxed  - Halloween' priced at £39.99 (New (other) condition). Category: Home Decor & Furnishings. \n\nThe post MUST:\n1. Open with a compelling hook about why this specific product is worth attention.\n2. Include detailed product analysis — materials, features, use cases, who it's for.\n3. Discuss the condition (New (other)) and what that means for the buyer.\n4. Include the eBay link prominently: https://www.ebay.co.uk/itm/227217129211\n5. Add a section on 'What to check before buying' with category-specific tips.\n6. Compare the price (£39.99) to typical market value.\n7. Include a clear verdict/recommendation.\n8. End with a strong call-to-action to view/buy on eBay.\n\nWrite 400-800 words. This is a focused product page, not a general guide. Every sentence should be about THIS specific item. Use short, punchy paragraphs optimized for featured snippets. Include the product name and category in the first paragraph for SEO.",
-      "created_at": "2026-02-16T18:52:45.809248+00:00"
+      "created_at": "2026-02-18T16:50:03.335127+00:00"
     },
     {
-      "post_id": "cath-kidston-provence-rose-set-of-4-cups-saucers-bnib-is-it-e58537",
+      "post_id": "vintage-solid-bronze-tableware-cutlery-set-thailand---new-in-1d5d27",
       "post_type": "single_product",
-      "suggested_title": "Cath Kidston Provence Rose Set Of 4 Cups &  Saucers Bnib — Is It Worth It? Honest Review",
+      "suggested_title": "Vintage Solid Bronze Tableware Cutlery Set Thailand - New in Box — Best Price UK, Quick Review",
       "category": "Kitchen & Dining",
       "target_keywords": [
         "kitchen & dining",
@@ -1181,34 +1391,118 @@
         "kitchen & dining for sale",
         "kitchen & dining uk",
         "buy kitchen & dining online uk",
-        "cath",
-        "kidston",
-        "provence",
-        "rose",
-        "cups",
-        "cath kidston provence rose",
-        "buy cath kidston provence rose set of 4 cups &  saucer"
+        "vintage",
+        "solid",
+        "bronze",
+        "tableware",
+        "cutlery",
+        "vintage solid bronze tableware",
+        "buy vintage solid bronze tableware cutlery set thailan"
       ],
       "listings": [
         {
-          "item_id": "227212808599",
-          "title": "Cath Kidston Provence Rose Set Of 4 Cups &  Saucers Bnib",
-          "price": 69.99,
+          "item_id": "227204561614",
+          "title": "Vintage Solid Bronze Tableware Cutlery Set Thailand - New in Box",
+          "price": 139.99,
           "currency": "GBP",
           "condition": "Brand new",
-          "image_url": "https://i.ebayimg.com/images/g/hIgAAOSww5Rm-9C~/s-l140.webp",
-          "listing_url": "https://www.ebay.co.uk/itm/227212808599",
+          "image_url": "https://i.ebayimg.com/images/g/TYMAAeSwjVFphOj0/s-l140.webp",
+          "listing_url": "https://www.ebay.co.uk/itm/227204561614",
           "shipping": "",
           "bids": null,
           "listing_type": "fixed",
           "category_hint": "Kitchen & Dining",
-          "scraped_at": "2026-02-16T18:52:45.640570+00:00"
+          "scraped_at": "2026-02-18T16:49:58.395859+00:00"
         }
       ],
-      "price_range": "£70",
+      "price_range": "£140",
       "listing_count": 1,
-      "instructions": "Write a focused product spotlight blog post about this specific item: 'Cath Kidston Provence Rose Set Of 4 Cups &  Saucers Bnib' priced at £69.99 (Brand new condition). Category: Kitchen & Dining. \n\nThe post MUST:\n1. Open with a compelling hook about why this specific product is worth attention.\n2. Include detailed product analysis — materials, features, use cases, who it's for.\n3. Discuss the condition (Brand new) and what that means for the buyer.\n4. Include the eBay link prominently: https://www.ebay.co.uk/itm/227212808599\n5. Add a section on 'What to check before buying' with category-specific tips.\n6. Compare the price (£69.99) to typical market value.\n7. Include a clear verdict/recommendation.\n8. End with a strong call-to-action to view/buy on eBay.\n\nWrite 400-800 words. This is a focused product page, not a general guide. Every sentence should be about THIS specific item. Use short, punchy paragraphs optimized for featured snippets. Include the product name and category in the first paragraph for SEO.",
-      "created_at": "2026-02-16T18:52:45.809248+00:00"
+      "instructions": "Write a focused product spotlight blog post about this specific item: 'Vintage Solid Bronze Tableware Cutlery Set Thailand - New in Box' priced at £139.99 (Brand new condition). Category: Kitchen & Dining. \n\nThe post MUST:\n1. Open with a compelling hook about why this specific product is worth attention.\n2. Include detailed product analysis — materials, features, use cases, who it's for.\n3. Discuss the condition (Brand new) and what that means for the buyer.\n4. Include the eBay link prominently: https://www.ebay.co.uk/itm/227204561614\n5. Add a section on 'What to check before buying' with category-specific tips.\n6. Compare the price (£139.99) to typical market value.\n7. Include a clear verdict/recommendation.\n8. End with a strong call-to-action to view/buy on eBay.\n\nWrite 400-800 words. This is a focused product page, not a general guide. Every sentence should be about THIS specific item. Use short, punchy paragraphs optimized for featured snippets. Include the product name and category in the first paragraph for SEO.",
+      "created_at": "2026-02-18T16:50:03.334066+00:00"
+    },
+    {
+      "post_id": "organic-herbal-salve-4oz---organic-herbal-salve-cream-ointme-ad9ab9",
+      "post_type": "single_product",
+      "suggested_title": "Organic Herbal Salve 4oz - Organic Herbal Salve Cream Ointment — Is It Worth It? Honest Review",
+      "category": "General",
+      "target_keywords": [
+        "general",
+        "buy general",
+        "best general",
+        "cheap general",
+        "general for sale",
+        "general uk",
+        "buy general online uk",
+        "organic",
+        "herbal",
+        "salve",
+        "4oz",
+        "cream",
+        "organic herbal salve organic",
+        "buy organic herbal salve 4oz - organic herbal salve cr"
+      ],
+      "listings": [
+        {
+          "item_id": "227217241044",
+          "title": "Organic Herbal Salve 4oz - Organic Herbal Salve Cream Ointment",
+          "price": 9.99,
+          "currency": "GBP",
+          "condition": "Brand new",
+          "image_url": "https://i.ebayimg.com/images/g/aPgAAOSwlN1oDsEI/s-l140.webp",
+          "listing_url": "https://www.ebay.co.uk/itm/227217241044",
+          "shipping": "",
+          "bids": null,
+          "listing_type": "fixed",
+          "category_hint": "General",
+          "scraped_at": "2026-02-18T16:49:58.395859+00:00"
+        }
+      ],
+      "price_range": "£10",
+      "listing_count": 1,
+      "instructions": "Write a focused product spotlight blog post about this specific item: 'Organic Herbal Salve 4oz - Organic Herbal Salve Cream Ointment' priced at £9.99 (Brand new condition). Category: General. \n\nThe post MUST:\n1. Open with a compelling hook about why this specific product is worth attention.\n2. Include detailed product analysis — materials, features, use cases, who it's for.\n3. Discuss the condition (Brand new) and what that means for the buyer.\n4. Include the eBay link prominently: https://www.ebay.co.uk/itm/227217241044\n5. Add a section on 'What to check before buying' with category-specific tips.\n6. Compare the price (£9.99) to typical market value.\n7. Include a clear verdict/recommendation.\n8. End with a strong call-to-action to view/buy on eBay.\n\nWrite 400-800 words. This is a focused product page, not a general guide. Every sentence should be about THIS specific item. Use short, punchy paragraphs optimized for featured snippets. Include the product name and category in the first paragraph for SEO.",
+      "created_at": "2026-02-18T16:50:03.334066+00:00"
+    },
+    {
+      "post_id": "2-x-fubsta-skinfirming-rejuvenating-body-oil---60-ml-review-c2cc5e",
+      "post_type": "single_product",
+      "suggested_title": "2 x Fubsta Skinfirming Rejuvenating Body Oil - 60 ML — Review & Where to Buy",
+      "category": "General",
+      "target_keywords": [
+        "general",
+        "buy general",
+        "best general",
+        "cheap general",
+        "general for sale",
+        "general uk",
+        "buy general online uk",
+        "fubsta",
+        "skinfirming",
+        "rejuvenating",
+        "body",
+        "oil",
+        "fubsta skinfirming rejuvenating body",
+        "buy 2 x fubsta skinfirming rejuvenating body oil - 60 "
+      ],
+      "listings": [
+        {
+          "item_id": "227217238561",
+          "title": "2 x Fubsta Skinfirming Rejuvenating Body Oil - 60 ML",
+          "price": 12.99,
+          "currency": "GBP",
+          "condition": "Brand new",
+          "image_url": "https://i.ebayimg.com/images/g/dyIAAOSw2rhoDr1b/s-l140.webp",
+          "listing_url": "https://www.ebay.co.uk/itm/227217238561",
+          "shipping": "",
+          "bids": null,
+          "listing_type": "fixed",
+          "category_hint": "General",
+          "scraped_at": "2026-02-18T16:49:58.395859+00:00"
+        }
+      ],
+      "price_range": "£13",
+      "listing_count": 1,
+      "instructions": "Write a focused product spotlight blog post about this specific item: '2 x Fubsta Skinfirming Rejuvenating Body Oil - 60 ML' priced at £12.99 (Brand new condition). Category: General. \n\nThe post MUST:\n1. Open with a compelling hook about why this specific product is worth attention.\n2. Include detailed product analysis — materials, features, use cases, who it's for.\n3. Discuss the condition (Brand new) and what that means for the buyer.\n4. Include the eBay link prominently: https://www.ebay.co.uk/itm/227217238561\n5. Add a section on 'What to check before buying' with category-specific tips.\n6. Compare the price (£12.99) to typical market value.\n7. Include a clear verdict/recommendation.\n8. End with a strong call-to-action to view/buy on eBay.\n\nWrite 400-800 words. This is a focused product page, not a general guide. Every sentence should be about THIS specific item. Use short, punchy paragraphs optimized for featured snippets. Include the product name and category in the first paragraph for SEO.",
+      "created_at": "2026-02-18T16:50:03.334066+00:00"
     }
   ]
 }

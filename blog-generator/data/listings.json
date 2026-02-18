@@ -1,22 +1,8 @@
 {
   "seller_name": "epicloot_8688",
-  "total_listings": 29,
+  "total_listings": 36,
   "pages_scraped": 1,
   "listings": [
-    {
-      "item_id": "227215531962",
-      "title": "Lot - Bundle Of  Steam Locomotive Display Stands - Model Trains",
-      "price": 40.0,
-      "currency": "GBP",
-      "condition": "Pre-owned",
-      "image_url": "https://i.ebayimg.com/images/g/MxUAAeSwI3ppjz3G/s-l500.webp",
-      "listing_url": "https://www.ebay.co.uk/itm/227215531962",
-      "shipping": "",
-      "bids": null,
-      "listing_type": "fixed",
-      "category_hint": "Hobbies & Models",
-      "scraped_at": "2026-02-16T19:03:22.592515+00:00"
-    },
     {
       "item_id": "227215528118",
       "title": "Vintage pheasant whiskey glasses gold gilt country core - x1 - Multibuy",
@@ -29,7 +15,7 @@
       "bids": null,
       "listing_type": "fixed",
       "category_hint": "Glassware & Drinkware",
-      "scraped_at": "2026-02-16T19:03:22.592550+00:00"
+      "scraped_at": "2026-02-18T16:49:58.394859+00:00"
     },
     {
       "item_id": "227215524657",
@@ -43,7 +29,7 @@
       "bids": null,
       "listing_type": "fixed",
       "category_hint": "Kitchen & Dining",
-      "scraped_at": "2026-02-16T19:03:22.592567+00:00"
+      "scraped_at": "2026-02-18T16:49:58.394859+00:00"
     },
     {
       "item_id": "227215521492",
@@ -51,13 +37,13 @@
       "price": 12.99,
       "currency": "GBP",
       "condition": "Pre-owned",
-      "image_url": "https://i.ebayimg.com/images/g/2gEAAeSwT-tpjw3h/s-l500.webp",
+      "image_url": "https://i.ebayimg.com/images/g/2gEAAeSwT-tpjw3h/s-l140.webp",
       "listing_url": "https://www.ebay.co.uk/itm/227215521492",
       "shipping": "",
       "bids": null,
       "listing_type": "fixed",
       "category_hint": "Glassware & Drinkware",
-      "scraped_at": "2026-02-16T19:03:22.592583+00:00"
+      "scraped_at": "2026-02-18T16:49:58.394859+00:00"
     },
     {
       "item_id": "227215516428",
@@ -65,13 +51,13 @@
       "price": 40.0,
       "currency": "GBP",
       "condition": "Opened – never used",
-      "image_url": "https://i.ebayimg.com/images/g/yisAAeSwQDVpjwzF/s-l500.webp",
+      "image_url": "https://i.ebayimg.com/images/g/yisAAeSwQDVpjwzF/s-l140.webp",
       "listing_url": "https://www.ebay.co.uk/itm/227215516428",
       "shipping": "",
       "bids": null,
       "listing_type": "fixed",
       "category_hint": "Video Games & Consoles",
-      "scraped_at": "2026-02-16T19:03:22.592612+00:00"
+      "scraped_at": "2026-02-18T16:49:58.394859+00:00"
     },
     {
       "item_id": "227215512715",
@@ -79,13 +65,13 @@
       "price": 80.0,
       "currency": "GBP",
       "condition": "Opened – never used",
-      "image_url": "https://i.ebayimg.com/images/g/2MIAAeSwLixpjwu7/s-l500.webp",
+      "image_url": "https://i.ebayimg.com/images/g/2MIAAeSwLixpjwu7/s-l140.webp",
       "listing_url": "https://www.ebay.co.uk/itm/227215512715",
       "shipping": "",
       "bids": null,
       "listing_type": "fixed",
       "category_hint": "Tech & Electronics",
-      "scraped_at": "2026-02-16T19:03:22.592636+00:00"
+      "scraped_at": "2026-02-18T16:49:58.394859+00:00"
     },
     {
       "item_id": "227210111091",
@@ -93,13 +79,13 @@
       "price": 85.99,
       "currency": "GBP",
       "condition": "Brand new",
-      "image_url": "https://i.ebayimg.com/images/g/~gcAAeSwPu1pigw8/s-l500.webp",
+      "image_url": "https://i.ebayimg.com/images/g/~gcAAeSwPu1pigw8/s-l140.webp",
       "listing_url": "https://www.ebay.co.uk/itm/227210111091",
       "shipping": "",
       "bids": null,
       "listing_type": "fixed",
       "category_hint": "Beauty & Health",
-      "scraped_at": "2026-02-16T19:03:22.592644+00:00"
+      "scraped_at": "2026-02-18T16:49:58.395859+00:00"
     },
     {
       "item_id": "227206341105",
@@ -107,13 +93,13 @@
       "price": 15.99,
       "currency": "GBP",
       "condition": "New (other)",
-      "image_url": "https://i.ebayimg.com/images/g/yNAAAeSw5B9phoX0/s-l500.webp",
+      "image_url": "https://i.ebayimg.com/images/g/yNAAAeSw5B9phoX0/s-l140.webp",
       "listing_url": "https://www.ebay.co.uk/itm/227206341105",
       "shipping": "",
       "bids": null,
       "listing_type": "fixed",
       "category_hint": "Kitchen & Dining",
-      "scraped_at": "2026-02-16T19:03:22.592654+00:00"
+      "scraped_at": "2026-02-18T16:49:58.395859+00:00"
     },
     {
       "item_id": "227206323595",
@@ -121,13 +107,27 @@
       "price": 29.99,
       "currency": "GBP",
       "condition": "Pre-owned",
-      "image_url": "https://i.ebayimg.com/images/g/EAYAAeSwo9hphoIr/s-l500.webp",
+      "image_url": "https://i.ebayimg.com/images/g/EAYAAeSwo9hphoIr/s-l140.webp",
       "listing_url": "https://www.ebay.co.uk/itm/227206323595",
       "shipping": "",
       "bids": null,
       "listing_type": "fixed",
       "category_hint": "Kitchen & Dining",
-      "scraped_at": "2026-02-16T19:03:22.592664+00:00"
+      "scraped_at": "2026-02-18T16:49:58.395859+00:00"
+    },
+    {
+      "item_id": "227206299139",
+      "title": "Lloyds Pharmacy ARM Blood Pressure Monitor + Cuff - Very Good Condition",
+      "price": 12.99,
+      "currency": "GBP",
+      "condition": "Pre-owned",
+      "image_url": "https://i.ebayimg.com/images/g/XVQAAeSwrHtphnvu/s-l140.webp",
+      "listing_url": "https://www.ebay.co.uk/itm/227206299139",
+      "shipping": "",
+      "bids": null,
+      "listing_type": "fixed",
+      "category_hint": "Beauty & Health",
+      "scraped_at": "2026-02-18T16:49:58.395859+00:00"
     },
     {
       "item_id": "227204941809",
@@ -135,13 +135,13 @@
       "price": 15.99,
       "currency": "GBP",
       "condition": "Brand new",
-      "image_url": "https://i.ebayimg.com/images/g/TSgAAeSwOkpphU39/s-l500.webp",
+      "image_url": "https://i.ebayimg.com/images/g/TSgAAeSwOkpphU39/s-l140.webp",
       "listing_url": "https://www.ebay.co.uk/itm/227204941809",
       "shipping": "",
       "bids": null,
       "listing_type": "fixed",
       "category_hint": "Kitchen & Dining",
-      "scraped_at": "2026-02-16T19:03:22.592674+00:00"
+      "scraped_at": "2026-02-18T16:49:58.395859+00:00"
     },
     {
       "item_id": "227204918144",
@@ -149,13 +149,13 @@
       "price": 13.99,
       "currency": "GBP",
       "condition": "Brand new",
-      "image_url": "https://i.ebayimg.com/images/g/1CoAAeSwWZRphUpQ/s-l500.webp",
+      "image_url": "https://i.ebayimg.com/images/g/1CoAAeSwWZRphUpQ/s-l140.webp",
       "listing_url": "https://www.ebay.co.uk/itm/227204918144",
       "shipping": "",
       "bids": null,
       "listing_type": "fixed",
       "category_hint": "Tech & Electronics",
-      "scraped_at": "2026-02-16T19:03:22.592701+00:00"
+      "scraped_at": "2026-02-18T16:49:58.395859+00:00"
     },
     {
       "item_id": "227204904735",
@@ -163,13 +163,13 @@
       "price": 9.99,
       "currency": "GBP",
       "condition": "Pre-owned",
-      "image_url": "https://i.ebayimg.com/images/g/uqsAAeSw-PpphUVk/s-l500.webp",
+      "image_url": "https://i.ebayimg.com/images/g/uqsAAeSw-PpphUVk/s-l140.webp",
       "listing_url": "https://www.ebay.co.uk/itm/227204904735",
       "shipping": "",
       "bids": null,
       "listing_type": "fixed",
       "category_hint": "Tech & Electronics",
-      "scraped_at": "2026-02-16T19:03:22.592733+00:00"
+      "scraped_at": "2026-02-18T16:49:58.395859+00:00"
     },
     {
       "item_id": "227204587061",
@@ -177,13 +177,13 @@
       "price": 15.99,
       "currency": "GBP",
       "condition": "Brand new",
-      "image_url": "https://i.ebayimg.com/images/g/EFMAAeSwXwpphO4w/s-l500.webp",
+      "image_url": "https://i.ebayimg.com/images/g/EFMAAeSwXwpphO4w/s-l140.webp",
       "listing_url": "https://www.ebay.co.uk/itm/227204587061",
       "shipping": "",
       "bids": null,
       "listing_type": "fixed",
       "category_hint": "Beauty & Health",
-      "scraped_at": "2026-02-16T19:03:22.592741+00:00"
+      "scraped_at": "2026-02-18T16:49:58.395859+00:00"
     },
     {
       "item_id": "227204576588",
@@ -191,13 +191,13 @@
       "price": 19.99,
       "currency": "GBP",
       "condition": "Brand new",
-      "image_url": "https://i.ebayimg.com/images/g/V~UAAeSwHtBphOze/s-l500.webp",
+      "image_url": "https://i.ebayimg.com/images/g/V~UAAeSwHtBphOze/s-l140.webp",
       "listing_url": "https://www.ebay.co.uk/itm/227204576588",
       "shipping": "",
       "bids": null,
       "listing_type": "fixed",
       "category_hint": "Tech & Electronics",
-      "scraped_at": "2026-02-16T19:03:22.592768+00:00"
+      "scraped_at": "2026-02-18T16:49:58.395859+00:00"
     },
     {
       "item_id": "227204571197",
@@ -205,13 +205,13 @@
       "price": 12.94,
       "currency": "GBP",
       "condition": "Brand new",
-      "image_url": "https://i.ebayimg.com/images/g/HvwAAeSw0RhphOvw/s-l500.webp",
+      "image_url": "https://i.ebayimg.com/images/g/HvwAAeSw0RhphOvw/s-l140.webp",
       "listing_url": "https://www.ebay.co.uk/itm/227204571197",
       "shipping": "",
       "bids": null,
       "listing_type": "fixed",
       "category_hint": "Beauty & Health",
-      "scraped_at": "2026-02-16T19:03:22.592777+00:00"
+      "scraped_at": "2026-02-18T16:49:58.395859+00:00"
     },
     {
       "item_id": "227204568075",
@@ -219,13 +219,27 @@
       "price": 9.72,
       "currency": "GBP",
       "condition": "Pre-owned",
-      "image_url": "https://i.ebayimg.com/images/g/mY4AAeSwKAJphOqv/s-l500.webp",
+      "image_url": "https://i.ebayimg.com/images/g/mY4AAeSwKAJphOqv/s-l140.webp",
       "listing_url": "https://www.ebay.co.uk/itm/227204568075",
       "shipping": "",
       "bids": null,
       "listing_type": "fixed",
       "category_hint": "Kitchen & Dining",
-      "scraped_at": "2026-02-16T19:03:22.592790+00:00"
+      "scraped_at": "2026-02-18T16:49:58.395859+00:00"
+    },
+    {
+      "item_id": "227204561614",
+      "title": "Vintage Solid Bronze Tableware Cutlery Set Thailand - New in Box",
+      "price": 139.99,
+      "currency": "GBP",
+      "condition": "Brand new",
+      "image_url": "https://i.ebayimg.com/images/g/TYMAAeSwjVFphOj0/s-l140.webp",
+      "listing_url": "https://www.ebay.co.uk/itm/227204561614",
+      "shipping": "",
+      "bids": null,
+      "listing_type": "fixed",
+      "category_hint": "Kitchen & Dining",
+      "scraped_at": "2026-02-18T16:49:58.395859+00:00"
     },
     {
       "item_id": "227204428854",
@@ -233,13 +247,13 @@
       "price": 29.99,
       "currency": "GBP",
       "condition": "Brand new",
-      "image_url": "https://i.ebayimg.com/images/g/3sQAAeSwwFFphMcF/s-l500.webp",
+      "image_url": "https://i.ebayimg.com/images/g/3sQAAeSwwFFphMcF/s-l140.webp",
       "listing_url": "https://www.ebay.co.uk/itm/227204428854",
       "shipping": "",
       "bids": null,
       "listing_type": "fixed",
       "category_hint": "Kitchen & Dining",
-      "scraped_at": "2026-02-16T19:03:22.592799+00:00"
+      "scraped_at": "2026-02-18T16:49:58.395859+00:00"
     },
     {
       "item_id": "227204419061",
@@ -247,13 +261,13 @@
       "price": 14.99,
       "currency": "GBP",
       "condition": "Pre-owned",
-      "image_url": "https://i.ebayimg.com/images/g/YKgAAeSwat1phMRZ/s-l500.webp",
+      "image_url": "https://i.ebayimg.com/images/g/YKgAAeSwat1phMRZ/s-l140.webp",
       "listing_url": "https://www.ebay.co.uk/itm/227204419061",
       "shipping": "",
       "bids": null,
       "listing_type": "fixed",
       "category_hint": "DIY & Tools",
-      "scraped_at": "2026-02-16T19:03:22.592821+00:00"
+      "scraped_at": "2026-02-18T16:49:58.395859+00:00"
     },
     {
       "item_id": "227204399830",
@@ -261,13 +275,13 @@
       "price": 22.99,
       "currency": "GBP",
       "condition": "Brand new",
-      "image_url": "https://i.ebayimg.com/images/g/Yo4AAeSw9zdphL~8/s-l500.webp",
+      "image_url": "https://i.ebayimg.com/images/g/Yo4AAeSw9zdphL~8/s-l140.webp",
       "listing_url": "https://www.ebay.co.uk/itm/227204399830",
       "shipping": "",
       "bids": null,
       "listing_type": "fixed",
       "category_hint": "Hobbies & Models",
-      "scraped_at": "2026-02-16T19:03:22.592843+00:00"
+      "scraped_at": "2026-02-18T16:49:58.395859+00:00"
     },
     {
       "item_id": "227204389224",
@@ -275,13 +289,13 @@
       "price": 19.99,
       "currency": "GBP",
       "condition": "Brand new",
-      "image_url": "https://i.ebayimg.com/images/g/X4EAAeSwmpNphL0g/s-l500.webp",
+      "image_url": "https://i.ebayimg.com/images/g/X4EAAeSwmpNphL0g/s-l140.webp",
       "listing_url": "https://www.ebay.co.uk/itm/227204389224",
       "shipping": "",
       "bids": null,
       "listing_type": "fixed",
       "category_hint": "Hobbies & Models",
-      "scraped_at": "2026-02-16T19:03:22.592864+00:00"
+      "scraped_at": "2026-02-18T16:49:58.395859+00:00"
     },
     {
       "item_id": "227204381621",
@@ -289,13 +303,97 @@
       "price": 39.99,
       "currency": "GBP",
       "condition": "Pre-owned",
-      "image_url": "https://i.ebayimg.com/images/g/RJoAAeSw1u1phLwX/s-l500.webp",
+      "image_url": "https://i.ebayimg.com/images/g/RJoAAeSw1u1phLwX/s-l140.webp",
       "listing_url": "https://www.ebay.co.uk/itm/227204381621",
       "shipping": "",
       "bids": null,
       "listing_type": "fixed",
       "category_hint": "Garden & Outdoor Living",
-      "scraped_at": "2026-02-16T19:03:22.592883+00:00"
+      "scraped_at": "2026-02-18T16:49:58.395859+00:00"
+    },
+    {
+      "item_id": "227217241045",
+      "title": "HOYGI Collagen Overnight Wrapping Peel Off Facial Mask Renewal Night Skin Care",
+      "price": 12.99,
+      "currency": "GBP",
+      "condition": "Brand new",
+      "image_url": "https://i.ebayimg.com/images/g/7w0AAOSwMuhoFRX1/s-l140.webp",
+      "listing_url": "https://www.ebay.co.uk/itm/227217241045",
+      "shipping": "",
+      "bids": null,
+      "listing_type": "fixed",
+      "category_hint": "Beauty & Health",
+      "scraped_at": "2026-02-18T16:49:58.395859+00:00"
+    },
+    {
+      "item_id": "227217241047",
+      "title": "Pierced By CLAIRE'S Ear Piercing Rapid 3 Week Hygiene After Care Lotion 100ml",
+      "price": 12.99,
+      "currency": "GBP",
+      "condition": "Brand new",
+      "image_url": "https://i.ebayimg.com/images/g/vEoAAOSwmexoFRTa/s-l140.webp",
+      "listing_url": "https://www.ebay.co.uk/itm/227217241047",
+      "shipping": "",
+      "bids": null,
+      "listing_type": "fixed",
+      "category_hint": "Automotive",
+      "scraped_at": "2026-02-18T16:49:58.395859+00:00"
+    },
+    {
+      "item_id": "227217241043",
+      "title": "Acne Treatment BREYLEE Japanese Ultra Fine Fibre Mask Cloth -7 Sheets - Free P&P",
+      "price": 14.99,
+      "currency": "GBP",
+      "condition": "Brand new",
+      "image_url": "https://i.ebayimg.com/images/g/ysoAAOSwM6RoFQ3G/s-l140.webp",
+      "listing_url": "https://www.ebay.co.uk/itm/227217241043",
+      "shipping": "",
+      "bids": null,
+      "listing_type": "fixed",
+      "category_hint": "Kitchen & Dining",
+      "scraped_at": "2026-02-18T16:49:58.395859+00:00"
+    },
+    {
+      "item_id": "227217241046",
+      "title": "GENUINE ANTI SNORING MOUTH GUARD,DEVICE SLEEP AIDE",
+      "price": 9.99,
+      "currency": "GBP",
+      "condition": "Brand new",
+      "image_url": "https://i.ebayimg.com/images/g/0~kAAOSwc0JoDsK~/s-l140.webp",
+      "listing_url": "https://www.ebay.co.uk/itm/227217241046",
+      "shipping": "",
+      "bids": null,
+      "listing_type": "fixed",
+      "category_hint": "DIY & Tools",
+      "scraped_at": "2026-02-18T16:49:58.395859+00:00"
+    },
+    {
+      "item_id": "227217241044",
+      "title": "Organic Herbal Salve 4oz - Organic Herbal Salve Cream Ointment",
+      "price": 9.99,
+      "currency": "GBP",
+      "condition": "Brand new",
+      "image_url": "https://i.ebayimg.com/images/g/aPgAAOSwlN1oDsEI/s-l140.webp",
+      "listing_url": "https://www.ebay.co.uk/itm/227217241044",
+      "shipping": "",
+      "bids": null,
+      "listing_type": "fixed",
+      "category_hint": "General",
+      "scraped_at": "2026-02-18T16:49:58.395859+00:00"
+    },
+    {
+      "item_id": "227217238561",
+      "title": "2 x Fubsta Skinfirming Rejuvenating Body Oil - 60 ML",
+      "price": 12.99,
+      "currency": "GBP",
+      "condition": "Brand new",
+      "image_url": "https://i.ebayimg.com/images/g/dyIAAOSw2rhoDr1b/s-l140.webp",
+      "listing_url": "https://www.ebay.co.uk/itm/227217238561",
+      "shipping": "",
+      "bids": null,
+      "listing_type": "fixed",
+      "category_hint": "General",
+      "scraped_at": "2026-02-18T16:49:58.395859+00:00"
     },
     {
       "item_id": "227215678758",
@@ -303,13 +401,13 @@
       "price": 14.99,
       "currency": "GBP",
       "condition": "Brand new",
-      "image_url": "https://i.ebayimg.com/images/g/3m4AAOSw0ihns6Vy/s-l500.webp",
+      "image_url": "https://i.ebayimg.com/images/g/3m4AAOSw0ihns6Vy/s-l140.webp",
       "listing_url": "https://www.ebay.co.uk/itm/227215678758",
       "shipping": "",
       "bids": null,
       "listing_type": "fixed",
       "category_hint": "Beauty & Health",
-      "scraped_at": "2026-02-16T19:03:22.592892+00:00"
+      "scraped_at": "2026-02-18T16:49:58.395859+00:00"
     },
     {
       "item_id": "227212807970",
@@ -317,13 +415,13 @@
       "price": 21.99,
       "currency": "GBP",
       "condition": "Brand new",
-      "image_url": "https://i.ebayimg.com/images/g/euIAAOSwwCxns6Qs/s-l500.webp",
+      "image_url": "https://i.ebayimg.com/images/g/euIAAOSwwCxns6Qs/s-l140.webp",
       "listing_url": "https://www.ebay.co.uk/itm/227212807970",
       "shipping": "",
       "bids": null,
       "listing_type": "fixed",
       "category_hint": "Kitchen & Dining",
-      "scraped_at": "2026-02-16T19:03:22.592902+00:00"
+      "scraped_at": "2026-02-18T16:49:58.395859+00:00"
     },
     {
       "item_id": "227212807485",
@@ -331,13 +429,13 @@
       "price": 12.99,
       "currency": "GBP",
       "condition": "Brand new",
-      "image_url": "https://i.ebayimg.com/images/g/3dMAAOSwqtdns5~h/s-l500.webp",
+      "image_url": "https://i.ebayimg.com/images/g/3dMAAOSwqtdns5~h/s-l140.webp",
       "listing_url": "https://www.ebay.co.uk/itm/227212807485",
       "shipping": "",
       "bids": null,
       "listing_type": "fixed",
       "category_hint": "Sports & Outdoors",
-      "scraped_at": "2026-02-16T19:03:22.592942+00:00"
+      "scraped_at": "2026-02-18T16:49:58.395859+00:00"
     },
     {
       "item_id": "227209631168",
@@ -345,13 +443,13 @@
       "price": 16.99,
       "currency": "GBP",
       "condition": "Brand new",
-      "image_url": "https://i.ebayimg.com/images/g/k5cAAOSwj6dnmoAz/s-l500.webp",
+      "image_url": "https://i.ebayimg.com/images/g/k5cAAOSwj6dnmoAz/s-l140.webp",
       "listing_url": "https://www.ebay.co.uk/itm/227209631168",
       "shipping": "",
       "bids": null,
       "listing_type": "fixed",
       "category_hint": "DIY & Tools",
-      "scraped_at": "2026-02-16T19:03:22.592963+00:00"
+      "scraped_at": "2026-02-18T16:49:58.395859+00:00"
     },
     {
       "item_id": "227211157162",
@@ -359,13 +457,13 @@
       "price": 59.99,
       "currency": "GBP",
       "condition": "Brand new",
-      "image_url": "https://i.ebayimg.com/images/g/QJMAAOSwmpVnmn7X/s-l500.webp",
+      "image_url": "https://i.ebayimg.com/images/g/QJMAAOSwmpVnmn7X/s-l140.webp",
       "listing_url": "https://www.ebay.co.uk/itm/227211157162",
       "shipping": "",
       "bids": null,
       "listing_type": "fixed",
       "category_hint": "Board Games & Puzzles",
-      "scraped_at": "2026-02-16T19:03:22.592990+00:00"
+      "scraped_at": "2026-02-18T16:49:58.395859+00:00"
     },
     {
       "item_id": "227217129212",
@@ -373,13 +471,13 @@
       "price": 14.99,
       "currency": "GBP",
       "condition": "Brand new",
-      "image_url": "https://i.ebayimg.com/images/g/OUgAAOSwKzlnmnuq/s-l500.webp",
+      "image_url": "https://i.ebayimg.com/images/g/OUgAAOSwKzlnmnuq/s-l140.webp",
       "listing_url": "https://www.ebay.co.uk/itm/227217129212",
       "shipping": "",
       "bids": null,
       "listing_type": "fixed",
       "category_hint": "Garden & Outdoor Living",
-      "scraped_at": "2026-02-16T19:03:22.593011+00:00"
+      "scraped_at": "2026-02-18T16:49:58.396853+00:00"
     },
     {
       "item_id": "227217129211",
@@ -387,13 +485,13 @@
       "price": 39.99,
       "currency": "GBP",
       "condition": "New (other)",
-      "image_url": "https://i.ebayimg.com/images/g/l-gAAOSw~qVnCF8g/s-l500.webp",
+      "image_url": "https://i.ebayimg.com/images/g/l-gAAOSw~qVnCF8g/s-l140.webp",
       "listing_url": "https://www.ebay.co.uk/itm/227217129211",
       "shipping": "",
       "bids": null,
       "listing_type": "fixed",
       "category_hint": "Home Decor & Furnishings",
-      "scraped_at": "2026-02-16T19:03:22.593028+00:00"
+      "scraped_at": "2026-02-18T16:49:58.396853+00:00"
     },
     {
       "item_id": "227212808599",
@@ -401,13 +499,13 @@
       "price": 69.99,
       "currency": "GBP",
       "condition": "Brand new",
-      "image_url": "https://i.ebayimg.com/images/g/hIgAAOSww5Rm-9C~/s-l500.webp",
+      "image_url": "https://i.ebayimg.com/images/g/hIgAAOSww5Rm-9C~/s-l140.webp",
       "listing_url": "https://www.ebay.co.uk/itm/227212808599",
       "shipping": "",
       "bids": null,
       "listing_type": "fixed",
       "category_hint": "Kitchen & Dining",
-      "scraped_at": "2026-02-16T19:03:22.593038+00:00"
+      "scraped_at": "2026-02-18T16:49:58.396853+00:00"
     }
   ],
   "errors": []

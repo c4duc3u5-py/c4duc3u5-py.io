@@ -270,6 +270,7 @@ Examples:
   python main.py --skip-scrape                Use previously scraped listings
   python main.py --dry-run                    Plan posts without generating
   python main.py --max-posts 3                Generate at most 3 posts
+  python main.py --cleanup                    Deduplicate & mark stale posts
         """,
     )
 
@@ -312,10 +313,41 @@ Examples:
         action="store_true",
         help="Skip Pinterest pinning even if configured",
     )
+    parser.add_argument(
+        "--cleanup",
+        action="store_true",
+        help="Run deduplication and stale post cleanup only (no scraping or generation)",
+    )
 
     args = parser.parse_args()
 
     setup_logging()
+
+    # ── Cleanup mode ──
+    if args.cleanup:
+        logger.info("🧹 Running cleanup: deduplication + stale post management...")
+
+        with SiteBuilder() as builder:
+            # Step 1: Deduplicate
+            dupes = builder.deduplicate_posts()
+            logger.info("Removed %d duplicate posts", len(dupes))
+
+            # Step 2: Mark stale / delete old stale posts
+            # Load current active item IDs from cached listings
+            try:
+                scrape_result = EbayScraper.load_listings()
+                active_ids = {l.item_id for l in scrape_result.listings if l.item_id}
+            except FileNotFoundError:
+                logger.warning("No cached listings — marking ALL posts as stale.")
+                active_ids = set()
+
+            removed = builder.cleanup_stale_posts(active_ids)
+            logger.info("Removed %d stale posts (>30 days old)", len(removed))
+
+            remaining = builder.get_published_count()
+            logger.info("📊 Posts remaining: %d", remaining)
+
+        sys.exit(0)
 
     if args.max_posts:
         config.MAX_POSTS_PER_RUN = args.max_posts
@@ -330,8 +362,8 @@ Examples:
     )
 
     # Exit with error code only if nothing was published at all
-    published = summary.get("published", 0)
-    errors = summary.get("errors", 0)
+    published = summary.get("posts_published", 0)
+    errors = summary.get("errors", [])
     if errors and published == 0:
         sys.exit(1)  # Total failure - nothing published
     elif errors:

@@ -1,4 +1,5 @@
 ---
+noindex: true
 title: "Tech & Electronics: Best GOKEDA Aluminium Laptop Stand"
 date: 2026-02-16T19:11:49.399621+00:00
 lastmod: 2026-02-16T19:11:49.399621+00:00

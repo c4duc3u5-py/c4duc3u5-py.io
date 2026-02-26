@@ -111,6 +111,7 @@ class ContentPlanner:
     def __init__(self, max_posts: int = config.MAX_POSTS_PER_RUN):
         self.max_posts = max_posts
         self._existing_post_ids: set[str] = set()
+        self._existing_item_ids: set[str] = set()
         self._load_existing_posts()
 
     def _load_existing_posts(self):
@@ -123,7 +124,23 @@ class ContentPlanner:
             # Use the filename stem as the post ID
             self._existing_post_ids.add(md_file.stem)
 
-        logger.info("Found %d existing posts to avoid duplicating.", len(self._existing_post_ids))
+            # Also track which eBay item IDs already have individual posts
+            # to prevent generating 3-5 duplicate posts per listing
+            try:
+                content = md_file.read_text(encoding="utf-8")
+                # Extract item IDs from eBay URLs in the content
+                import re
+                item_ids = re.findall(r'ebay\.co\.uk/itm/(\d+)', content)
+                for item_id in item_ids:
+                    self._existing_item_ids.add(item_id)
+            except Exception:
+                pass
+
+        logger.info(
+            "Found %d existing posts (%d unique item IDs) to avoid duplicating.",
+            len(self._existing_post_ids),
+            len(self._existing_item_ids),
+        )
 
     # ─────────────────────────────────────────
     # Public API
@@ -169,6 +186,13 @@ class ContentPlanner:
         individual_candidates: list[PostBrief] = []
         if config.GENERATE_INDIVIDUAL_POSTS:
             for listing in scrape_result.listings:
+                # Skip listings that already have individual posts (by item_id)
+                if listing.item_id and listing.item_id in self._existing_item_ids:
+                    logger.debug(
+                        "Skipping individual post for item %s ('%s') — already has a post.",
+                        listing.item_id, listing.title[:50],
+                    )
+                    continue
                 individual_brief = self._generate_individual_brief(listing)
                 if individual_brief:
                     individual_candidates.append(individual_brief)

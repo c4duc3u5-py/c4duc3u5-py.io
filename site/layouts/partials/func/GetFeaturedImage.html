@@ -1,0 +1,35 @@
+{{/* func/GetFeaturedImage.html — Return the featured image URL for a page */}}
+{{/* Used by home.html and single.html to display post thumbnails */}}
+{{/* Priority: 1) featured_image param, 2) first image in content, 3) og_image */}}
+
+{{- $image := "" -}}
+
+{{/* 1. Check for explicit featured_image in front matter */}}
+{{- with .Params.featured_image -}}
+  {{- if ne . "" -}}
+    {{- $image = . -}}
+  {{- end -}}
+{{- end -}}
+
+{{/* 2. If no featured_image, try to extract the first image from content */}}
+{{- if eq $image "" -}}
+  {{- $matches := findRE `<img[^>]+src="([^"]+)"` .Content 1 -}}
+  {{- with $matches -}}
+    {{- $src := index . 0 -}}
+    {{- $srcMatch := replaceRE `.*src="([^"]+)".*` "$1" $src -}}
+    {{- $image = $srcMatch -}}
+  {{- end -}}
+{{- end -}}
+
+{{/* 3. Try markdown image syntax from raw content */}}
+{{- if eq $image "" -}}
+  {{- $mdImages := findRE `!\[[^\]]*\]\(([^)]+)\)` .RawContent 1 -}}
+  {{- with $mdImages -}}
+    {{- $raw := index . 0 -}}
+    {{- $url := replaceRE `!\[[^\]]*\]\(([^)]+)\)` "$1" $raw -}}
+    {{- $image = $url -}}
+  {{- end -}}
+{{- end -}}
+
+{{/* Return the image URL (empty string if none found) */}}
+{{- return $image -}}

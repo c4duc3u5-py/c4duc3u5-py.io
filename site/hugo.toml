@@ -27,6 +27,8 @@ summaryLength = 50
   locale = "en_GB"
   twitter_cards = true
   og_type = "website"
+  # Google Search Console — paste your verification code here after registering
+  # google_site_verification = "YOUR_VERIFICATION_CODE"
 
 [params.social]
   # Add social links here if you want later

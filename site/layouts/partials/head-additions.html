@@ -24,12 +24,21 @@
 <link rel="alternate" hreflang="x-default" href="{{ $canonical }}">
 
 {{/* ===== Meta Robots ===== */}}
-{{ if and (eq .Kind "taxonomy") (lt (len .Pages) 3) }}
+{{ if .Params.noindex }}
+  {{/* Explicitly marked as stale / no longer relevant */}}
+  <meta name="robots" content="noindex, nofollow">
+{{ else if and (eq .Kind "taxonomy") (lt (len .Pages) 3) }}
   <meta name="robots" content="noindex, follow">
 {{ else if eq .Kind "term" }}
   {{ if lt (len .Pages) 2 }}
     <meta name="robots" content="noindex, follow">
   {{ end }}
+{{ end }}
+
+{{/* ===== Google Search Console Verification ===== */}}
+{{/* Replace YOUR_VERIFICATION_CODE with the code from GSC */}}
+{{ with .Site.Params.google_site_verification }}
+  <meta name="google-site-verification" content="{{ . }}">
 {{ end }}
 
 {{/* ===== Custom CSS ===== */}}

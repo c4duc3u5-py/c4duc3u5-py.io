@@ -48,6 +48,9 @@ jobs:
       - name: Install Python dependencies
         run: pip install -r blog-generator/requirements.txt
 
+      - name: Install Playwright browsers
+        run: python -m playwright install chromium --with-deps
+
       # ── Hugo setup ──
       - name: Set up Hugo
         uses: peaceiris/actions-hugo@v3
@@ -91,7 +94,7 @@ jobs:
       - name: Build Hugo site
         run: |
           cd site
-          hugo --minify --baseURL "${{ steps.deployment.outputs.page_url || 'https://c4duc3u5-py.github.io/c4duc3u5-py.io/' }}"
+          hugo --minify --baseURL "https://c4duc3u5-py.github.io/c4duc3u5-py.io/"
 
       # ── Deploy to GitHub Pages ──
       - name: Setup Pages

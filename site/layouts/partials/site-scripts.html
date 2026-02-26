@@ -67,9 +67,9 @@
 
   /* ===== External eBay Link Handler ===== */
   function initExternalLinks() {
-    document.querySelectorAll('a[href*="ebay.com"]').forEach(function(link) {
+    document.querySelectorAll('a[href*="ebay.com"], a[href*="ebay.co.uk"]').forEach(function(link) {
       link.setAttribute('target', '_blank');
-      link.setAttribute('rel', 'noopener noreferrer');
+      link.setAttribute('rel', 'noopener noreferrer nofollow sponsored');
     });
   }
 

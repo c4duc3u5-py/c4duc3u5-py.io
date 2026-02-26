@@ -19,9 +19,7 @@
           <li><a href="{{ "posts/" | absURL }}">All Posts</a></li>
           <li><a href="{{ "tags/" | absURL }}">Tags</a></li>
           <li><a href="{{ "categories/" | absURL }}">Categories</a></li>
-          {{ with .OutputFormats.Get "RSS" }}
-          <li><a href="{{ .RelPermalink }}">RSS Feed</a></li>
-          {{ end }}
+          <li><a href="{{ "feed.xml" | absURL }}">RSS Feed</a></li>
         </ul>
       </div>
 

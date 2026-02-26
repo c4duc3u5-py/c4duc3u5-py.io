@@ -172,6 +172,7 @@ class EbayScraper:
                 ),
                 viewport={"width": 1920, "height": 1080},
                 locale="en-GB",
+                timezone_id="Europe/London",
                 extra_http_headers={
                     "Accept-Language": "en-GB,en;q=0.9",
                 },
@@ -202,6 +203,8 @@ class EbayScraper:
                         "_ipg": "240",   # Max items per page (eBay allows 25/50/100/200/240)
                         "_sop": "10",
                         "_language": "en",  # Force English listings
+                        "LH_PrefLoc": "1",  # UK Only — prevents geo-filtering from non-UK IPs
+                        "_stpos": "SW1A 1AA",  # London postcode — anchors location to UK
                     }
                     url = f"{self.SEARCH_URL}?{urlencode(params)}"
                     logger.info("Navigating to page %d: %s", page_number, url)
@@ -322,7 +325,7 @@ class EbayScraper:
             # Some eBay listings take 24-48h to appear in search, or are
             # filtered by category. Try multiple approaches.
             for pass_name, pass_url in [
-                ("alt search", f"{self.STORE_SEARCH_URL}?{urlencode({'_ssn': self.seller_name, '_ipg': '240', 'rt': 'nc', 'LH_All': '1'})}"),
+                ("alt search", f"{self.STORE_SEARCH_URL}?{urlencode({'_ssn': self.seller_name, '_ipg': '240', 'rt': 'nc', 'LH_All': '1', 'LH_PrefLoc': '1', '_stpos': 'SW1A 1AA'})}"),
                 ("profile page", f"{self.SELLER_PROFILE_URL}/{self.seller_name}"),
             ]:
                 try:
@@ -500,7 +503,7 @@ class EbayScraper:
                     }
 
                     // Clean title
-                    title = title.replace(/^(New Listing|SPONSORED)\s*/g, '').trim();
+                    title = title.replace(/^(New Listing|SPONSORED)\\s*/g, '').trim();
 
                     // Skip placeholder items
                     if (!title || title === 'Shop on eBay') return;
@@ -707,6 +710,8 @@ class EbayScraper:
                     "_ipg": "240",   # Max items per page
                     "_sop": "10",
                     "_language": "en",  # Force English listings
+                    "LH_PrefLoc": "1",  # UK Only — prevents geo-filtering from non-UK IPs
+                    "_stpos": "SW1A 1AA",  # London postcode — anchors location to UK
                 }
                 url = f"{self.SEARCH_URL}?{urlencode(params)}"
                 response = client.get(url)
@@ -847,8 +852,50 @@ class EbayScraper:
         """
         title_lower = title.lower()
 
-        # Ordered list of (category, keywords) — more specific first
+        # Ordered list of (category, keywords) — MORE SPECIFIC categories first
+        # to avoid false matches (e.g. "Harry Potter" must match Books before Kitchen)
         categories = [
+            ("Books & Media", [
+                "book", "novel", "dvd", "blu-ray", "vinyl", "record", "cd",
+                "vhs", "comic", "manga", "magazine", "hardback", "paperback",
+                "harry potter", "box set", "trilogy", "audiobook",
+                "lord of the rings", "boxed set", "hardcover",
+            ]),
+            ("Board Games & Puzzles", [
+                "board game", "puzzle", "card game", "dice", "tabletop",
+                "monopoly", "chess", "lego", "cursed island", "portal games",
+                "strategy game", "party game", "trivia", "robinson crusoe",
+                "jigsaw",
+            ]),
+            ("Video Games & Consoles", [
+                "xbox", "playstation", "nintendo", "ps5", "ps4", "ps3",
+                "ps2", "wii", "switch", "gameboy", "sega", "atari",
+                "controller", "console", "gaming", "vr controller",
+                "virtual reality", "oculus", "valve index", "knuckle",
+                "steam deck", "video game", "vr headset",
+            ]),
+            ("Hobbies & Models", [
+                "model kit", "model train", "locomotive", "railway",
+                "diecast", "die-cast", "die cast", "scale model", "1:96",
+                "1:72", "1:48", "1:35", "1:24", "1:18", "revell", "airfix",
+                "tamiya", "hornby", "atlas editions", "corgi",
+                "warhammer", "miniature", "miniatures", "paint set",
+                "age of sigmar", "stormcast", "citadel",
+                "rc car", "remote control", "radio control", "slot car",
+                "craft", "knitting", "sewing", "embroidery", "cross stitch",
+                "scrapbook", "stamp collecting", "philately",
+                "model building", "airplane model", "ship model",
+                "cutty sark", "mustang", "spitfire", "tempest",
+                "messerschmitt", "hawker", "display stand",
+            ]),
+            ("Sports & Outdoors", [
+                "bike", "bicycle", "cycling", "golf", "fishing", "camping",
+                "hiking", "football", "basketball", "baseball", "tennis",
+                "soccer", "weights", "fitness", "yoga", "running",
+                "bike light", "bike wheel", "bike mount", "bike phone",
+                "phone mount", "helmet", "jersey", "shorts",
+                "cricket", "rugby", "gym", "exercise", "treadmill",
+            ]),
             ("Beauty & Health", [
                 "beauty", "skincare", "skin care", "makeup", "make up", "cosmetic",
                 "perfume", "fragrance", "cologne", "moisturiser", "moisturizer",
@@ -856,15 +903,25 @@ class EbayScraper:
                 "foundation", "concealer", "eyeshadow", "eyeliner", "nail polish",
                 "hair dryer", "hair straightener", "curling", "shampoo", "conditioner",
                 "body lotion", "body wash", "shower gel", "bath bomb", "bath set",
-                "soap", "essential oil", "diffuser", "aromatherapy", "candle",
+                "soap", "essential oil", "aromatherapy",
                 "massage", "wellness", "self care", "manicure", "pedicure",
                 "hair care", "beard", "grooming", "electric shaver", "trimmer",
                 "dental", "toothbrush", "teeth", "whitening", "face cream",
                 "anti aging", "anti-aging", "wrinkle", "collagen", "vitamin",
-                "supplement", "protein", "health", "medical", "first aid",
+                "supplement", "protein", "medical", "first aid",
                 "thermometer", "blood pressure", "bra", "breast form",
                 "mastectomy", "wig", "hair extension", "false eyelash",
-                "mirror", "vanity", "beauty box", "gift set",
+                "vanity", "beauty box",
+                "anti snoring", "anti-snoring", "mouth guard", "sleep aid",
+                "peel off", "peel-off", "facial mask", "acne", "skin firming",
+                "rejuvenating", "body oil", "herbal salve", "ointment",
+                "piercing", "aftercare", "ear piercing", "hygiene",
+            ]),
+            ("Glassware & Drinkware", [
+                "glass", "glasses", "tumbler", "goblet", "champagne", "whiskey",
+                "whisky", "brandy", "decanter", "carafe", "crystal", "pint",
+                "lager", "drinkware", "glassware", "shot glass",
+                "beer glass", "wine glass",
             ]),
             ("Kitchen & Dining", [
                 "kitchen", "cookware", "bakeware", "pan", "pot", "skillet",
@@ -875,28 +932,23 @@ class EbayScraper:
                 "chopping board", "cutting board", "colander", "sieve",
                 "baking", "cake tin", "rolling pin", "measuring",
                 "tupperware", "container", "lunch box", "flask", "water bottle",
-                "wine", "beer", "cocktail", "shaker", "corkscrew", "bottle opener",
-                "coaster", "placemat", "table", "napkin", "serving",
+                "cocktail", "shaker", "corkscrew", "bottle opener",
+                "coaster", "placemat", "napkin", "serving",
                 "toast rack", "egg cup", "butter dish", "salt pepper",
-                "dinner set", "plate", "bowl", "dish",
-            ]),
-            ("Glassware & Drinkware", [
-                "glass", "glasses", "tumbler", "goblet", "champagne", "whiskey",
-                "whisky", "brandy", "decanter", "carafe", "crystal", "pint",
-                "lager", "drinkware", "glassware", "shot glass",
+                "dinner set", "plate", "bowl", "dish", "tableware",
             ]),
             ("Home Decor & Furnishings", [
                 "lamp", "rug", "curtain", "cushion", "pillow", "throw",
                 "vase", "ornament", "decoration", "decor", "wall art",
                 "picture frame", "photo frame", "mirror", "clock",
-                "candle holder", "lantern", "wreath", "artificial flower",
+                "candle holder", "candle", "lantern", "wreath", "artificial flower",
                 "doormat", "storage box", "shelf", "bookend",
                 "figurine", "sculpture", "pumpkin", "halloween", "christmas",
                 "seasonal", "festive", "terracotta", "ceramic",
-                "tapestry", "blanket", "bedding", "duvet",
+                "tapestry", "blanket", "bedding", "duvet", "diffuser",
             ]),
             ("Garden & Outdoor Living", [
-                "garden", "plant", "planter", "pot", "seed", "compost",
+                "garden", "plant", "planter", "seed", "compost",
                 "lawn", "mower", "hedge", "pruner", "secateur", "hose",
                 "greenhouse", "shed", "fence", "patio", "bbq", "barbecue",
                 "outdoor", "parasol", "garden furniture", "bird feeder",
@@ -905,35 +957,11 @@ class EbayScraper:
             ("DIY & Tools", [
                 "tool", "drill", "saw", "wrench", "screwdriver", "spanner",
                 "pliers", "wire cutter", "clippers", "hammer", "chisel",
-                "sander", "grinder", "spray gun", "hvlp", "paint",
+                "sander", "grinder", "spray gun", "hvlp",
                 "tape measure", "spirit level", "workbench", "vice",
                 "soldering", "multimeter", "electrical", "socket set",
                 "toolbox", "tool kit", "diy", "adhesive", "sealant",
-                "tap", "taps", "pillar tap", "basin", "plumbing", "valve",
-            ]),
-            ("Hobbies & Models", [
-                "model kit", "model train", "locomotive", "railway",
-                "diecast", "die-cast", "die cast", "scale model", "1:96",
-                "1:72", "1:48", "1:35", "1:24", "1:18", "revell", "airfix",
-                "tamiya", "hornby", "atlas editions", "corgi",
-                "warhammer", "miniature", "miniatures", "paint set",
-                "rc car", "remote control", "radio control", "slot car",
-                "craft", "knitting", "sewing", "embroidery", "cross stitch",
-                "scrapbook", "stamp collecting", "philately",
-                "jigsaw", "model building", "airplane model", "ship model",
-                "mustang", "spitfire", "tempest", "messerschmitt",
-            ]),
-            ("Board Games & Puzzles", [
-                "board game", "puzzle", "card game", "dice", "tabletop",
-                "monopoly", "chess", "lego", "cursed island", "portal games",
-                "strategy game", "party game", "trivia",
-            ]),
-            ("Video Games & Consoles", [
-                "xbox", "playstation", "nintendo", "ps5", "ps4", "ps3",
-                "ps2", "wii", "switch", "gameboy", "sega", "atari",
-                "controller", "console", "gaming", "vr", "virtual reality",
-                "oculus", "valve index", "knuckle", "headset",
-                "steam deck", "video game",
+                "pillar tap", "basin tap", "plumbing",
             ]),
             ("Tech & Electronics", [
                 "phone", "laptop", "tablet", "computer", "monitor", "keyboard",
@@ -952,14 +980,9 @@ class EbayScraper:
             ("Collectibles & Memorabilia", [
                 "vintage", "antique", "rare", "collectible", "collector",
                 "limited edition", "signed", "autograph", "memorabilia",
-                "coin", "stamp", "trading card", "figure", "figurine",
+                "coin", "stamp", "trading card",
                 "retro", "nostalgia", "1970s", "1980s", "1990s",
                 "70s", "80s", "90s", "mid century", "mcm",
-            ]),
-            ("Books & Media", [
-                "book", "novel", "dvd", "blu-ray", "vinyl", "record", "cd",
-                "vhs", "comic", "manga", "magazine", "hardback", "paperback",
-                "harry potter", "box set", "trilogy", "audiobook",
             ]),
             ("Clothing & Accessories", [
                 "shirt", "jacket", "coat", "jeans", "dress", "shoes", "boots",
@@ -975,17 +998,9 @@ class EbayScraper:
                 "mr potato", "mug set", "coasters set", "beside the seaside",
                 "boxed set mugs", "gift", "keepsake", "souvenir", "present",
             ]),
-            ("Sports & Outdoors", [
-                "bike", "bicycle", "cycling", "golf", "fishing", "camping",
-                "hiking", "football", "basketball", "baseball", "tennis",
-                "soccer", "weights", "fitness", "yoga", "running",
-                "bike light", "bike mount", "phone mount", "cycling",
-                "helmet", "gloves", "jersey", "shorts",
-                "cricket", "rugby", "gym", "exercise", "treadmill",
-            ]),
             ("Toys & Children", [
                 "toy", "teddy", "stuffed animal", "plush", "action figure",
-                "doll", "playset", "play set", "nerf", "lego",
+                "doll", "playset", "play set", "nerf",
                 "baby", "toddler", "children", "kids", "nursery",
                 "pushchair", "pram", "car seat", "highchair",
             ]),

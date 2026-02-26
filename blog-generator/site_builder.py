@@ -112,18 +112,30 @@ class SiteBuilder:
         self, active_item_ids: set[str], max_age_days: int = 30
     ) -> list[Path]:
         """
-        Remove posts that reference items no longer active on eBay,
-        or that are older than max_age_days.
+        Two-phase stale post management:
+
+        Phase 1 — Mark stale: Posts referencing no active items get
+                  ``noindex: true`` added to their front matter so Google
+                  stops indexing them.  The content stays on the site for
+                  visitors who already bookmarked it.
+
+        Phase 2 — Delete: Posts that are *both* stale (no active items)
+                  *and* older than ``max_age_days`` are removed entirely.
 
         Returns list of removed file paths.
         """
-        removed = []
+        removed: list[Path] = []
+        marked_noindex = 0
+
         if not self.content_dir.exists():
             return removed
 
         now = datetime.now(timezone.utc)
 
         for md_file in self.content_dir.glob("*.md"):
+            if md_file.name == "_index.md":
+                continue
+
             try:
                 content = md_file.read_text(encoding="utf-8")
 
@@ -144,10 +156,36 @@ class SiteBuilder:
                     except ValueError:
                         pass
 
-                # Remove if no active items AND older than threshold
-                if not has_active_items and post_age_days > max_age_days:
+                if has_active_items:
+                    # Ensure active posts don't have noindex
+                    if "noindex: true" in content:
+                        content = content.replace("noindex: true\n", "")
+                        md_file.write_text(content, encoding="utf-8")
+                        logger.info("Removed noindex from active post: %s", md_file.name)
+                    continue
+
+                # ── Phase 1: Mark stale posts as noindex ──
+                if "noindex: true" not in content:
+                    # Insert noindex after the opening "---"
+                    content = content.replace("---\n", "---\nnoindex: true\n", 1)
+                    md_file.write_text(content, encoding="utf-8")
+                    marked_noindex += 1
+                    logger.info(
+                        "Marked stale post noindex: %s (age: %d days)",
+                        md_file.name,
+                        post_age_days,
+                    )
+
+                # ── Phase 2: Delete old stale posts ──
+                if post_age_days > max_age_days:
                     md_file.unlink()
                     removed.append(md_file)
+
+                    # Also remove associated images
+                    post_images = self.static_images_dir / md_file.stem
+                    if post_images.exists():
+                        shutil.rmtree(post_images, ignore_errors=True)
+
                     logger.info(
                         "Removed stale post: %s (age: %d days, no active items)",
                         md_file.name,
@@ -157,6 +195,79 @@ class SiteBuilder:
             except Exception as e:
                 logger.warning("Error checking post %s: %s", md_file.name, e)
 
+        if marked_noindex:
+            logger.info("Marked %d stale posts as noindex", marked_noindex)
+
+        return removed
+
+    # ─────────────────────────────────────────
+    # Duplicate Cleanup
+    # ─────────────────────────────────────────
+
+    def deduplicate_posts(self) -> list[Path]:
+        """
+        Remove duplicate posts for the same eBay item, keeping only the
+        newest post per item ID.  Also marks duplicates of roundup / guide
+        posts that share the same set of item IDs.
+
+        Returns list of removed file paths.
+        """
+        removed: list[Path] = []
+        if not self.content_dir.exists():
+            return removed
+
+        item_re = re.compile(r"ebay\.co(?:\.uk|m)/itm/(\d+)")
+
+        # Map each eBay item ID → list of (date, path)
+        item_posts: dict[str, list[tuple[datetime, Path]]] = {}
+
+        for md_file in self.content_dir.glob("*.md"):
+            if md_file.name == "_index.md":
+                continue
+
+            content = md_file.read_text(encoding="utf-8")
+            item_ids = set(item_re.findall(content))
+
+            # Parse date
+            date_match = re.search(r"^date:\s*(.+)$", content, re.MULTILINE)
+            post_date = datetime.min.replace(tzinfo=timezone.utc)
+            if date_match:
+                try:
+                    post_date = datetime.fromisoformat(date_match.group(1).strip())
+                except ValueError:
+                    pass
+
+            # Individual product posts (1 item ID)
+            if len(item_ids) == 1:
+                item_id = next(iter(item_ids))
+                item_posts.setdefault(item_id, []).append((post_date, md_file))
+
+        # For each item, keep the newest post only
+        for item_id, posts in item_posts.items():
+            if len(posts) <= 1:
+                continue
+
+            # Sort newest first
+            posts.sort(key=lambda x: x[0], reverse=True)
+            keep = posts[0]
+            for _, dupe_path in posts[1:]:
+                dupe_path.unlink()
+                removed.append(dupe_path)
+
+                # Clean up images
+                img_dir = self.static_images_dir / dupe_path.stem
+                if img_dir.exists():
+                    shutil.rmtree(img_dir, ignore_errors=True)
+
+                logger.info(
+                    "Removed duplicate post: %s (item %s, kept %s)",
+                    dupe_path.name,
+                    item_id,
+                    keep[1].name,
+                )
+
+        if removed:
+            logger.info("Removed %d duplicate posts", len(removed))
         return removed
 
     # ─────────────────────────────────────────

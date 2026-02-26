@@ -120,6 +120,33 @@ PINTEREST_OVERLAY_FONT_SIZE = int(os.getenv("PINTEREST_OVERLAY_FONT_SIZE", "48")
 PINTEREST_REQUEST_DELAY = float(os.getenv("PINTEREST_REQUEST_DELAY", "3.0"))
 
 # ─────────────────────────────────────────────
+# IndexNow Search Engine Notification
+# ─────────────────────────────────────────────
+# Enable/disable IndexNow pinging after publishing new posts
+INDEXNOW_ENABLED = os.getenv("INDEXNOW_ENABLED", "true").lower() == "true"
+
+# IndexNow API key (auto-generated from site URL if empty)
+INDEXNOW_API_KEY = os.getenv("INDEXNOW_API_KEY", "")
+
+# ─────────────────────────────────────────────
+# Google Indexing API (optional)
+# ─────────────────────────────────────────────
+# Enable Google Indexing API (requires service account setup)
+GOOGLE_INDEXING_ENABLED = os.getenv("GOOGLE_INDEXING_ENABLED", "false").lower() == "true"
+
+# Path to Google Cloud service account JSON key file
+GOOGLE_SERVICE_ACCOUNT_PATH = os.getenv("GOOGLE_SERVICE_ACCOUNT_PATH", "")
+
+# ─────────────────────────────────────────────
+# Google Shopping Feed
+# ─────────────────────────────────────────────
+# Enable/disable Google Shopping feed generation
+SHOPPING_FEED_ENABLED = os.getenv("SHOPPING_FEED_ENABLED", "true").lower() == "true"
+
+# Filename for the shopping feed (hosted at site root)
+SHOPPING_FEED_FILENAME = os.getenv("SHOPPING_FEED_FILENAME", "shopping-feed.xml")
+
+# ─────────────────────────────────────────────
 # Scheduling / Automation
 # ─────────────────────────────────────────────
 # Cron expression for GitHub Actions (default: daily at 6 AM UTC)

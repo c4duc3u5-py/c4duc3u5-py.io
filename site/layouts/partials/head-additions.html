@@ -12,6 +12,10 @@
 <link rel="dns-prefetch" href="https://i.ebayimg.com">
 <link rel="dns-prefetch" href="https://www.ebay.co.uk">
 
+{{/* ===== Google Shopping Feed Auto-Discovery ===== */}}
+<link rel="alternate" type="application/rss+xml" title="Google Shopping Feed" href="{{ "shopping-feed.xml" | absURL }}">
+<link rel="sitemap" type="application/xml" title="Sitemap" href="{{ "sitemap.xml" | absURL }}">
+
 {{/* ===== Canonical URL Cleanup (strip trailing index.html, double slashes) ===== */}}
 {{ $canonical := .Permalink }}
 {{ $canonical = replaceRE `index\.html$` "" $canonical }}
@@ -154,10 +158,51 @@
     "priceCurrency": "GBP",
     "price": "{{ $price }}",
     "availability": "https://schema.org/InStock",
+    "itemCondition": "https://schema.org/UsedCondition",
     "seller": {
       "@type": "Organization",
       "name": "eBay Seller"
     }
+  }
+}
+</script>
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{/* ===== JSON-LD: AggregateOffer for multi-product posts ===== */}}
+{{ if .IsPage }}
+  {{ $schemaType := .Param "schema_type" }}
+  {{ if or (eq $schemaType "ItemList") (eq (.Param "post_type") "buyers_guide") (eq (.Param "post_type") "product_roundup") (eq (.Param "post_type") "deals") (eq (.Param "post_type") "comparison") }}
+    {{ with .Params.product_prices }}
+      {{ $prices := . }}
+      {{ $lowPrice := index $prices 0 }}
+      {{ $highPrice := index $prices 0 }}
+      {{ range $prices }}
+        {{ if and (gt . 0) (lt . $lowPrice) }}{{ $lowPrice = . }}{{ end }}
+        {{ if gt . $highPrice }}{{ $highPrice = . }}{{ end }}
+      {{ end }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "{{ $.Title | truncate 150 }}",
+  "description": "{{ with $.Description }}{{ . }}{{ else }}{{ $.Summary | plainify | truncate 300 }}{{ end }}",
+  "url": "{{ $canonical }}",
+  {{- with $.Params.featured_image }}
+  "image": "{{ . | absURL }}",
+  {{- end }}
+  "brand": {
+    "@type": "Brand",
+    "name": "{{ $.Site.Title }}"
+  },
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "GBP",
+    "lowPrice": "{{ $lowPrice }}",
+    "highPrice": "{{ $highPrice }}",
+    "offerCount": "{{ len $prices }}",
+    "availability": "https://schema.org/InStock"
   }
 }
 </script>

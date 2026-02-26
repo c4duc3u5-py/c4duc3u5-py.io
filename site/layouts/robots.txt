@@ -6,5 +6,8 @@ Disallow: /images/products/*/featured*
 Sitemap: {{ .Site.BaseURL }}sitemap.xml
 Sitemap: {{ .Site.BaseURL }}feed.xml
 
+# Google Shopping Feed
+Sitemap: {{ .Site.BaseURL }}shopping-feed.xml
+
 # Crawl-delay for politeness (optional, most major engines ignore this)
 # Crawl-delay: 1

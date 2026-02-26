@@ -28,6 +28,8 @@ import config
 from ai_writer import AIWriter, GeneratedPost
 from content_planner import ContentPlanner
 from ebay_scraper import EbayScraper, ScrapeResult
+from feed_generator import ShoppingFeedGenerator, FeedResult
+from index_now import IndexNowNotifier, NotifyResult
 from pinterest_pinner import PinterestPinner, PinBatchResult
 from site_builder import SiteBuilder
 
@@ -79,6 +81,8 @@ def run_pipeline(
         "posts_generated": 0,
         "posts_published": 0,
         "pins_created": 0,
+        "indexnow_submitted": 0,
+        "shopping_feed_items": 0,
         "errors": [],
     }
 
@@ -148,6 +152,15 @@ def run_pipeline(
 
     if plan.total_briefs == 0:
         logger.info("No new posts to generate — all topics already covered!")
+        # Still generate the shopping feed with current listings
+        if config.SHOPPING_FEED_ENABLED:
+            logger.info("\n🛍️  Generating Google Shopping feed (no new posts, but feed stays current)...")
+            try:
+                feed_gen = ShoppingFeedGenerator()
+                feed_result = feed_gen.generate_feed(scrape_result)
+                summary["shopping_feed_items"] = feed_result.items_included
+            except Exception as e:
+                logger.warning("Shopping feed generation failed: %s", e)
         return summary
 
     logger.info("\n📋 Posts to generate:")
@@ -168,12 +181,13 @@ def run_pipeline(
     # ── Step 3: Generate Posts ──
     logger.info("\n✍️  Step 3: Generating blog posts via AI...")
     generated_posts: list[GeneratedPost] = []
+    briefs_to_write = plan.briefs[:config.MAX_POSTS_PER_RUN]
 
     with AIWriter() as writer:
-        for i, brief in enumerate(plan.briefs, 1):
+        for i, brief in enumerate(briefs_to_write, 1):
             logger.info(
                 "\n  Writing post %d/%d: '%s'...",
-                i, plan.total_briefs, brief.suggested_title,
+                i, len(briefs_to_write), brief.suggested_title,
             )
             try:
                 post = writer.write_post(brief)
@@ -186,7 +200,7 @@ def run_pipeline(
                 )
 
                 # Small delay between LLM calls to avoid rate limits
-                if i < plan.total_briefs:
+                if i < len(briefs_to_write):
                     time.sleep(2)
 
             except Exception as e:
@@ -232,6 +246,50 @@ def run_pipeline(
     elif not pinterest:
         logger.info("\n📌 Step 5: Pinterest skipped (--no-pinterest)")
 
+    # ── Step 6: Generate Google Shopping Feed ──
+    if config.SHOPPING_FEED_ENABLED:
+        logger.info("\n🛍️  Step 6: Generating Google Shopping feed...")
+        try:
+            feed_gen = ShoppingFeedGenerator()
+            feed_result = feed_gen.generate_feed(scrape_result)
+            summary["shopping_feed_items"] = feed_result.items_included
+
+            if feed_result.errors:
+                for err in feed_result.errors:
+                    summary["errors"].append(f"Shopping feed: {err}")
+        except Exception as e:
+            error = f"Shopping feed generation failed: {e}"
+            logger.error("  ❌ %s", error)
+            summary["errors"].append(error)
+    else:
+        logger.info("\n🛍️  Step 6: Shopping feed disabled (set SHOPPING_FEED_ENABLED=true)")
+
+    # ── Step 7: Notify Search Engines (IndexNow) ──
+    if config.INDEXNOW_ENABLED and published_paths:
+        logger.info("\n🔍 Step 7: Notifying search engines (IndexNow)...")
+        try:
+            new_slugs = [p.stem for p in published_paths]
+            with IndexNowNotifier() as notifier:
+                notify_result = notifier.notify_new_posts(new_slugs)
+                summary["indexnow_submitted"] = notify_result.indexnow_submitted
+
+                if notify_result.indexnow_errors:
+                    for err in notify_result.indexnow_errors:
+                        summary["errors"].append(f"IndexNow: {err}")
+                if notify_result.google_submitted:
+                    logger.info(
+                        "  Also submitted %d URLs to Google Indexing API",
+                        notify_result.google_submitted,
+                    )
+        except Exception as e:
+            error = f"IndexNow notification failed: {e}"
+            logger.error("  ❌ %s", error)
+            summary["errors"].append(error)
+    elif not config.INDEXNOW_ENABLED:
+        logger.info("\n🔍 Step 7: IndexNow disabled (set INDEXNOW_ENABLED=true)")
+    elif not published_paths:
+        logger.info("\n🔍 Step 7: No new posts to notify search engines about")
+
     # ── Summary ──
     elapsed = time.time() - start_time
     summary["elapsed_seconds"] = round(elapsed, 1)
@@ -243,6 +301,8 @@ def run_pipeline(
     logger.info("   Posts generated:   %d", summary["posts_generated"])
     logger.info("   Posts published:   %d", summary["posts_published"])
     logger.info("   Pins created:      %d", summary["pins_created"])
+    logger.info("   Shopping feed:     %d items", summary["shopping_feed_items"])
+    logger.info("   IndexNow:          %d URLs submitted", summary["indexnow_submitted"])
     logger.info("   Errors:            %d", len(summary["errors"]))
     logger.info("   Time:              %.1fs", elapsed)
     logger.info("=" * 60)

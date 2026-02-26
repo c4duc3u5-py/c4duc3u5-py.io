@@ -102,17 +102,17 @@ if ($CleanupOnly) {
 } else {
     # -- Step 1: Pre-run cleanup --
     if (-not $SkipCleanup) {
-        Write-Host "[1/6] Running pre-run cleanup (dedup + stale)..." -ForegroundColor Yellow
+        Write-Host "[1/5] Running pre-run cleanup (dedup + stale)..." -ForegroundColor Yellow
         & $PythonCmd "$ProjectRoot\blog-generator\main.py" --cleanup
         if ($LASTEXITCODE -ne 0) {
             Write-Host "       WARNING: Cleanup exited with code $LASTEXITCODE" -ForegroundColor DarkYellow
         }
     } else {
-        Write-Host "[1/6] Skipping cleanup (SkipCleanup)" -ForegroundColor DarkGray
+        Write-Host "[1/5] Skipping cleanup (SkipCleanup)" -ForegroundColor DarkGray
     }
 
-    # -- Step 2: Run the Python pipeline --
-    Write-Host "`n[2/6] Running blog generator..." -ForegroundColor Yellow
+    # -- Step 2: Run the Python pipeline (scrape + plan + write + build + feed + indexnow) --
+    Write-Host "`n[2/5] Running blog generator (scrape + AI write + feed + IndexNow)..." -ForegroundColor Yellow
 
     $pythonArgs = @("$ProjectRoot\blog-generator\main.py", "--max-posts", $MaxPosts, "--backend", $Backend)
     if ($SkipScrape) {
@@ -131,7 +131,7 @@ if ($CleanupOnly) {
     }
 
     # -- Step 3: Build Hugo site --
-    Write-Host "`n[3/6] Building Hugo site..." -ForegroundColor Yellow
+    Write-Host "`n[3/5] Building Hugo site..." -ForegroundColor Yellow
 
     Push-Location "$ProjectRoot\site"
     try {
@@ -142,7 +142,7 @@ if ($CleanupOnly) {
         & $HugoPath --minify --cleanDestinationDir
         if ($LASTEXITCODE -ne 0) { throw "Hugo build failed! Exit code $LASTEXITCODE" }
     } finally { Pop-Location }
-    $stepPrefix = "4/6"
+    $stepPrefix = "4/5"
 }
 
 # -- Commit ALL source changes --

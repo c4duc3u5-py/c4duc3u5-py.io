@@ -6,5 +6,8 @@ Disallow: /images/products/*/featured*
 Sitemap: https://c4duc3u5-py.github.io/c4duc3u5-py.io/sitemap.xml
 Sitemap: https://c4duc3u5-py.github.io/c4duc3u5-py.io/feed.xml
 
+# Google Shopping Feed
+Sitemap: https://c4duc3u5-py.github.io/c4duc3u5-py.io/shopping-feed.xml
+
 # Crawl-delay for politeness (optional, most major engines ignore this)
 # Crawl-delay: 1

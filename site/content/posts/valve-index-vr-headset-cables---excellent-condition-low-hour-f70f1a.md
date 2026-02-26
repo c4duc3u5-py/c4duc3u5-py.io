@@ -1,4 +1,5 @@
 ---
+noindex: true
 title: "Video Games & Consoles: Best Valve Index Deal Guide"
 date: 2026-02-26T01:03:53.776149+00:00
 lastmod: 2026-02-26T01:03:53.776149+00:00

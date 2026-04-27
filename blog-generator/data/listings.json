@@ -3,5 +3,7 @@
   "total_listings": 0,
   "pages_scraped": 0,
   "listings": [],
-  "errors": []
+  "errors": [
+    "Error on page 1: Client error '400 Bad Request' for url 'https://www.ebay.co.uk/sch/m.html?_ssn=&_pgn=1&_ipg=240&_sop=10&_language=en&LH_PrefLoc=1&_stpos=SW1A+1AA'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400"
+  ]
 }
